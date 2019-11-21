@@ -1,0 +1,9 @@
+﻿@namespace Skclusive.Blazor.TodoApp.Components
+@inherits TodoAppComponent
+
+ <div class="todoapp">
+    <CascadingValue Value="TodoStore">
+        <TodoHeader />
+        <TodoSection />
+    </CascadingValue>
+</div>

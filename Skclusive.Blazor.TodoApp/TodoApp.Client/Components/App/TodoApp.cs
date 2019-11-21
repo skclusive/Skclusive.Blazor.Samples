@@ -11,17 +11,14 @@ using Newtonsoft.Json.Serialization;
 
 namespace Skclusive.Blazor.TodoApp.Components
 {
-    public class TodoHostComponent : DisposableComponentBase
+    public class TodoAppComponent : DisposableComponentBase
     {
-        [Parameter]
-        public RenderFragment ChildContent { get; set; }
-
         [Inject]
         public IStateTreeTool<TodoStoreSnapshot> StateTreeTool { get; set; }
 
         protected ITodoStore TodoStore { get; set; }
 
-        public TodoHostComponent()
+        public TodoAppComponent()
         {
             TodoStore = ModelTypes.StoreType.Create(new TodoStoreSnapshot
             {

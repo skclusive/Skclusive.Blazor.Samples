@@ -3,6 +3,8 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <RazorLangVersion>3.0</RazorLangVersion>
+    <AssemblyName>Skclusive.Blazor.TodoApp.Client</AssemblyName>
+    <RootNamespace>Skclusive.Blazor.TodoApp</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -13,10 +15,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Skclusive.Mobx.Observable" Version="1.0.2" />
-    <PackageReference Include="Skclusive.Mobx.StateTree" Version="1.0.2" />
     <PackageReference Include="Skclusive.Mobx.Component" Version="1.0.4" />
     <PackageReference Include="Skclusive.Script.DevTools" Version="1.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TodoApp.State\TodoApp.State.csproj" />
   </ItemGroup>
 
 </Project>

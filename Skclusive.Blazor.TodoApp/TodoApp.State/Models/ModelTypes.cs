@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Skclusive.Mobx.Observable;
 using Skclusive.Mobx.StateTree;
 
 namespace Skclusive.Blazor.TodoApp.Models
@@ -24,15 +25,17 @@ namespace Skclusive.Blazor.TodoApp.Models
             { "ShowCompleted", (todo) => todo.Done }
         };
 
+        public readonly static IType<ITodoSnapshot[], IObservableList<INode, ITodo>> TodoListType = Types.List(TodoType);
+
         public readonly static IObjectType<ITodoStoreSnapshot, ITodoStore> StoreType = Types.
                         Object<ITodoStoreSnapshot, ITodoStore>("Store")
                        .Proxy(x => new TodoStoreProxy(x))
                        .Snapshot(() => new TodoStoreSnapshot())
-                       .Mutable(o => o.Todos, Types.List(TodoType))
+                       .Mutable(o => o.Todos, TodoListType)
                        .Mutable(o => o.Filter, Types.Enumeration("Filter", "ShowAll", "ShowActive", "ShowCompleted"))
                        .View(o => o.TotalCount, Types.Int, (o) => o.Todos.Count())
                        .View(o => o.CompletedCount, Types.Int, (o) => o.Todos.Where(t => t.Done).Count())
-                       .View(o => o.FilteredTodos, Types.List(TodoType), (o) => o.Todos.Where(FilterMapping[o.Filter]).ToList())
+                       .View(o => o.FilteredTodos, TodoListType, (o) => o.Todos.Where(FilterMapping[o.Filter]).ToList())
                        .View(o => o.ActiveCount, Types.Int, (o) => o.TotalCount - o.CompletedCount)
                        .Action((o) => o.CompleteAll(), (o) => o.Todos.Select(todo => todo.Done = true).ToList())
                        .Action((o) => o.ClearCompleted(), (o) =>
