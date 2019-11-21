@@ -43,9 +43,9 @@ namespace Skclusive.Blazor.FlightFinder.Models
             set => Write(nameof(Code), value);
         }
 
-        public bool DisplayName
+        public string DisplayName
         {
-            get => Read<bool>(nameof(DisplayName));
+            get => Read<string>(nameof(DisplayName));
             set => Write(nameof(DisplayName), value);
         }
     }

@@ -1,18 +1,26 @@
 ﻿@namespace Skclusive.Blazor.TodoApp.Components
 @using Skclusive.Core.Component
 
-@inherits PureComponentBase
+@inherits RenderComponentBase
 
-<input type="text"
+<input @ref="Input"
+       type="text"
        autofocus
        class="@Class"
        placeholder="@Placeholder"
        value="@_Text"
+       @onblur="@HandleBlurAsync"
        @oninput="@HandleChange"
-       @onkeydown="@HandleSubmit"
+       @onkeydown="@HandleSubmitAsync"
+       @onkeydown:stopPropagation
        @oninput:preventDefault />
 
 @code {
+
+    private ElementReference Input { set; get; }
+
+    [Inject]
+    private DomHelpers DomHelpers { get; set; }
 
     [Parameter]
     public string Placeholder { get; set; }
@@ -48,26 +56,38 @@
         }
     }
 
-    protected void HandleSubmit(KeyboardEventArgs keyboardEvent)
+    protected async Task HandleSubmitAsync(KeyboardEventArgs keyboardEvent)
     {
         if (keyboardEvent.Key == "Enter")
         {
-            OnSave.InvokeAsync(_Text);
-
             if (NewTodo)
             {
+                await OnSave.InvokeAsync(_Text);
+
                 _Text = "";
 
                 StateHasChanged();
             }
+            else
+            {
+                await DomHelpers.BlurAsync(Input);
+            }
         }
     }
 
-    //protected void HandleBlur(FocusEventArgs focusEvent)
-    //{
-    //    if (!NewTodo)
-    //    {
-    //        OnSave.InvokeAsync(_Text);
-    //    }
-    //}
+    protected async Task HandleBlurAsync(FocusEventArgs focusEvent)
+    {
+        if (!NewTodo)
+        {
+            await OnSave.InvokeAsync(_Text);
+        }
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstTime)
+    {
+        if (firstTime)
+        {
+            await DomHelpers.FocusAsync(Input);
+        }
+    }
 }

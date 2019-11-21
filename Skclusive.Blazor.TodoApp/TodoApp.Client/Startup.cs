@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Components.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 using Skclusive.Script.DevTools;
+using Skclusive.Script.DomHelpers;
 
 namespace Skclusive.Blazor.TodoApp
 {
@@ -13,6 +14,8 @@ namespace Skclusive.Blazor.TodoApp
             services.AddSingleton<JsonConverter, TodoSnapshotConverter>();
 
             services.AddDevTools();
+
+            services.AddDomHelpers();
         }
 
         public void Configure(IComponentsApplicationBuilder app)
