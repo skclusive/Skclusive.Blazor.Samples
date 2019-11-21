@@ -1,0 +1,32 @@
+﻿@using Skclusive.Mobx.Component
+
+@inherits ObservableComponentBase
+
+<div class="view">
+    <input
+        class="toggle"
+        type="checkbox"
+        checked="@Todo.Done"
+        @onchange="@OnToggle"
+    />
+    <label @onclick="OnEdit">@Todo.Title</label>
+    <button class="destroy" @onclick="OnRemove" />
+</div>
+
+@code {
+    [Parameter]
+    public ITodo Todo { get; set; }
+
+    [Parameter]
+    public EventCallback OnEdit { get; set; }
+
+    protected void OnToggle()
+    {
+        Todo.Toggle();
+    }
+
+    protected void OnRemove()
+    {
+        Todo.Remove();
+    }
+}

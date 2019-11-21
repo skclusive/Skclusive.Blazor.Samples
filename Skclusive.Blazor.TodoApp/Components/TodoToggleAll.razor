@@ -1,0 +1,20 @@
+﻿@inherits TodoComponent
+
+<span>
+    <input class="toggle-all"
+           id="toggle-all"
+           type="checkbox"
+           checked="@AllCompleted"
+           @onchange="OnCompleteAll" />
+    <label htmlFor="toggle-all">Mark all as complete</label>
+</span>
+
+@code {
+
+    protected bool AllCompleted => TodoStore.CompletedCount == TodoStore.TotalCount;
+
+    protected void OnCompleteAll()
+    {
+       TodoStore.CompleteAll();
+    }
+}

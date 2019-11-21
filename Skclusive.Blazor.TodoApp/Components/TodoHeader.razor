@@ -1,0 +1,20 @@
+﻿@inherits TodoComponent
+
+<header class="header">
+    <h1>todos</h1>
+    <TodoTextInput
+        NewTodo
+        Placeholder="What needs to be done?"
+        OnSave="@OnSave"
+    />
+</header>
+
+@code {
+    protected void OnSave(string title)
+    {
+        if (!string.IsNullOrEmpty(title))
+        {
+            TodoStore.AddTodo(title);
+        }
+    }
+}

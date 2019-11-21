@@ -1,0 +1,17 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skclusive.Blazor.TodoApp", "Skclusive.Blazor.TodoApp.csproj", "{24D6C52C-9A49-4D43-A32E-7F488E926695}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{24D6C52C-9A49-4D43-A32E-7F488E926695}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24D6C52C-9A49-4D43-A32E-7F488E926695}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24D6C52C-9A49-4D43-A32E-7F488E926695}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24D6C52C-9A49-4D43-A32E-7F488E926695}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

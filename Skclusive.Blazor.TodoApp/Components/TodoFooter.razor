@@ -1,0 +1,20 @@
+﻿@using Skclusive.Core.Component
+
+@inherits PureComponentBase
+
+<footer class="footer">
+    <TodoCount />
+    <ul class="filters">
+        @foreach (var filter in Filters)
+        {
+            <li @key="filter">
+                <TodoFilter Filter="@filter"/>
+            </li>
+        }
+    </ul>
+    <TodoClear />
+</footer>
+
+@code {
+    protected readonly static List<string> Filters = new List<string> { "ShowAll", "ShowActive", "ShowCompleted" };
+}

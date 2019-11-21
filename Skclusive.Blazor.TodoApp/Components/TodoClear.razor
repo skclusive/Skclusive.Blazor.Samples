@@ -1,0 +1,18 @@
+﻿@inherits TodoComponent
+
+@if (CanClear)
+{
+    <button class="clear-completed" @onclick="OnClear">
+        Clear completed
+    </button>
+}
+
+@code {
+
+    protected bool CanClear => TodoStore.CompletedCount > 0;
+
+    protected void OnClear()
+    {
+        TodoStore.ClearCompleted();
+    }
+}

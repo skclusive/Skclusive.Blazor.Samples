@@ -1,0 +1,25 @@
+﻿@inherits TodoComponent
+
+<a class="@Class" style="cursor: pointer;" @onclick="OnFilter">
+    @Title
+</a>
+
+@code {
+
+    [Parameter]
+    public string Filter { set; get; }
+
+    protected bool Selected => TodoStore.Filter == Filter;
+
+    protected string Class => Selected ? nameof(Selected) : null;
+
+    protected string Title => Filter.Replace("Show", "");
+
+    protected void OnFilter()
+    {
+        if (!Selected)
+        {
+            TodoStore.SetFilter(Filter);
+        }
+    }
+}

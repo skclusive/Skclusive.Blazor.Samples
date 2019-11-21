@@ -1,0 +1,27 @@
+﻿@inherits TodoComponent
+
+<span class="todo-count">
+    <strong>@ActiveCount</strong> @ItemWord left
+</span>
+
+@code {
+    protected string ActiveCount
+    {
+        get
+        {
+            var activeCount = TodoStore.ActiveCount;
+
+            return activeCount == 0 ? "No" : activeCount.ToString();
+        }
+    }
+
+    protected string ItemWord
+    {
+        get
+        {
+            var activeCount = TodoStore.ActiveCount;
+
+            return activeCount == 1 ? "Item" : "Items";
+        }
+    }
+}
