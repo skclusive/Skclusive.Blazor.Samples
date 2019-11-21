@@ -39,7 +39,12 @@ namespace Skclusive.Blazor.TodoApp.Models
                        .View(o => o.CompletedCount, Types.Int, (o) => o.Todos.Where(t => t.Done).Count())
                        .View(o => o.FilteredTodos, TodoListType, (o) => o.Todos.Where(FilterMapping[o.Filter]).ToList())
                        .View(o => o.ActiveCount, Types.Int, (o) => o.TotalCount - o.CompletedCount)
-                       .Action((o) => o.CompleteAll(), (o) => o.Todos.Select(todo => todo.Done = true).ToList())
+                       .View(o => o.AllCompleted, Types.Boolean, (o) => o.CompletedCount == o.TotalCount)
+                       .Action((o) => o.CompleteAll(), (o) => {
+                           var toggle = !o.AllCompleted;
+                            foreach (var todo in o.Todos)
+                               todo.Done = toggle;
+                       })
                        .Action((o) => o.ClearCompleted(), (o) =>
                        {
                            foreach (var completed in o.Todos.Where(todo => todo.Done).ToArray())

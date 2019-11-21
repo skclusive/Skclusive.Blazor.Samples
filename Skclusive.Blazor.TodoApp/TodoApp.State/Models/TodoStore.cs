@@ -48,6 +48,8 @@ namespace Skclusive.Blazor.TodoApp.Models
 
         int CompletedCount { get; }
 
+        bool AllCompleted { get; }
+
         Filter Filter { set; get; }
     }
 
@@ -94,6 +96,8 @@ namespace Skclusive.Blazor.TodoApp.Models
         public int ActiveCount => Read<int>(nameof(ActiveCount));
 
         public int CompletedCount => Read<int>(nameof(CompletedCount));
+
+        public bool AllCompleted => Read<bool>(nameof(AllCompleted));
 
         public void AddTodo(string title)
         {
