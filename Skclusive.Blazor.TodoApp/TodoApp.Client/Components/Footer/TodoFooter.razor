@@ -17,5 +17,5 @@
 </footer>
 
 @code {
-    protected readonly static List<string> Filters = new List<string> { "ShowAll", "ShowActive", "ShowCompleted" };
+    protected readonly static List<Filter> Filters = new List<Filter> { Filter.All, Filter.Active, Filter.Completed };
 }

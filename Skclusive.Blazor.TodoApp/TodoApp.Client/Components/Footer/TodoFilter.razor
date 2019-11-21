@@ -8,13 +8,13 @@
 @code {
 
     [Parameter]
-    public string Filter { set; get; }
+    public Filter Filter { set; get; }
 
     protected bool Selected => TodoStore.Filter == Filter;
 
-    protected string Class => Selected ? nameof(Selected) : null;
+    protected string Class => Selected ? nameof(Selected).ToLower() : null;
 
-    protected string Title => Filter.Replace("Show", "");
+    protected string Title => Filter.ToString();
 
     protected void OnFilter()
     {

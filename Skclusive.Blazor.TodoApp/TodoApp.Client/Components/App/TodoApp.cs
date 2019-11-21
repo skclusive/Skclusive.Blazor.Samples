@@ -22,7 +22,7 @@ namespace Skclusive.Blazor.TodoApp.Components
         {
             TodoStore = ModelTypes.StoreType.Create(new TodoStoreSnapshot
             {
-                Filter = "ShowAll",
+                Filter = Filter.All,
 
                 Todos = new TodoSnapshot[]
                 {

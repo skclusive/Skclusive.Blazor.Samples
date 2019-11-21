@@ -9,6 +9,8 @@
         type="checkbox"
         checked="@Todo.Done"
         @onchange="@OnToggle"
+        @onchange:preventDefault
+        @onclick:stopPropagation
     />
     <label @onclick="OnEdit">@Todo.Title</label>
     <button class="destroy" @onclick="OnRemove" />
