@@ -15,6 +15,8 @@ namespace Skclusive.Blazor.FlightFinder.Tests
 
             var itinerary = ModelTypes.ItineraryType.Create(new ItinerarySnapshot
             {
+                Id = 1,
+
                 Outbound = new FlightSegmentSnapshot
                 {
                     Airline = "British Airways",

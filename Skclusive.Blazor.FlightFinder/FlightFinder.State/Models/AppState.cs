@@ -12,15 +12,26 @@ namespace Skclusive.Blazor.FlightFinder.Models
     {
         bool SearchInProgress { get; set; }
 
-		IItinerary[] SearchResults { get; set; }
+		IItinerarySnapshot[] SearchResults { get; set; }
 
-		IItinerary[] Shortlist { get; set; }
+		IItinerarySnapshot[] Shortlist { get; set; }
 
-		IAirport[] Airports { get; set; }
+		IAirportSnapshot[] Airports { get; set; }
     }
 
     public interface IAppStateActions
     {
+        void AddToShortlist(IItinerarySnapshot itinerary);
+
+        void RemoveFromShortlist(IItinerarySnapshot itinerary);
+
+        void BeginAirportFetch();
+
+        void EndAirportFetch(IAirportSnapshot[] airports);
+
+        void BeginItinerarySearch();
+
+        void EndItinerarySearch(IItinerarySnapshot[] itineraries);
     }
 
     public interface IAppState : IAppStateActions
@@ -38,11 +49,11 @@ namespace Skclusive.Blazor.FlightFinder.Models
     {
         public bool SearchInProgress { get; set; }
 
-		public IItinerary[] SearchResults { get; set; }
+		public IItinerarySnapshot[] SearchResults { get; set; }
 
-		public IItinerary[] Shortlist { get; set; }
+		public IItinerarySnapshot[] Shortlist { get; set; }
 
-		public IAirport[] Airports { get; set; }
+		public IAirportSnapshot[] Airports { get; set; }
     }
 
     internal class AppStateProxy : ObservableProxy<IAppState, INode>, IAppState
@@ -75,6 +86,36 @@ namespace Skclusive.Blazor.FlightFinder.Models
         {
             get => Read<IList<IAirport>>(nameof(Airports));
             set => Write(nameof(Airports), value);
+        }
+
+        public void AddToShortlist(IItinerarySnapshot itinerary)
+        {
+            (Target as dynamic).AddToShortlist(itinerary);
+        }
+
+        public void RemoveFromShortlist(IItinerarySnapshot itinerary)
+        {
+            (Target as dynamic).RemoveFromShortlist(itinerary);
+        }
+
+        public void BeginAirportFetch()
+        {
+            (Target as dynamic).BeginAirportFetch();
+        }
+
+        public void EndAirportFetch(IAirportSnapshot[] airports)
+        {
+            (Target as dynamic).EndAirportFetch(airports);
+        }
+
+        public void BeginItinerarySearch()
+        {
+            (Target as dynamic).BeginItinerarySearch();
+        }
+
+        public void EndItinerarySearch(IItinerarySnapshot[] itineraries)
+        {
+            (Target as dynamic).EndItinerarySearch(itineraries);
         }
     }
 

@@ -1,6 +1,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 using Skclusive.Blazor.FlightFinder.Models;
+using Skclusive.Blazor.FlightFinder.Service;
 
 namespace Skclusive.Blazor.FlightFinder.Extension
 {
@@ -14,9 +15,14 @@ namespace Skclusive.Blazor.FlightFinder.Extension
 
             services.AddSingleton<JsonConverter, ItinerarySnapshotConverter>();
 
-            services.AddSingleton<JsonConverter, SearchCriteriaSnapshotConverter>();
-
             services.AddSingleton<JsonConverter, AppStateSnapshotConverter>();
+
+            services.AddSingleton((_) => ModelTypes.AppStateType.Create(new AppStateSnapshot
+            {
+                SearchInProgress = false
+            }));
+
+            services.AddSingleton<IAppService, AppService>();
         }
     }
 }

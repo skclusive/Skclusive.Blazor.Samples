@@ -9,15 +9,13 @@ namespace Skclusive.Blazor.FlightFinder.Models
 
     public interface IItinerarySnapshot
     {
+        int Id { set; get; }
+
         IFlightSegmentSnapshot Outbound { get; set; }
 
         IFlightSegmentSnapshot Return { get; set; }
 
         decimal Price { get; set; }
-
-        double TotalDurationHours { get; }
-
-        string AirlineName { get; }
     }
 
     public interface IItineraryActions
@@ -26,6 +24,8 @@ namespace Skclusive.Blazor.FlightFinder.Models
 
     public interface IItinerary : IItineraryActions
     {
+        int Id { set; get; }
+
         IFlightSegment Outbound { get; set; }
 
         IFlightSegment Return { get; set; }
@@ -39,15 +39,13 @@ namespace Skclusive.Blazor.FlightFinder.Models
 
     public class ItinerarySnapshot : IItinerarySnapshot
     {
+        public int Id { get; set; }
+
         public IFlightSegmentSnapshot Outbound { get; set; }
 
         public IFlightSegmentSnapshot Return { get; set; }
 
         public decimal Price { get; set; }
-
-        public double TotalDurationHours { get; }
-
-        public string AirlineName { get; }
     }
 
     internal class ItineraryProxy : ObservableProxy<IItinerary, INode>, IItinerary
@@ -56,6 +54,12 @@ namespace Skclusive.Blazor.FlightFinder.Models
 
         public ItineraryProxy(IObservableObject<IItinerary, INode> target) : base(target)
         {
+        }
+
+        public int Id
+        {
+            get => Read<int>(nameof(Id));
+            set => Write(nameof(Id), value);
         }
 
         public IFlightSegment Outbound

@@ -28,8 +28,21 @@ namespace Skclusive.Blazor.FlightFinder.Models
     {
     }
 
-    public interface IFlightSegment : IFlightSegmentSnapshot, IFlightSegmentActions
+    public interface IFlightSegment : IFlightSegmentActions
     {
+        string Airline { get; set; }
+
+        string FromAirportCode { get; set; }
+
+        string ToAirportCode { get; set; }
+
+        DateTime DepartureTime { get; set; }
+
+        DateTime ArrivalTime { get; set; }
+
+        double DurationHours { get; set; }
+
+        TicketClass TicketClass { get; set; }
     }
 
     public class FlightSegmentSnapshot : IFlightSegmentSnapshot

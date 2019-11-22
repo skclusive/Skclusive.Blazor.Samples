@@ -1,10 +1,11 @@
 using System;
 using Skclusive.Mobx.Observable;
 using Skclusive.Mobx.StateTree;
+using System.Linq;
 
 namespace Skclusive.Blazor.FlightFinder.Models
 {
-    public class DateTimeOptions : ICustomTypeOptions<string, DateTime>
+    public class StringDateTimeOptions : ICustomTypeOptions<string, DateTime>
     {
         public string Name => "DateTime";
 
@@ -27,16 +28,41 @@ namespace Skclusive.Blazor.FlightFinder.Models
         {
             if (!DateTime.TryParse(snapshot, out var _))
             {
-                return $"{snapshot} is not DateTime value";
+                return $"{snapshot} is not valid snapshot";
             }
 
             return string.Empty;
         }
     }
 
+    public class DateTimeOptions : ICustomTypeOptions<DateTime, DateTime>
+    {
+        public string Name => "DateTime";
+
+        public DateTime FromSnapshot(DateTime snapshot)
+        {
+            return snapshot;
+        }
+
+        public bool IsTargetType(object value)
+        {
+            return value is DateTime;
+        }
+
+        public DateTime ToSnapshot(DateTime value)
+        {
+            return value;
+        }
+
+        public string Validate(DateTime snapshot)
+        {
+            return string.Empty;
+        }
+    }
+
     public static class ModelTypes
     {
-        public readonly static IType<string, DateTime> DateTimeType = Types.Custom(new DateTimeOptions());
+        public readonly static IType<DateTime, DateTime> DateTimeType = Types.Custom(new DateTimeOptions());
 
         public readonly static IObjectType<IAirportSnapshot, IAirport> AirportType = Types.
                 Object<IAirportSnapshot, IAirport>("Airport")
@@ -59,20 +85,11 @@ namespace Skclusive.Blazor.FlightFinder.Models
                 .Mutable(o => o.DurationHours, Types.Double)
                 .Mutable(o => o.TicketClass, TicketClassType);
 
-        public readonly static IObjectType<ISearchCriteriaSnapshot, ISearchCriteria> SearchCriteriaType = Types.
-               Object<ISearchCriteriaSnapshot, ISearchCriteria>("SearchCriteria")
-               .Proxy(x => new SearchCriteriaProxy(x))
-               .Snapshot(() => new SearchCriteriaSnapshot())
-               .Mutable(o => o.FromAirport, Types.String)
-               .Mutable(o => o.ToAirport, Types.String)
-               .Mutable(o => o.OutboundDate, DateTimeType)
-               .Mutable(o => o.ReturnDate, DateTimeType)
-               .Mutable(o => o.TicketClass, TicketClassType);
-
         public readonly static IObjectType<IItinerarySnapshot, IItinerary> ItineraryType = Types.
                 Object<IItinerarySnapshot, IItinerary>("Itinerary")
                 .Proxy(x => new ItineraryProxy(x))
                 .Snapshot(() => new ItinerarySnapshot())
+                .Mutable(o => o.Id, Types.Int)
                 .Mutable(o => o.Outbound, FlightSegmentType)
                 .Mutable(o => o.Return, FlightSegmentType)
                 .Mutable(o => o.Price, Types.Decimal)
@@ -90,6 +107,23 @@ namespace Skclusive.Blazor.FlightFinder.Models
                 .Mutable(o => o.SearchInProgress, Types.Boolean)
                 .Mutable(o => o.Airports, AirportListType)
                 .Mutable(o => o.SearchResults, ItineraryListType)
-                .Mutable(o => o.Shortlist, ItineraryListType);
+                .Mutable(o => o.Shortlist, ItineraryListType)
+                .Action<IItinerarySnapshot>((o) => o.AddToShortlist(null), (o, itinerary) => o.Shortlist.Add(ItineraryType.Create(itinerary)))
+                .Action<IItinerarySnapshot>((o) => o.RemoveFromShortlist(null), (o, itinerary) => o.Shortlist.Remove(o.Shortlist.First(it => it.Id == itinerary.Id)))
+                .Action((o) => o.BeginAirportFetch(), (o) => o.SearchInProgress = true)
+                .Action<IAirportSnapshot[]>((o) => o.EndAirportFetch(null), (o, airports) =>
+                {
+                    o.SearchInProgress = false;
+                    foreach(var airport in airports)
+                    o.Airports.Add(AirportType.Create(airport));
+                })
+                .Action((o) => o.BeginItinerarySearch(), (o) => o.SearchInProgress = true)
+                .Action<IItinerarySnapshot[]>((o) => o.EndItinerarySearch(null), (o, itineraries) =>
+                {
+                    o.SearchInProgress = false;
+                    o.SearchResults.Clear();
+                    foreach (var itinerary in itineraries)
+                    o.SearchResults.Add(ItineraryType.Create(itinerary));
+                });
     }
 }
