@@ -5,92 +5,72 @@ using Skclusive.Mobx.StateTree;
 
 namespace Skclusive.Blazor.FlightFinder.Models
 {
-    #region IFlightSegment
+    #region ISearchCriteria
 
-    public interface IFlightSegmentSnapshot
+    public interface ISearchCriteriaSnapshot
     {
-        string Airline { get; set; }
+        string FromAirport { get; set; }
 
-        string FromAirportCode { get; set; }
+        string ToAirport { get; set; }
 
-        string ToAirportCode { get; set; }
+        DateTime OutboundDate { get; set; }
 
-        DateTime DepartureTime { get; set; }
-
-        DateTime ArrivalTime { get; set; }
-
-        double DurationHours { get; set; }
+        DateTime ReturnDate { get; set; }
 
         TicketClass TicketClass { get; set; }
     }
 
-    public interface IFlightSegmentActions
+    public interface ISearchCriteriaActions
     {
     }
 
-    public interface IFlightSegment : IFlightSegmentSnapshot, IFlightSegmentActions
+    public interface ISearchCriteria : ISearchCriteriaSnapshot, ISearchCriteriaActions
     {
     }
 
-    public class FlightSegmentSnapshot : IFlightSegmentSnapshot
+    public class SearchCriteriaSnapshot : ISearchCriteriaSnapshot
     {
-        public string Airline { get; set; }
+        public string FromAirport { get; set; }
 
-        public string FromAirportCode { get; set; }
+        public string ToAirport { get; set; }
 
-        public string ToAirportCode { get; set; }
+        public DateTime OutboundDate { get; set; }
 
-        public DateTime DepartureTime { get; set; }
-
-        public DateTime ArrivalTime { get; set; }
-
-        public double DurationHours { get; set; }
+        public DateTime ReturnDate { get; set; }
 
         public TicketClass TicketClass { get; set; }
     }
 
-    internal class FlightSegmentProxy : ObservableProxy<IFlightSegment, INode>, IFlightSegment
+    internal class SearchCriteriaProxy : ObservableProxy<ISearchCriteria, INode>, ISearchCriteria
     {
-        public override IFlightSegment Proxy => this;
+        public override ISearchCriteria Proxy => this;
 
-        public FlightSegmentProxy(IObservableObject<IFlightSegment, INode> target) : base(target)
+        public SearchCriteriaProxy(IObservableObject<ISearchCriteria, INode> target) : base(target)
         {
         }
 
-        public string Airline
+        public string FromAirport
         {
-            get => Read<string>(nameof(Airline));
-            set => Write(nameof(Airline), value);
+            get => Read<string>(nameof(FromAirport));
+            set => Write(nameof(FromAirport), value);
         }
 
-        public string FromAirportCode
+        public string ToAirport
         {
-            get => Read<string>(nameof(FromAirportCode));
-            set => Write(nameof(FromAirportCode), value);
+            get => Read<string>(nameof(ToAirport));
+            set => Write(nameof(ToAirport), value);
         }
 
-        public string ToAirportCode
+        public DateTime OutboundDate
         {
-            get => Read<string>(nameof(ToAirportCode));
-            set => Write(nameof(ToAirportCode), value);
+            get => Read<DateTime>(nameof(OutboundDate));
+            set => Write(nameof(OutboundDate), value);
         }
 
-        public DateTime DepartureTime
+        public DateTime ReturnDate
         {
-            get => Read<DateTime>(nameof(DepartureTime));
-            set => Write(nameof(DepartureTime), value);
-        }
-
-        public DateTime ArrivalTime
-        {
-            get => Read<DateTime>(nameof(ArrivalTime));
-            set => Write(nameof(ArrivalTime), value);
-        }
-
-        public double DurationHours
-        {
-            get => Read<double>(nameof(DurationHours));
-            set => Write(nameof(DurationHours), value);
+            get => Read<DateTime>(nameof(ReturnDate));
+            set => Write(nameof(ReturnDate), value);
         }
 
         public TicketClass TicketClass
@@ -100,21 +80,21 @@ namespace Skclusive.Blazor.FlightFinder.Models
         }
     }
 
-    public class FlightSegmentSnapshotConverter : JsonConverter
+    public class SearchCriteriaSnapshotConverter : JsonConverter
     {
         public override bool CanConvert(Type objectType)
         {
-            return (objectType == typeof(IFlightSegmentSnapshot));
+            return (objectType == typeof(ISearchCriteriaSnapshot));
         }
 
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
-            return serializer.Deserialize(reader, typeof(FlightSegmentSnapshot));
+            return serializer.Deserialize(reader, typeof(SearchCriteriaSnapshot));
         }
 
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
-            serializer.Serialize(writer, value, typeof(FlightSegmentSnapshot));
+            serializer.Serialize(writer, value, typeof(SearchCriteriaSnapshot));
         }
     }
 
