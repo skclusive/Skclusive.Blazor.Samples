@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Skclusive.Mobx.StateTree;
 using Xunit;
 using Skclusive.Blazor.TodoApp.Models;
+using static Skclusive.Blazor.TodoApp.Models.AppTypes;
 
 namespace Skclusive.Blazor.TodoApp.Tests
 {
@@ -10,7 +11,7 @@ namespace Skclusive.Blazor.TodoApp.Tests
         [Fact]
         public void TestCreateTodo()
         {
-            var todo = ModelTypes.TodoType.Create(new TodoSnapshot { Title = "Get coffee" });
+            var todo = TodoType.Create(new TodoSnapshot { Title = "Get coffee" });
 
             Assert.Equal("Get coffee", todo.Title);
         }
@@ -18,7 +19,7 @@ namespace Skclusive.Blazor.TodoApp.Tests
         [Fact]
         public void TestEditTodo()
         {
-            var todo = ModelTypes.TodoType.Create(new TodoSnapshot { Title = "Get coffee" });
+            var todo = TodoType.Create(new TodoSnapshot { Title = "Get coffee" });
 
             Assert.Equal("Get coffee", todo.Title);
 
@@ -34,7 +35,7 @@ namespace Skclusive.Blazor.TodoApp.Tests
         [Fact]
         public void TestNoEditTodo()
         {
-            var todo = ModelTypes.TodoType.Create(new TodoSnapshot { Title = "Get coffee" });
+            var todo = TodoType.Create(new TodoSnapshot { Title = "Get coffee" });
 
             Assert.Equal("Get coffee", todo.Title);
 
@@ -48,7 +49,7 @@ namespace Skclusive.Blazor.TodoApp.Tests
         [Fact]
         public void TestOnAction()
         {
-            var todo = ModelTypes.TodoType.Create(new TodoSnapshot { Title = "Get coffee" });
+            var todo = TodoType.Create(new TodoSnapshot { Title = "Get coffee" });
 
             var list = new List<string>();
 

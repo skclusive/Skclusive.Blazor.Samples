@@ -4,7 +4,7 @@
 <input class="toggle-all"
         id="toggle-all"
         type="checkbox"
-        checked="@TodoStore.AllCompleted"
-        @onchange="@(() => TodoStore.CompleteAll())"
+        checked="@AppState.AllCompleted"
+        @onchange="@(() => AppState.CompleteAll())"
         @onchange:preventDefault />
 <label for="toggle-all">Mark all as complete</label>

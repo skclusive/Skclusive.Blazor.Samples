@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Skclusive.Mobx.StateTree;
 using Xunit;
 using Skclusive.Blazor.TodoApp.Models;
+using static Skclusive.Blazor.TodoApp.Models.AppTypes;
 
 namespace Skclusive.Blazor.TodoApp.Tests
 {
@@ -10,7 +11,7 @@ namespace Skclusive.Blazor.TodoApp.Tests
         [Fact]
         public void TestCreateTodoList()
         {
-            var list = ModelTypes.TodoListType.Create(new ITodoSnapshot[]
+            var list = TodoListType.Create(new ITodoSnapshot[]
             {
                 new TodoSnapshot { Title = "Get coffee" }
             });
@@ -19,7 +20,7 @@ namespace Skclusive.Blazor.TodoApp.Tests
 
             list.Unprotected();
 
-            list.Insert(0, ModelTypes.TodoType.Create(new TodoSnapshot { Title = "Learn Blazor" }));
+            list.Insert(0, TodoType.Create(new TodoSnapshot { Title = "Learn Blazor" }));
 
             var snapshots = list.GetSnapshot<ITodoSnapshot[]>();
 
@@ -29,7 +30,7 @@ namespace Skclusive.Blazor.TodoApp.Tests
         [Fact]
         public void TestAddItemToTodoList()
         {
-            var list = ModelTypes.TodoListType.Create(new ITodoSnapshot[]
+            var list = TodoListType.Create(new ITodoSnapshot[]
             {
                 new TodoSnapshot { Title = "Get coffee" }
             });
@@ -38,7 +39,7 @@ namespace Skclusive.Blazor.TodoApp.Tests
 
             list.Unprotected();
 
-            list.Insert(0, ModelTypes.TodoType.Create(new TodoSnapshot { Title = "Learn Blazor" }));
+            list.Insert(0, TodoType.Create(new TodoSnapshot { Title = "Learn Blazor" }));
 
             Assert.Equal(2, list.Count);
 

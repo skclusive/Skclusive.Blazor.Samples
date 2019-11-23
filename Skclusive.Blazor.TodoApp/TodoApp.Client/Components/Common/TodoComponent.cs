@@ -9,7 +9,7 @@ namespace Skclusive.Blazor.TodoApp.Components
         [Parameter]
         public RenderFragment ChildContent { get; set; }
 
-        [CascadingParameter]
-        public ITodoStore TodoStore { get; set; }
+        [Inject]
+        public IAppState AppState { get; set; }
     }
 }

@@ -14,24 +14,10 @@ namespace Skclusive.Blazor.TodoApp.Components
     public class TodoAppComponent : DisposableComponentBase
     {
         [Inject]
-        public IStateTreeTool<TodoStoreSnapshot> StateTreeTool { get; set; }
+        public IStateTreeTool<AppStateSnapshot> StateTreeTool { get; set; }
 
-        protected ITodoStore TodoStore { get; set; }
-
-        public TodoAppComponent()
-        {
-            TodoStore = ModelTypes.StoreType.Create(new TodoStoreSnapshot
-            {
-                Filter = Filter.All,
-
-                Todos = new TodoSnapshot[]
-                {
-                    new TodoSnapshot { Title = "Get coffee" },
-
-                    new TodoSnapshot { Title = "Learn Blazor" }
-                }
-            });
-        }
+        [Inject]
+        public IAppState AppState { get; set; }
 
         protected override async Task OnInitializedAsync()
         {
@@ -39,7 +25,7 @@ namespace Skclusive.Blazor.TodoApp.Components
 
             RunTimeout(() =>
             {
-                _ = StateTreeTool.ConnectAsync(TodoStore);
+                _ = StateTreeTool.ConnectAsync(AppState);
 
             }, 100);
         }

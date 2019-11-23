@@ -1,5 +1,3 @@
-using System;
-using Newtonsoft.Json;
 using Skclusive.Mobx.Observable;
 using Skclusive.Mobx.StateTree;
 
@@ -70,23 +68,20 @@ namespace Skclusive.Blazor.TodoApp.Models
         }
     }
 
-    public class TodoSnapshotConverter : JsonConverter
-    {
-        public override bool CanConvert(Type objectType)
-        {
-            return (objectType == typeof(ITodoSnapshot));
-        }
-
-        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
-        {
-            return serializer.Deserialize(reader, typeof(TodoSnapshot));
-        }
-
-        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
-        {
-            serializer.Serialize(writer, value, typeof(TodoSnapshot));
-        }
-    }
-
     #endregion
+
+    public partial class AppTypes
+    {
+        public readonly static IType<ITodoSnapshot, ITodo> TodoType = Types.Late("LateTodoType", () => Types.
+            Object<ITodoSnapshot, ITodo>("TodoType")
+            .Proxy(x => new TodoProxy(x))
+            .Snapshot(() => new TodoSnapshot())
+            .Mutable(o => o.Title, Types.String)
+            .Mutable(o => o.Done, Types.Boolean)
+            .Action(o => o.Toggle(), (o) => o.Done = !o.Done)
+            .Action<string>(o => o.Edit(null), (o, title) => o.Title = title)
+            .Action(o => o.Remove(), (o) => o.GetRoot<IAppState>().Remove(o)));
+
+        public readonly static IType<ITodoSnapshot[], IObservableList<INode, ITodo>> TodoListType = Types.Late("LateTodoListType", () => Types.List(TodoType));
+    }
 }

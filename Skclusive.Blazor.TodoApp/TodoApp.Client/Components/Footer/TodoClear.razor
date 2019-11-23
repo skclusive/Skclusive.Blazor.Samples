@@ -1,19 +1,9 @@
 ﻿@namespace Skclusive.Blazor.TodoApp.Components
 @inherits TodoComponent
 
-@if (CanClear)
+@if (AppState.CompletedCount > 0)
 {
-    <button class="clear-completed" @onclick="OnClear">
+    <button class="clear-completed" @onclick="@(e => AppState.ClearCompleted())">
         Clear completed
     </button>
-}
-
-@code {
-
-    protected bool CanClear => TodoStore.CompletedCount > 0;
-
-    protected void OnClear()
-    {
-        TodoStore.ClearCompleted();
-    }
 }

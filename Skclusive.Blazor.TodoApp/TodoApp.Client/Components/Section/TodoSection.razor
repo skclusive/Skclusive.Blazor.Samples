@@ -19,7 +19,7 @@
 </section>
 
 @code {
-    protected bool HasTodos => TodoStore.TotalCount > 0;
+    protected bool HasTodos => AppState.TotalCount > 0;
 
-    protected IList<ITodo> FilteredTodos => TodoStore.FilteredTodos;
+    protected IList<ITodo> FilteredTodos => AppState.FilteredTodos;
 }

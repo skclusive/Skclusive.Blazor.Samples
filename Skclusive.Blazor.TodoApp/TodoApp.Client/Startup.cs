@@ -1,9 +1,9 @@
 using Skclusive.Blazor.TodoApp.Models;
 using Microsoft.AspNetCore.Components.Builder;
 using Microsoft.Extensions.DependencyInjection;
-using Newtonsoft.Json;
 using Skclusive.Script.DevTools;
 using Skclusive.Script.DomHelpers;
+using Skclusive.Blazor.TodoApp.Extension;
 
 namespace Skclusive.Blazor.TodoApp
 {
@@ -11,7 +11,7 @@ namespace Skclusive.Blazor.TodoApp
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<JsonConverter, TodoSnapshotConverter>();
+            services.AddTodoApp();
 
             services.AddDevTools();
 

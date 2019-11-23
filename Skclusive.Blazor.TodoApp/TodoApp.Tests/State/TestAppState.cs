@@ -2,17 +2,18 @@ using System.Collections.Generic;
 using Skclusive.Mobx.StateTree;
 using Xunit;
 using Skclusive.Blazor.TodoApp.Models;
+using static Skclusive.Blazor.TodoApp.Models.AppTypes;
 
 namespace Skclusive.Blazor.TodoApp.Tests
 {
-    public class TestTodoStore
+    public class TestAppState
     {
         [Fact]
         public void TestStore()
         {
-            var store = ModelTypes.StoreType.Create(new TodoStoreSnapshot
+            var store = AppStateType.Create(new AppStateSnapshot
             {
-                Filter = "ShowAll",
+                Filter = Filter.All,
 
                 Todos = new ITodoSnapshot[]
                 {
@@ -22,7 +23,7 @@ namespace Skclusive.Blazor.TodoApp.Tests
 
             Assert.NotNull(store);
 
-            Assert.Equal("ShowAll", store.Filter);
+            Assert.Equal(Filter.All, store.Filter);
 
             Assert.Equal("Get coffee", store.Todos[0].Title);
 
@@ -44,9 +45,9 @@ namespace Skclusive.Blazor.TodoApp.Tests
         [Fact]
         public void TestTodoCounts()
         {
-            var store = ModelTypes.StoreType.Create(new TodoStoreSnapshot
+            var store = AppStateType.Create(new AppStateSnapshot
             {
-                Filter = "ShowAll",
+                Filter = Filter.All,
 
                 Todos = new ITodoSnapshot[]
                 {
@@ -68,15 +69,15 @@ namespace Skclusive.Blazor.TodoApp.Tests
 
             Assert.Equal(2, store.FilteredTodos.Count);
 
-            store.SetFilter("ShowActive");
+            store.SetFilter(Filter.Active);
 
-            Assert.Equal("ShowActive", store.Filter);
+            Assert.Equal(Filter.Active, store.Filter);
 
             Assert.Equal(0, store.FilteredTodos.Count);
 
-            store.SetFilter("ShowCompleted");
+            store.SetFilter(Filter.Completed);
 
-            Assert.Equal("ShowCompleted", store.Filter);
+            Assert.Equal(Filter.Completed, store.Filter);
 
             Assert.Equal(2, store.FilteredTodos.Count);
 
@@ -88,9 +89,9 @@ namespace Skclusive.Blazor.TodoApp.Tests
         [Fact]
         public void TestTodoCompleteAll()
         {
-            var store = ModelTypes.StoreType.Create(new TodoStoreSnapshot
+            var store = AppStateType.Create(new AppStateSnapshot
             {
-                Filter = "ShowAll",
+                Filter = Filter.All,
 
                 Todos = new ITodoSnapshot[]
                 {
@@ -108,9 +109,9 @@ namespace Skclusive.Blazor.TodoApp.Tests
 
             store.CompleteAll();
 
-            store.SetFilter("ShowCompleted");
+            store.SetFilter(Filter.Completed);
 
-            Assert.Equal("ShowCompleted", store.Filter);
+            Assert.Equal(Filter.Completed, store.Filter);
 
             Assert.Equal(2, store.FilteredTodos.Count);
 
@@ -122,9 +123,9 @@ namespace Skclusive.Blazor.TodoApp.Tests
         [Fact]
         public void TestTodoClearCompleted()
         {
-            var store = ModelTypes.StoreType.Create(new TodoStoreSnapshot
+            var store = AppStateType.Create(new AppStateSnapshot
             {
-                Filter = "ShowAll",
+                Filter = Filter.All,
 
                 Todos = new ITodoSnapshot[]
                 {
@@ -160,9 +161,9 @@ namespace Skclusive.Blazor.TodoApp.Tests
         [Fact]
         public void TestAddTodo()
         {
-            var store = ModelTypes.StoreType.Create(new TodoStoreSnapshot
+            var store = AppStateType.Create(new AppStateSnapshot
             {
-                Filter = "ShowAll",
+                Filter = Filter.All,
 
                 Todos = new ITodoSnapshot[]
                 {
@@ -184,9 +185,9 @@ namespace Skclusive.Blazor.TodoApp.Tests
         [Fact]
         public void TestEditTodo()
         {
-            var store = ModelTypes.StoreType.Create(new TodoStoreSnapshot
+            var store = AppStateType.Create(new AppStateSnapshot
             {
-                Filter = "ShowAll",
+                Filter = Filter.All,
 
                 Todos = new ITodoSnapshot[]
                 {
@@ -210,9 +211,9 @@ namespace Skclusive.Blazor.TodoApp.Tests
         [Fact]
         public void TestNoEditTodo()
         {
-            var store = ModelTypes.StoreType.Create(new TodoStoreSnapshot
+            var store = AppStateType.Create(new AppStateSnapshot
             {
-                Filter = "ShowAll",
+                Filter = Filter.All,
 
                 Todos = new ITodoSnapshot[]
                 {
@@ -232,7 +233,7 @@ namespace Skclusive.Blazor.TodoApp.Tests
         [Fact]
         public void TestOnAction()
         {
-            var store = ModelTypes.TodoType.Create(new TodoSnapshot { Title = "Get coffee" });
+            var store = TodoType.Create(new TodoSnapshot { Title = "Get coffee" });
 
             var list = new List<string>();
 
@@ -253,9 +254,9 @@ namespace Skclusive.Blazor.TodoApp.Tests
         [Fact]
         public void TestOnAction2()
         {
-            var store = ModelTypes.StoreType.Create(new TodoStoreSnapshot
+            var store = AppStateType.Create(new AppStateSnapshot
             {
-                Filter = "ShowAll",
+                Filter = Filter.All,
 
                 Todos = new ITodoSnapshot[]
                 {
@@ -267,7 +268,7 @@ namespace Skclusive.Blazor.TodoApp.Tests
 
             store.OnAction((ISerializedActionCall call) =>
             {
-                var snapshot = store.GetSnapshot<TodoStoreSnapshot>();
+                var snapshot = store.GetSnapshot<AppStateSnapshot>();
 
                 list.Add(snapshot.Todos.Length);
             });
@@ -282,9 +283,9 @@ namespace Skclusive.Blazor.TodoApp.Tests
         [Fact]
         public void TestOnAction3()
         {
-            var store = ModelTypes.StoreType.Create(new TodoStoreSnapshot
+            var store = AppStateType.Create(new AppStateSnapshot
             {
-                Filter = "ShowAll",
+                Filter = Filter.All,
 
                 Todos = new ITodoSnapshot[]
                 {
@@ -296,7 +297,7 @@ namespace Skclusive.Blazor.TodoApp.Tests
 
             store.OnAction((ISerializedActionCall call) =>
             {
-                var snapshot = store.GetSnapshot<TodoStoreSnapshot>();
+                var snapshot = store.GetSnapshot<AppStateSnapshot>();
 
                 list.Add((snapshot.Todos.Length, snapshot.Todos[0].Title));
             });
@@ -312,14 +313,14 @@ namespace Skclusive.Blazor.TodoApp.Tests
         [Fact]
         public void TestOnAction4()
         {
-            var list = ModelTypes.TodoListType.Create(new ITodoSnapshot[]
+            var list = TodoListType.Create(new ITodoSnapshot[]
             {
                 new TodoSnapshot { Title = "Get coffee" }
             });
 
             list.Unprotected();
 
-            list.Insert(0, ModelTypes.TodoType.Create(new TodoSnapshot { Title = "Learn Blazor" }));
+            list.Insert(0, TodoType.Create(new TodoSnapshot { Title = "Learn Blazor" }));
 
             var snapshots = list.GetSnapshot<ITodoSnapshot[]>();
 

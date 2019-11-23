@@ -10,7 +10,7 @@
     {
         get
         {
-            var activeCount = TodoStore.ActiveCount;
+            var activeCount = AppState.ActiveCount;
 
             return activeCount == 0 ? "No" : activeCount.ToString();
         }
@@ -20,7 +20,7 @@
     {
         get
         {
-            var activeCount = TodoStore.ActiveCount;
+            var activeCount = AppState.ActiveCount;
 
             return activeCount == 1 ? "Item" : "Items";
         }
