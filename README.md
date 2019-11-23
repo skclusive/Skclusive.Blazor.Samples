@@ -1,18 +1,18 @@
 Skclusive.Blazor.Samples
 =============================
 
-This repository contains samples projects using [Skclusive.Mobx.StateTree](https://github.com/skclusive/Skclusive.Mobx.StateTree), [Skclusive.Mobx.Observable] (https://github.com/skclusive/Skclusive.Mobx.Observable) and [Skclusive.Mobx.Component] (https://github.com/skclusive/Skclusive.Mobx.Component).
+This repository contains samples projects using [Skclusive.Mobx.StateTree](https://github.com/skclusive/Skclusive.Mobx.StateTree), [Skclusive.Mobx.Observable](https://github.com/skclusive/Skclusive.Mobx.Observable) and [Skclusive.Mobx.Component](https://github.com/skclusive/Skclusive.Mobx.Component).
 
 
 ## TodoApp Sample
 
-The Blazor TodoApp sample project has been hosted [here](https://skclusive.github.io/Skclusive.Blazor.Samples/TodoApp/).
+The Blazor TodoApp sample project has been hosted [here](https://skclusive.github.io/Skclusive.Blazor.Samples/TodoApp/), which integrates with redux devtool.
 
 ![Blazor TodoApp](images/todo-app.gif)
 
 ## FlightFinder Sample
 
-The Blazor FlightFinder sample project has been hosted [here](https://skclusive.github.io/Skclusive.Blazor.Samples/FlightFinder/).
+The Blazor FlightFinder sample project has been hosted [here](https://skclusive.github.io/Skclusive.Blazor.Samples/FlightFinder/), which integrates with redux devtool.
 
 ![Blazor FlightFinder](images/flight-finder.gif)
 
