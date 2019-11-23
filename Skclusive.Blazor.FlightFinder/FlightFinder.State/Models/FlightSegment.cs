@@ -113,23 +113,20 @@ namespace Skclusive.Blazor.FlightFinder.Models
         }
     }
 
-    public class FlightSegmentSnapshotConverter : JsonConverter
-    {
-        public override bool CanConvert(Type objectType)
-        {
-            return (objectType == typeof(IFlightSegmentSnapshot));
-        }
-
-        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
-        {
-            return serializer.Deserialize(reader, typeof(FlightSegmentSnapshot));
-        }
-
-        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
-        {
-            serializer.Serialize(writer, value, typeof(FlightSegmentSnapshot));
-        }
-    }
-
     #endregion
+
+    public partial class AppTypes
+    {
+        public readonly static IType<IFlightSegmentSnapshot, IFlightSegment> FlightSegmentType = Types.Late("LateFlightSegmentType", () => Types.
+            Object<IFlightSegmentSnapshot, IFlightSegment>("FlightSegmentType")
+            .Proxy(x => new FlightSegmentProxy(x))
+            .Snapshot(() => new FlightSegmentSnapshot())
+            .Mutable(o => o.Airline, Types.String)
+            .Mutable(o => o.FromAirportCode, Types.String)
+            .Mutable(o => o.ToAirportCode, Types.String)
+            .Mutable(o => o.DepartureTime, DateTimeType)
+            .Mutable(o => o.ArrivalTime, DateTimeType)
+            .Mutable(o => o.DurationHours, Types.Double)
+            .Mutable(o => o.TicketClass, TicketClassType));
+    }
 }

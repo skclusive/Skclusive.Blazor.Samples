@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using Newtonsoft.Json;
 using Skclusive.Mobx.Observable;
 using Skclusive.Mobx.StateTree;
@@ -154,23 +155,40 @@ namespace Skclusive.Blazor.FlightFinder.Models
         }
     }
 
-    public class AppStateSnapshotConverter : JsonConverter
-    {
-        public override bool CanConvert(Type objectType)
-        {
-            return (objectType == typeof(IAppStateSnapshot));
-        }
-
-        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
-        {
-            return serializer.Deserialize(reader, typeof(AppStateSnapshot));
-        }
-
-        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
-        {
-            serializer.Serialize(writer, value, typeof(AppStateSnapshot));
-        }
-    }
-
     #endregion
+
+    public partial class AppTypes
+    {
+        public readonly static IType<IAppStateSnapshot, IAppState> AppStateType = Types.Late("LateAppStateType", () => Types.
+            Object<IAppStateSnapshot, IAppState>("AppStateType")
+            .Proxy(x => new AppStateProxy(x))
+            .Snapshot(() => new AppStateSnapshot())
+            .Mutable(o => o.SearchInProgress, Types.Boolean)
+            .Mutable(o => o.Airports, AirportListType)
+            .Mutable(o => o.SearchResults, ItineraryListType)
+            .Mutable(o => o.Shortlist, ItineraryListType)
+            .Mutable(o => o.SearchCriteria, SearchCriteriaType)
+            .Mutable(o => o.SortOrder, Types.Optional(SortOderType, SortOrder.Price))
+            .View(o => o.SortedSearchResults, ItineraryListType, (o) => o.SortOrder == SortOrder.Price
+            ? o.SearchResults.OrderBy(x => x.Price).ToList()
+            : o.SearchResults.OrderBy(x => x.TotalDurationHours).ToList())
+            .Action<IItinerarySnapshot>((o) => o.AddToShortlist(null), (o, itinerary) => o.Shortlist.Add(ItineraryType.Create(itinerary)))
+            .Action<IItinerarySnapshot>((o) => o.RemoveFromShortlist(null), (o, itinerary) => o.Shortlist.Remove(o.Shortlist.First(it => it.Id == itinerary.Id)))
+            .Action((o) => o.BeginAirportFetch(), (o) => o.SearchInProgress = true)
+            .Action<SortOrder>((o) => o.SetSortOrder(SortOrder.Price), (o, sortOrder) => o.SortOrder = sortOrder)
+            .Action<IAirportSnapshot[]>((o) => o.EndAirportFetch(null), (o, airports) =>
+            {
+                o.SearchInProgress = false;
+                foreach(var airport in airports)
+                o.Airports.Add(AirportType.Create(airport));
+            })
+            .Action((o) => o.BeginItinerarySearch(), (o) => o.SearchInProgress = true)
+            .Action<IItinerarySnapshot[]>((o) => o.EndItinerarySearch(null), (o, itineraries) =>
+            {
+                o.SearchInProgress = false;
+                o.SearchResults.Clear();
+                foreach (var itinerary in itineraries)
+                o.SearchResults.Add(ItineraryType.Create(itinerary));
+            }));
+    }
 }

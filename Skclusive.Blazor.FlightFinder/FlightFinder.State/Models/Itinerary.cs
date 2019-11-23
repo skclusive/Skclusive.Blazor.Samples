@@ -85,23 +85,21 @@ namespace Skclusive.Blazor.FlightFinder.Models
         public string AirlineName => Read<string>(nameof(AirlineName));
     }
 
-    public class ItinerarySnapshotConverter : JsonConverter
-    {
-        public override bool CanConvert(Type objectType)
-        {
-            return (objectType == typeof(IItinerarySnapshot));
-        }
-
-        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
-        {
-            return serializer.Deserialize(reader, typeof(ItinerarySnapshot));
-        }
-
-        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
-        {
-            serializer.Serialize(writer, value, typeof(ItinerarySnapshot));
-        }
-    }
-
     #endregion
+
+    public partial class AppTypes
+    {
+        public readonly static IType<IItinerarySnapshot, IItinerary> ItineraryType = Types.Late("LateItineraryType", () => Types.
+            Object<IItinerarySnapshot, IItinerary>("ItineraryType")
+            .Proxy(x => new ItineraryProxy(x))
+            .Snapshot(() => new ItinerarySnapshot())
+            .Mutable(o => o.Id, Types.Int)
+            .Mutable(o => o.Outbound, FlightSegmentType)
+            .Mutable(o => o.Return, FlightSegmentType)
+            .Mutable(o => o.Price, Types.Decimal)
+            .View(o => o.TotalDurationHours, Types.Double, (o) => o.Outbound.DurationHours + o.Return.DurationHours)
+            .View(o => o.AirlineName, Types.String, (o) => (o.Outbound.Airline == o.Return.Airline) ? o.Outbound.Airline : "Multiple airlines"));
+
+         public readonly static IType<IItinerarySnapshot[], IObservableList<INode, IItinerary>> ItineraryListType = Types.Late("LateItineraryListType", () => Types.Optional(Types.List(ItineraryType), Array.Empty<IItinerarySnapshot>()));
+    }
 }

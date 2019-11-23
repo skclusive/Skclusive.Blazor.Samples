@@ -3,6 +3,7 @@ using Skclusive.Mobx.StateTree;
 using Xunit;
 using System;
 using Skclusive.Blazor.FlightFinder.Models;
+using static Skclusive.Blazor.FlightFinder.Models.AppTypes;
 
 namespace Skclusive.Blazor.FlightFinder.Tests
 {
@@ -13,7 +14,7 @@ namespace Skclusive.Blazor.FlightFinder.Tests
         {
             var today = DateTime.Now.Date;
 
-            var flightSegment = ModelTypes.FlightSegmentType.Create(new FlightSegmentSnapshot
+            var flightSegment = FlightSegmentType.Create(new FlightSegmentSnapshot
             {
                 Airline =  "British Airways",
 

@@ -114,23 +114,23 @@ namespace Skclusive.Blazor.FlightFinder.Models
         }
     }
 
-    public class SearchCriteriaSnapshotConverter : JsonConverter
-    {
-        public override bool CanConvert(Type objectType)
-        {
-            return (objectType == typeof(ISearchCriteriaSnapshot));
-        }
-
-        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
-        {
-            return serializer.Deserialize(reader, typeof(SearchCriteriaSnapshot));
-        }
-
-        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
-        {
-            serializer.Serialize(writer, value, typeof(SearchCriteriaSnapshot));
-        }
-    }
-
     #endregion
+
+    public partial class AppTypes
+    {
+        public readonly static IType<ISearchCriteriaSnapshot, ISearchCriteria> SearchCriteriaType = Types.Late("LateSearchCriteriaType", () => Types.
+            Object<ISearchCriteriaSnapshot, ISearchCriteria>("SearchCriteriaType")
+            .Proxy(x => new SearchCriteriaProxy(x))
+            .Snapshot(() => new SearchCriteriaSnapshot())
+            .Mutable(o => o.FromAirport, Types.String)
+            .Mutable(o => o.ToAirport, Types.String)
+            .Mutable(o => o.OutboundDate, DateTimeType)
+            .Mutable(o => o.ReturnDate, DateTimeType)
+            .Mutable(o => o.TicketClass, TicketClassType)
+            .Action<string>((o) => o.SetFromAirport(null), (o, fromAirport) => o.FromAirport = fromAirport)
+            .Action<string>((o) => o.SetToAirport(null), (o, toAirport) => o.ToAirport = toAirport)
+            .Action<DateTime>((o) => o.SetOutboundDate(DateTime.MinValue), (o, outboundDate) => o.OutboundDate = outboundDate)
+            .Action<DateTime>((o) => o.SetReturnDate(DateTime.MinValue), (o, returnDate) => o.ReturnDate = returnDate)
+            .Action<TicketClass>((o) => o.SetTicketClass(TicketClass.Business), (o, ticketClass) => o.TicketClass = ticketClass));
+    }
 }

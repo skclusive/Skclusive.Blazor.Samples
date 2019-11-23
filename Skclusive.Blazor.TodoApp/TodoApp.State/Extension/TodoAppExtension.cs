@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System;
 using Skclusive.Blazor.TodoApp.Models;
 using Skclusive.Blazor.TodoApp.Converters;
+using static Skclusive.Blazor.TodoApp.Models.AppTypes;
 
 namespace Skclusive.Blazor.TodoApp.Extension
 {
@@ -10,9 +11,11 @@ namespace Skclusive.Blazor.TodoApp.Extension
     {
         public static void AddTodoApp(this IServiceCollection services)
         {
-            services.AddSingleton<JsonConverter, TodoSnapshotConverter>();
+            services.AddSingleton<JsonConverter, JsonTypeConverter<ITodoSnapshot, TodoSnapshot>>();
 
-            services.AddSingleton((_) => AppTypes.AppStateType.Create(new AppStateSnapshot
+            services.AddSingleton<JsonConverter, JsonTypeConverter<IAppStateSnapshot, AppStateSnapshot>>();
+
+            services.AddSingleton((_) => AppStateType.Create(new AppStateSnapshot
             {
                 Filter = Filter.All,
 

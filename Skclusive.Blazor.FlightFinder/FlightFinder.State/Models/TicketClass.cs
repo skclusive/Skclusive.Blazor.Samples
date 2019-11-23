@@ -1,4 +1,5 @@
 using System;
+using Skclusive.Mobx.StateTree;
 
 namespace Skclusive.Blazor.FlightFinder.Models
 {
@@ -31,4 +32,9 @@ namespace Skclusive.Blazor.FlightFinder.Models
 			}
 		}
 	}
+
+    public partial class AppTypes
+    {
+        public readonly static IType<TicketClass, TicketClass> TicketClassType = Types.Late("LateTicketClassType", () => Types.Enumeration("TicketClassType", TicketClass.Economy, TicketClass.PremiumEconomy, TicketClass.Business, TicketClass.First));
+    }
 }

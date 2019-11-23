@@ -50,23 +50,17 @@ namespace Skclusive.Blazor.FlightFinder.Models
         }
     }
 
-    public class AirportSnapshotConverter : JsonConverter
-    {
-        public override bool CanConvert(Type objectType)
-        {
-            return (objectType == typeof(IAirportSnapshot));
-        }
-
-        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
-        {
-            return serializer.Deserialize(reader, typeof(AirportSnapshot));
-        }
-
-        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
-        {
-            serializer.Serialize(writer, value, typeof(AirportSnapshot));
-        }
-    }
-
     #endregion
+
+    public partial class AppTypes
+    {
+        public readonly static IType<IAirportSnapshot, IAirport> AirportType = Types.Late("LateAirportType", () => Types.
+            Object<IAirportSnapshot, IAirport>("AirportType")
+            .Proxy(x => new AirportProxy(x))
+            .Snapshot(() => new AirportSnapshot())
+            .Mutable(o => o.Code, Types.String)
+            .Mutable(o => o.DisplayName, Types.String));
+
+         public readonly static IType<IAirportSnapshot[], IObservableList<INode, IAirport>> AirportListType = Types.Late("LateAirportListType", () => Types.Optional(Types.List(AirportType), Array.Empty<IAirportSnapshot>()));
+    }
 }

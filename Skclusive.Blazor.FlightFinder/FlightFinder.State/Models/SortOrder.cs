@@ -1,4 +1,5 @@
 using System;
+using Skclusive.Mobx.StateTree;
 
 namespace Skclusive.Blazor.FlightFinder.Models
 {
@@ -23,4 +24,9 @@ namespace Skclusive.Blazor.FlightFinder.Models
 			}
 		}
 	}
+
+    public partial class AppTypes
+    {
+        public readonly static IType<SortOrder, SortOrder> SortOderType = Types.Late("LateSortOrderType", () => Types.Enumeration("SortOrderType", SortOrder.Price, SortOrder.Duration));
+    }
 }

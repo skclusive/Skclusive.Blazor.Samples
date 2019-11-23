@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Skclusive.Mobx.StateTree;
 using Xunit;
 using Skclusive.Blazor.FlightFinder.Models;
+using static Skclusive.Blazor.FlightFinder.Models.AppTypes;
 
 namespace Skclusive.Blazor.FlightFinder.Tests
 {
@@ -10,7 +11,7 @@ namespace Skclusive.Blazor.FlightFinder.Tests
         [Fact]
         public void TestCreate()
         {
-            var ticketClass = ModelTypes.TicketClassType.Create(TicketClass.Business);
+            var ticketClass = TicketClassType.Create(TicketClass.Business);
 
             Assert.Equal(TicketClass.Business, ticketClass);
         }

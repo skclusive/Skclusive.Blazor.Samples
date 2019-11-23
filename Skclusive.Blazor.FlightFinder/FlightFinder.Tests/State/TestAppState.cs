@@ -3,6 +3,7 @@ using Skclusive.Mobx.StateTree;
 using Xunit;
 using Skclusive.Blazor.FlightFinder.Models;
 using System;
+using static Skclusive.Blazor.FlightFinder.Models.AppTypes;
 
 namespace Skclusive.Blazor.FlightFinder.Tests
 {
@@ -13,9 +14,11 @@ namespace Skclusive.Blazor.FlightFinder.Tests
         {
             var today = DateTime.Now.Date;
 
-            var appState = ModelTypes.AppStateType.Create(new AppStateSnapshot
+            var appState = AppStateType.Create(new AppStateSnapshot
             {
                 SearchInProgress = true,
+
+                SortOrder = SortOrder.Price,
 
                 SearchCriteria = new SearchCriteriaSnapshot()
                 {
