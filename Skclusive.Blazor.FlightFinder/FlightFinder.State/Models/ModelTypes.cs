@@ -73,6 +73,8 @@ namespace Skclusive.Blazor.FlightFinder.Models
 
         public readonly static IType<TicketClass, TicketClass> TicketClassType = Types.Enumeration("TicketClass", TicketClass.Economy, TicketClass.PremiumEconomy, TicketClass.Business, TicketClass.First);
 
+        public readonly static IType<SortOrder, SortOrder> SortOderType = Types.Enumeration("SortOrder", SortOrder.Price, SortOrder.Duration);
+
         public readonly static IObjectType<IFlightSegmentSnapshot, IFlightSegment> FlightSegmentType = Types.
                 Object<IFlightSegmentSnapshot, IFlightSegment>("FlightSegment")
                 .Proxy(x => new FlightSegmentProxy(x))
@@ -96,6 +98,21 @@ namespace Skclusive.Blazor.FlightFinder.Models
                 .View(o => o.TotalDurationHours, Types.Double, (o) => o.Outbound.DurationHours + o.Return.DurationHours)
                 .View(o => o.AirlineName, Types.String, (o) => (o.Outbound.Airline == o.Return.Airline) ? o.Outbound.Airline : "Multiple airlines");
 
+        public readonly static IObjectType<ISearchCriteriaSnapshot, ISearchCriteria> SearchCriteriaType = Types.
+               Object<ISearchCriteriaSnapshot, ISearchCriteria>("SearchCriteria")
+               .Proxy(x => new SearchCriteriaProxy(x))
+               .Snapshot(() => new SearchCriteriaSnapshot())
+               .Mutable(o => o.FromAirport, Types.String)
+               .Mutable(o => o.ToAirport, Types.String)
+               .Mutable(o => o.OutboundDate, DateTimeType)
+               .Mutable(o => o.ReturnDate, DateTimeType)
+               .Mutable(o => o.TicketClass, TicketClassType)
+               .Action<string>((o) => o.SetFromAirport(null), (o, fromAirport) => o.FromAirport = fromAirport)
+               .Action<string>((o) => o.SetToAirport(null), (o, toAirport) => o.ToAirport = toAirport)
+               .Action<DateTime>((o) => o.SetOutboundDate(DateTime.MinValue), (o, outboundDate) => o.OutboundDate = outboundDate)
+               .Action<DateTime>((o) => o.SetReturnDate(DateTime.MinValue), (o, returnDate) => o.ReturnDate = returnDate)
+               .Action<TicketClass>((o) => o.SetTicketClass(TicketClass.Business), (o, ticketClass) => o.TicketClass = ticketClass);
+
         public readonly static IType<IItinerarySnapshot[], IObservableList<INode, IItinerary>> ItineraryListType = Types.Optional(Types.List(ItineraryType), Array.Empty<IItinerarySnapshot>());
 
         public readonly static IType<IAirportSnapshot[], IObservableList<INode, IAirport>> AirportListType = Types.Optional(Types.List(AirportType), Array.Empty<IAirportSnapshot>());
@@ -108,9 +125,15 @@ namespace Skclusive.Blazor.FlightFinder.Models
                 .Mutable(o => o.Airports, AirportListType)
                 .Mutable(o => o.SearchResults, ItineraryListType)
                 .Mutable(o => o.Shortlist, ItineraryListType)
+                .Mutable(o => o.SearchCriteria, SearchCriteriaType)
+                .Mutable(o => o.SortOrder, Types.Optional(SortOderType, SortOrder.Price))
+                .View(o => o.SortedSearchResults, ItineraryListType, (o) => o.SortOrder == SortOrder.Price
+                ? o.SearchResults.OrderBy(x => x.Price).ToList()
+                : o.SearchResults.OrderBy(x => x.TotalDurationHours).ToList())
                 .Action<IItinerarySnapshot>((o) => o.AddToShortlist(null), (o, itinerary) => o.Shortlist.Add(ItineraryType.Create(itinerary)))
                 .Action<IItinerarySnapshot>((o) => o.RemoveFromShortlist(null), (o, itinerary) => o.Shortlist.Remove(o.Shortlist.First(it => it.Id == itinerary.Id)))
                 .Action((o) => o.BeginAirportFetch(), (o) => o.SearchInProgress = true)
+                .Action<SortOrder>((o) => o.SetSortOrder(SortOrder.Price), (o, sortOrder) => o.SortOrder = sortOrder)
                 .Action<IAirportSnapshot[]>((o) => o.EndAirportFetch(null), (o, airports) =>
                 {
                     o.SearchInProgress = false;

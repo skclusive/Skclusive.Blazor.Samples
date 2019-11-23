@@ -12,6 +12,10 @@ namespace Skclusive.Blazor.FlightFinder.Models
     {
         bool SearchInProgress { get; set; }
 
+        SortOrder SortOrder { get; set; }
+
+        ISearchCriteriaSnapshot SearchCriteria { get; set; }
+
 		IItinerarySnapshot[] SearchResults { get; set; }
 
 		IItinerarySnapshot[] Shortlist { get; set; }
@@ -21,6 +25,8 @@ namespace Skclusive.Blazor.FlightFinder.Models
 
     public interface IAppStateActions
     {
+        void SetSortOrder(SortOrder sortOrder);
+
         void AddToShortlist(IItinerarySnapshot itinerary);
 
         void RemoveFromShortlist(IItinerarySnapshot itinerary);
@@ -38,16 +44,26 @@ namespace Skclusive.Blazor.FlightFinder.Models
     {
         bool SearchInProgress { get; set; }
 
+        SortOrder SortOrder { get; set; }
+
+        ISearchCriteria SearchCriteria { get; set; }
+
 		IList<IItinerary> SearchResults { get; set; }
 
 		IList<IItinerary> Shortlist { get; set; }
 
 		IList<IAirport> Airports { get; set; }
+
+        IList<IItinerary> SortedSearchResults { get; }
     }
 
     public class AppStateSnapshot : IAppStateSnapshot
     {
         public bool SearchInProgress { get; set; }
+
+        public SortOrder SortOrder { get; set; }
+
+        public ISearchCriteriaSnapshot SearchCriteria { get; set; }
 
 		public IItinerarySnapshot[] SearchResults { get; set; }
 
@@ -70,11 +86,25 @@ namespace Skclusive.Blazor.FlightFinder.Models
             set => Write(nameof(SearchInProgress), value);
         }
 
+        public SortOrder SortOrder
+        {
+            get => Read<SortOrder>(nameof(SortOrder));
+            set => Write(nameof(SortOrder), value);
+        }
+
+        public ISearchCriteria SearchCriteria
+        {
+            get => Read<ISearchCriteria>(nameof(SearchCriteria));
+            set => Write(nameof(SearchCriteria), value);
+        }
+
         public IList<IItinerary> SearchResults
         {
             get => Read<IList<IItinerary>>(nameof(SearchResults));
             set => Write(nameof(SearchResults), value);
         }
+
+        public IList<IItinerary> SortedSearchResults => Read<IList<IItinerary>>(nameof(SortedSearchResults));
 
         public IList<IItinerary> Shortlist
         {
@@ -91,6 +121,11 @@ namespace Skclusive.Blazor.FlightFinder.Models
         public void AddToShortlist(IItinerarySnapshot itinerary)
         {
             (Target as dynamic).AddToShortlist(itinerary);
+        }
+
+        public void SetSortOrder(SortOrder sortOrder)
+        {
+            (Target as dynamic).SetSortOrder(sortOrder);
         }
 
         public void RemoveFromShortlist(IItinerarySnapshot itinerary)

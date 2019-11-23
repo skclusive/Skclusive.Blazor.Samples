@@ -20,10 +20,14 @@ namespace Skclusive.Blazor.FlightFinder.Models
 			switch (ticketClass)
 			{
 				case TicketClass.Economy: return "Economy";
-				case TicketClass.PremiumEconomy: return "Premium Economy";
-				case TicketClass.Business: return "Business";
-				case TicketClass.First: return "First";
-				default: throw new ArgumentException("Unknown ticket class: " + ticketClass.ToString());
+
+                case TicketClass.PremiumEconomy: return "Premium Economy";
+
+                case TicketClass.Business: return "Business";
+
+                case TicketClass.First: return "First";
+
+                default: throw new ArgumentException("Unknown ticket class: " + ticketClass.ToString());
 			}
 		}
 	}
