@@ -12,7 +12,7 @@
     </ul>
     <div class="price ml-3">
         <h3>@Itinerary.Price.ToString("$0")</h3>
-        <button class="btn" disabled="@IsShortlisted" @onclick="@AddToShortlist">Add</button>
+        <button class="btn" disabled="@Shortlisted" @onclick="@AddToShortlist">Add</button>
     </div>
 </div>
 
@@ -21,10 +21,11 @@
     [Parameter]
 	public IItinerary Itinerary { set; get; }
 
+    [Parameter]
+	public bool Shortlisted { set; get; }
+
 	private void AddToShortlist()
 	{
 		AppState.AddToShortlist(Itinerary.GetSnapshot<IItinerarySnapshot>());
 	}
-
-    private bool IsShortlisted => AppState.Shortlist.Any(itinerary => itinerary.Id == Itinerary.Id);
 }

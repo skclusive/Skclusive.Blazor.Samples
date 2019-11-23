@@ -15,7 +15,7 @@
 
 		@foreach (var item in sortedSearchResults)
 		{
-            <SearchResult @key="item" Itinerary="@item" />
+            <SearchResult @key="item" Itinerary="@item" Shortlisted="@IsShortlisted(item)" />
 		}
 	}
 </div>
@@ -32,13 +32,5 @@
 
 	enum SortOrder { Price, Duration }
 
-	private void AddToShortlist(IItinerary itinerary)
-	{
-		AppState.AddToShortlist(itinerary.GetSnapshot<IItinerarySnapshot>());
-	}
-
-    private bool IsShortlisted(IItinerary itinerary)
-    {
-        return AppState.Shortlist.Any(it => it.Id == itinerary.Id);
-    }
+    private bool IsShortlisted(IItinerary itinerary) => AppState.Shortlist.Any(it => it.Id == itinerary.Id);
 }
