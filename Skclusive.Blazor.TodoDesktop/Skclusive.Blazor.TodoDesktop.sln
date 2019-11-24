@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoDesktop.Window", "TodoD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoDesktop.State", "TodoDesktop.State\TodoDesktop.State.csproj", "{062CF1B2-9638-42D4-B6CA-D1FDC726F465}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoDesktop.Tests", "TodoDesktop.Tests\TodoDesktop.Tests.csproj", "{2B39009A-2E8E-481C-B633-6C6E5D6F9E74}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

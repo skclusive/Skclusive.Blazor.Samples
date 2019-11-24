@@ -6,29 +6,7 @@ using Skclusive.Mobx.StateTree.Proxy;
 
 namespace Skclusive.Blazor.TodoDesktop.Models
 {
-    #region IAppState
-
-    public interface IAppStateSnapshot
-    {
-        Filter Filter { set; get; }
-
-        ITodoSnapshot[] Todos { set; get; }
-    }
-
-    public interface IAppStateActions
-    {
-        void AddTodo(string title);
-
-        void SetFilter(Filter filter);
-
-        void Remove(ITodo todo);
-
-        void CompleteAll();
-
-        void ClearCompleted();
-    }
-
-    public interface IAppState : IAppStateActions
+    public interface IAppState
     {
         IList<ITodo> Todos { set; get; }
 
@@ -43,16 +21,17 @@ namespace Skclusive.Blazor.TodoDesktop.Models
         bool AllCompleted { get; }
 
         Filter Filter { set; get; }
+
+        void AddTodo(string title);
+
+        void SetFilter(Filter filter);
+
+        void Remove(ITodo todo);
+
+        void CompleteAll();
+
+        void ClearCompleted();
     }
-
-    public class AppStateSnapshot : IAppStateSnapshot
-    {
-        public Filter Filter { set; get; }
-
-        public ITodoSnapshot[] Todos { set; get; }
-    }
-
-    #endregion
 
     public partial class AppTypes
     {
@@ -63,10 +42,9 @@ namespace Skclusive.Blazor.TodoDesktop.Models
             { Filter.Completed, (todo) => todo.Done }
         };
 
-        public readonly static IType<IAppStateSnapshot, IAppState> AppStateType = Types.Late("LateAppStateType", () => Types.
-            Object<IAppStateSnapshot, IAppState>("AppStateType")
+        public readonly static IType<IDictionary<string, object>, IAppState> AppStateType = Types.Late("LateAppStateType", () => Types.
+            Object<IAppState>("AppStateType")
             .Proxy(x => x.ActAsProxy<IAppState>())
-            .Snapshot(() => new AppStateSnapshot())
             .Mutable(o => o.Todos, TodoListType)
             .Mutable(o => o.Filter, FilterType)
             .View(o => o.TotalCount, Types.Int, (o) => o.Todos.Count())
@@ -88,7 +66,7 @@ namespace Skclusive.Blazor.TodoDesktop.Models
             .Action<Filter>((o) => o.SetFilter(Filter.All), (o, filter) => o.Filter = filter)
             .Action<string>((o) => o.AddTodo(null), (o, title) =>
             {
-                o.Todos.Insert(0, TodoType.Create(new TodoSnapshot { Title = title }));
+                o.Todos.Insert(0, TodoType.Create(new Dictionary<string, object> { { "Title", title } }));
             })
             .Action<ITodo>((o) => o.Remove(null), (o, x) => o.Todos.Remove(x)));
     }
