@@ -1,0 +1,44 @@
+﻿@namespace Skclusive.Blazor.TodoDesktop.Components
+@using Skclusive.Mobx.Component
+@using Skclusive.Mobx.Observable
+
+@inherits ObservableComponentBase
+
+<li class="@Class">
+    @if (Editing.Value)
+    {
+        <TodoItemEdit Todo="@Todo" OnSave="OnSave" />
+    }
+    else
+    {
+        <TodoItemView Todo="@Todo" OnEdit="OnEdit" />
+    }
+</li>
+
+@code {
+    [Parameter]
+    public ITodo Todo { get; set; }
+
+    protected IObservableValue<bool> Editing { set; get; } = ObservableValue<bool>.From(false);
+
+    protected string Class => ((Todo.Done ? "completed " : "") + (Editing.Value ? "editing" : "")).Trim();
+
+    protected void OnEdit()
+    {
+        Editing.Value = true;
+    }
+
+    protected void OnSave(string title)
+    {
+        if (string.IsNullOrEmpty(title))
+        {
+            Todo.Remove();
+        }
+        else
+        {
+            Todo.Edit(title);
+        }
+
+        Editing.Value = false;
+    }
+}

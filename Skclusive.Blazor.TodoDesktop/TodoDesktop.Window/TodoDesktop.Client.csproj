@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <OutputType>WinExe</OutputType>
+    <RazorLangVersion>3.0</RazorLangVersion>
+    <AssemblyName>Skclusive.Blazor.TodoDesktop.Window</AssemblyName>
+    <RootNamespace>Skclusive.Blazor.TodoDesktop</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="WebWindow.Blazor" Version="0.1.0-20191120.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Skclusive.Mobx.Component" Version="1.0.4" />
+    <PackageReference Include="Skclusive.Script.DomHelpers" Version="1.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TodoDesktop.State\TodoDesktop.State.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="wwwroot\**">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,26 @@
+﻿@namespace Skclusive.Blazor.TodoDesktop.Components
+@inherits TodoComponent
+
+<a class="@Class" style="cursor: pointer;" @onclick="OnFilter">
+    @Title
+</a>
+
+@code {
+
+    [Parameter]
+    public Filter Filter { set; get; }
+
+    protected bool Selected => AppState.Filter == Filter;
+
+    protected string Class => Selected ? nameof(Selected).ToLower() : null;
+
+    protected string Title => Filter.ToString();
+
+    protected void OnFilter()
+    {
+        if (!Selected)
+        {
+            AppState.SetFilter(Filter);
+        }
+    }
+}

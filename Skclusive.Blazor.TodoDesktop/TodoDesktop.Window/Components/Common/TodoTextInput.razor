@@ -1,0 +1,93 @@
+﻿@namespace Skclusive.Blazor.TodoDesktop.Components
+@using Skclusive.Core.Component
+
+@inherits RenderComponentBase
+
+<input @ref="Input"
+       type="text"
+       autofocus
+       class="@Class"
+       placeholder="@Placeholder"
+       value="@_Text"
+       @onblur="@HandleBlurAsync"
+       @oninput="@HandleChange"
+       @onkeydown="@HandleSubmitAsync"
+       @onkeydown:stopPropagation
+       @oninput:preventDefault />
+
+@code {
+
+    private ElementReference Input { set; get; }
+
+    [Inject]
+    private DomHelpers DomHelpers { get; set; }
+
+    [Parameter]
+    public string Placeholder { get; set; }
+
+    [Parameter]
+    public string Text { get; set; }
+
+    [Parameter]
+    public bool Editing { get; set; }
+
+    [Parameter]
+    public bool NewTodo { get; set; }
+
+    [Parameter]
+    public EventCallback<string> OnSave { get; set; }
+
+    protected string _Text { set; get; }
+
+    protected string Class => (Editing ? "edit " : "") + (NewTodo ? "new-todo" : "");
+
+    protected void HandleChange(ChangeEventArgs changeEvent)
+    {
+        _Text = changeEvent.Value.ToString();
+
+        StateHasChanged();
+    }
+
+    protected override void OnParametersSet()
+    {
+        if (!string.IsNullOrEmpty(Text))
+        {
+            _Text = Text;
+        }
+    }
+
+    protected async Task HandleSubmitAsync(KeyboardEventArgs keyboardEvent)
+    {
+        if (keyboardEvent.Key == "Enter")
+        {
+            if (NewTodo)
+            {
+                await OnSave.InvokeAsync(_Text);
+
+                _Text = "";
+
+                StateHasChanged();
+            }
+            else
+            {
+                await DomHelpers.BlurAsync(Input);
+            }
+        }
+    }
+
+    protected async Task HandleBlurAsync(FocusEventArgs focusEvent)
+    {
+        if (!NewTodo)
+        {
+            await OnSave.InvokeAsync(_Text);
+        }
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstTime)
+    {
+        if (firstTime)
+        {
+            await DomHelpers.FocusAsync(Input);
+        }
+    }
+}

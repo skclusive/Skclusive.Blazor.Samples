@@ -1,0 +1,9 @@
+﻿@namespace Skclusive.Blazor.TodoDesktop.Components
+@inherits TodoComponent
+
+@if (AppState.CompletedCount > 0)
+{
+    <button class="clear-completed" @onclick="@(e => AppState.ClearCompleted())">
+        Clear completed
+    </button>
+}

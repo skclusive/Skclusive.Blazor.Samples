@@ -1,0 +1,23 @@
+﻿@namespace Skclusive.Blazor.TodoDesktop.Components
+@using Skclusive.Mobx.Component
+
+@inherits ObservableComponentBase
+
+<TodoTextInput
+    Editing
+    Text="@Todo.Title"
+    OnSave="@_OnSave"
+/>
+
+@code {
+    [Parameter]
+    public ITodo Todo { get; set; }
+
+    [Parameter]
+    public EventCallback<string> OnSave { get; set; }
+
+    protected void _OnSave(string title)
+    {
+        OnSave.InvokeAsync(title);
+    }
+}
