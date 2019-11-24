@@ -16,6 +16,12 @@ The Blazor FlightFinder sample project has been hosted [here](https://skclusive.
 
 ![Blazor FlightFinder](images/flight-finder.gif)
 
+## TodoDesktop Sample
+
+The Blazor TodoDesktop app using [WebWindow](https://github.com/SteveSandersonMS/WebWindow) can be run natively using dotnet-core.
+
+![Blazor TodoDesktop](images/todo-desktop.gif)
+
 ## License
 
 Skclusive.Blazor.Samples is licensed under [MIT license](http://www.opensource.org/licenses/mit-license.php)
