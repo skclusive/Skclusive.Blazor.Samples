@@ -3,7 +3,6 @@ using Skclusive.Mobx.StateTree;
 using System.Collections.Generic;
 using System.Linq;
 using System;
-using ImpromptuInterface;
 using Skclusive.Blazor.TodoApp.Extension;
 
 namespace Skclusive.Blazor.TodoApp.Models
@@ -123,11 +122,7 @@ namespace Skclusive.Blazor.TodoApp.Models
 
         public readonly static IType<IAppStateSnapshot, IAppState> AppStateType = Types.Late("LateAppStateType", () => Types.
             Object<IAppStateSnapshot, IAppState>("AppStateType")
-            .Proxy(x => {
-               var proxy = x.ActAsProxy<IAppState>();
-               System.Console.WriteLine($"IAppState proxy is {proxy}");
-               return proxy;
-            })
+            .Proxy(x => new AppStateProxy(x))
             .Snapshot(() => new AppStateSnapshot())
             .Mutable(o => o.Todos, TodoListType)
             .Mutable(o => o.Filter, FilterType)

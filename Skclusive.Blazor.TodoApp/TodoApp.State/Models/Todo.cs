@@ -1,4 +1,3 @@
-using ImpromptuInterface;
 using Skclusive.Blazor.TodoApp.Extension;
 using Skclusive.Mobx.Observable;
 using Skclusive.Mobx.StateTree;
@@ -76,11 +75,7 @@ namespace Skclusive.Blazor.TodoApp.Models
     {
         public readonly static IType<ITodoSnapshot, ITodo> TodoType = Types.Late("LateTodoType", () => Types.
             Object<ITodoSnapshot, ITodo>("TodoType")
-            .Proxy(x => {
-                var proxy = x.ActAsProxy<ITodo>();
-                System.Console.WriteLine($"ITodo proxy is {proxy}");
-               return proxy;
-            })
+            .Proxy(x => new TodoProxy(x))
             .Snapshot(() => new TodoSnapshot())
             .Mutable(o => o.Title, Types.String)
             .Mutable(o => o.Done, Types.Boolean)
