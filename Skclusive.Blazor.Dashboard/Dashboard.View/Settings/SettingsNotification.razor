@@ -1,0 +1,82 @@
+﻿<Card Class="settings-notification-root">
+    <form>
+        <CardHeader
+            Subheader="Manage the notifications"
+            Title="Notifications" />
+        <Divider />
+        <CardContent>
+            <Grid
+                Container
+                Spacing="@Spacing.Six"
+                Wrap="@Wrap.Wrap">
+                <Grid
+                    Class="settings-notification-item"
+                    Item
+                    Medium="@GridSize.Four"
+                    Small="@GridSize.Six"
+                    ExtraSmall="@GridSize.Twelve">
+                    <Typography
+                        GutterBottom
+                        Variant="@TypographyVariant.H6">
+                        Notifications
+                    </Typography>
+                    <FormControlLabel Label="Email">
+                        <ControlContent Context="Control">
+                            <Checkbox Color="@Color.Primary" DefaultChecked="true" />
+                        </ControlContent>
+                    </FormControlLabel>
+                    <FormControlLabel Label="Push Notifications">
+                        <ControlContent Context="Control">
+                            <Checkbox Color="@Color.Primary" DefaultChecked="true" />
+                        </ControlContent>
+                    </FormControlLabel>
+                    <FormControlLabel Label="Text Messages">
+                        <ControlContent Context="Control">
+                            <Checkbox Color="@Color.Primary" DefaultChecked="false" />
+                        </ControlContent>
+                    </FormControlLabel>
+                    <FormControlLabel Label="Phone calls">
+                        <ControlContent Context="Control">
+                            <Checkbox Color="@Color.Primary" DefaultChecked="true" />
+                        </ControlContent>
+                    </FormControlLabel>
+                </Grid>
+                <Grid
+                    Class="settings-notification-item"
+                    Item
+                    Medium="@GridSize.Four"
+                    Small="@GridSize.Six"
+                    ExtraSmall="@GridSize.Twelve">
+                    <Typography
+                        GutterBottom
+                        Variant="@TypographyVariant.H6">
+                        Messages
+                    </Typography>
+                    <FormControlLabel Label="Email">
+                        <ControlContent Context="Control">
+                            <Checkbox Color="@Color.Primary" DefaultChecked="true" />
+                        </ControlContent>
+                    </FormControlLabel>
+                    <FormControlLabel Label="Push Notifications">
+                        <ControlContent Context="Control">
+                            <Checkbox Color="@Color.Primary" DefaultChecked="false" />
+                        </ControlContent>
+                    </FormControlLabel>
+                    <FormControlLabel Label="Phone calls">
+                        <ControlContent Context="Control">
+                            <Checkbox Color="@Color.Primary" DefaultChecked="true" />
+                        </ControlContent>
+                    </FormControlLabel>
+                </Grid>
+            </Grid>
+        </CardContent>
+        <Divider />
+        <CardActions>
+            <Button
+                Color="@Color.Primary"
+                Variant="@ButtonVariant.Outlined">
+                Save
+            </Button>
+        </CardActions>
+    </form>
+</Card>

@@ -1,0 +1,75 @@
+﻿<List Class="@RootClass">
+    <ChildContent>
+    @foreach(var link in Links)
+    {
+        <ListItem @key="link.title" Class="navigation-item" NoWrap DisableGutters Button>
+            <NavLink ActiveClass="navigation-active" class="navigation-link" href="@link.path" Match="@(link.prefix ? NavLinkMatch.Prefix : NavLinkMatch.All)">
+                <div class="navigation-icon">
+                    @link.icon
+                </div>
+                @link.title
+            </NavLink>
+        </ListItem>
+    }
+    </ChildContent>
+</List>
+
+@code
+{
+    [Parameter]
+    public string Class { set; get; }
+
+    protected string RootClass => $"navigation-root {Class}";
+
+    private List<(string title, string path, RenderFragment icon, bool prefix)> Links = new List<(string title, string path, RenderFragment icon, bool prefix)>
+    {
+        (
+            title: "Dashboard",
+            path: "dashboard",
+            icon: @<DashboardIcon />,
+            prefix: false
+        ),
+
+        (
+            title: "Users",
+            path: "users",
+            icon: @<PeopleIcon />,
+            prefix: true
+        ),
+
+        (
+            title: "Products",
+            path: "products",
+            icon: @<ShoppingBasketIcon />,
+            prefix: true
+        ),
+
+        (
+            title: "Account",
+            path: "account",
+            icon: @<AccountBoxIcon />,
+            prefix: true
+        ),
+
+        (
+            title: "Settings",
+            path: "settings",
+            icon: @<SettingsIcon />,
+            prefix: true
+        ),
+
+        (
+            title: "Typography",
+            path: "typography",
+            icon: @<TextFieldsIcon />,
+            prefix: true
+        ),
+
+        (
+            title: "Aunthentication",
+            path: "signin",
+            icon: @<LockOpenIcon />,
+            prefix: true
+        )
+    };
+}

@@ -1,0 +1,147 @@
+/* main-layout */
+
+.main-layout-root {
+  height: 100%;
+  padding-top: 56px;
+}
+@media (min-width: 600px) {
+  .main-layout-root {
+    padding-top: 64px;
+  }
+}
+.main-layout-shift-content {
+  padding-left: 240px;
+}
+
+.main-layout-content {
+  height: 100%;
+}
+
+/* mini-layout */
+
+.mini-layout-root {
+  height: 100%;
+  padding-top: 64px;
+}
+
+.mini-layout-content {
+  height: 100%;
+}
+
+/* navigation */
+
+.navigation-item {
+  display: flex;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.navigation-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  position: relative;
+  justify-content: flex-start;
+
+  color: #37474f;
+  width: 100%;
+  padding: 10px 8px;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+  justify-content: flex-start;
+}
+.navigation-icon {
+  color: #546e7a;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  margin-right: 8px;
+}
+.navigation-active {
+  color: #3f51b5;
+  font-weight: 500;
+}
+.navigation-active .navigation-icon {
+  color: #3f51b5;
+}
+
+/* Sidebar */
+.sidebar-drawer {
+  width: 240px;
+}
+@media (min-width: 1280px) {
+  .sidebar-drawer {
+    height: calc(100% - 64px);
+    margin-top: 64px;
+  }
+}
+.sidebar-root {
+  height: 100%;
+  display: flex;
+  padding: 16px;
+  flex-direction: column;
+  background-color: #ffffff;
+}
+.sidebar-divider {
+  margin: 16px 0px;
+}
+.sidebar-nav {
+  margin-bottom: 16px;
+}
+
+/* Profile */
+
+.profile-root {
+  display: flex;
+  min-height: fit-content;
+  align-items: center;
+  flex-direction: column;
+}
+
+.profile-avatar {
+  width: 60px;
+  height: 60px;
+}
+
+.profile-name {
+  margin-top: 8px;
+}
+
+/* topbar */
+
+.topbar-root {
+  box-shadow: none;
+}
+
+.topbar-flex-grow {
+  flex-grow: 1;
+}
+
+.topbar-signout-button {
+  margin-left: 8px;
+}
+
+/* footer */
+
+.footer-root {
+  padding: 32px;
+}
+
+/* notfound */
+
+.notfound-root {
+  padding: 32px;
+}
+
+.notfound-content {
+  text-align: center;
+  padding-top: 150px;
+}
+
+.notfound-image {
+  width: 560px;
+  display: inline-block;
+  max-width: 100%;
+  margin-top: 50px;
+}
