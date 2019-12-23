@@ -17,7 +17,7 @@ namespace Skclusive.Blazor.Dashboard.View.UserList
 
                 Phone = "304-428-3097",
 
-                Avatar = "/images/avatars/avatar_3.png",
+                Avatar = "./images/avatars/avatar_3.png",
 
                 CreatedAt = DateTime.Now.AddDays(-3),
 
@@ -43,7 +43,7 @@ namespace Skclusive.Blazor.Dashboard.View.UserList
 
                 Phone = "712-351-5711",
 
-                Avatar = "/images/avatars/avatar_4.png",
+                Avatar = "./images/avatars/avatar_4.png",
 
                 CreatedAt = DateTime.Now.AddDays(-5),
 
@@ -69,7 +69,7 @@ namespace Skclusive.Blazor.Dashboard.View.UserList
 
                 Phone = "770-635-2682",
 
-                Avatar = "/images/avatars/avatar_2.png",
+                Avatar = "./images/avatars/avatar_2.png",
 
                 CreatedAt = DateTime.Now.AddDays(5),
 
@@ -95,7 +95,7 @@ namespace Skclusive.Blazor.Dashboard.View.UserList
 
                 Phone = "908-691-3242",
 
-                Avatar = "/images/avatars/avatar_5.png",
+                Avatar = "./images/avatars/avatar_5.png",
 
                 CreatedAt = DateTime.Now.AddDays(-2),
 
@@ -134,7 +134,7 @@ namespace Skclusive.Blazor.Dashboard.View.UserList
 
                 Phone = "972-333-4106",
 
-                Avatar = "/images/avatars/avatar_6.png"
+                Avatar = "./images/avatars/avatar_6.png"
             };
 
             yield return new User
@@ -160,7 +160,7 @@ namespace Skclusive.Blazor.Dashboard.View.UserList
 
                 Phone = "858-602-3409",
 
-                Avatar = "/images/avatars/avatar_1.png"
+                Avatar = "./images/avatars/avatar_1.png"
             };
 
             yield return new User
@@ -184,7 +184,7 @@ namespace Skclusive.Blazor.Dashboard.View.UserList
 
                 Email = "ava.gregoraci@devias.io",
 
-                Avatar = "/images/avatars/avatar_7.png",
+                Avatar = "./images/avatars/avatar_7.png",
 
                 Phone = "415-907-2647"
             };
@@ -212,7 +212,7 @@ namespace Skclusive.Blazor.Dashboard.View.UserList
 
                 Phone = "702-661-1654",
 
-                Avatar = "/images/avatars/avatar_8.png"
+                Avatar = "./images/avatars/avatar_8.png"
             };
 
             yield return new User
@@ -236,7 +236,7 @@ namespace Skclusive.Blazor.Dashboard.View.UserList
 
                 Email = "kwak.seong.min@devias.io",
 
-                Avatar = "/images/avatars/avatar_9.png",
+                Avatar = "./images/avatars/avatar_9.png",
 
                 Phone = "313-812-8947"
             };
@@ -264,7 +264,7 @@ namespace Skclusive.Blazor.Dashboard.View.UserList
 
                 Phone = "801-301-7894",
 
-                Avatar = "/images/avatars/avatar_10.png"
+                Avatar = "./images/avatars/avatar_10.png"
             };
         }
     }

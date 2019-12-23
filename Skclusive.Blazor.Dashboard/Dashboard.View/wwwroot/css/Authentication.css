@@ -50,7 +50,7 @@
   align-items: center;
   background-size: cover;
   justify-content: center;
-  background-image: url(/images/auth.jpg);
+  background-image: url(./images/auth.jpg);
   background-repeat: no-repeat;
   background-position: center;
 }

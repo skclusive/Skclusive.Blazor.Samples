@@ -15,7 +15,7 @@ namespace Skclusive.Blazor.Dashboard.View.ProductList
 
                 Description = "Dropbox is a file hosting service that offers cloud storage, file synchronization, a personal cloud.",
 
-                ImageUrl = "/images/products/product_1.png",
+                ImageUrl = "./images/products/product_1.png",
 
                 TotalDownloads = 594,
 
@@ -32,7 +32,7 @@ namespace Skclusive.Blazor.Dashboard.View.ProductList
 
                 Description = "Medium is an online publishing platform developed by Evan Williams, and launched in August 2012.",
 
-                ImageUrl = "/images/products/product_2.png",
+                ImageUrl = "./images/products/product_2.png",
 
                 TotalDownloads = 625,
 
@@ -49,7 +49,7 @@ namespace Skclusive.Blazor.Dashboard.View.ProductList
 
                 Description = "Slack is a cloud-based set of team collaboration tools and services, founded by Stewart Butterfield.",
 
-                ImageUrl = "/images/products/product_3.png",
+                ImageUrl = "./images/products/product_3.png",
 
                 TotalDownloads = 857,
 
@@ -66,7 +66,7 @@ namespace Skclusive.Blazor.Dashboard.View.ProductList
 
                 Description = "Lyft is an on-demand transportation company based in San Francisco, California.",
 
-                ImageUrl = "/images/products/product_4.png",
+                ImageUrl = "./images/products/product_4.png",
 
                 TotalDownloads = 406,
 
@@ -83,7 +83,7 @@ namespace Skclusive.Blazor.Dashboard.View.ProductList
 
                 Description = "GitHub is a web-based hosting service for version control of code using Git.",
 
-                ImageUrl = "/images/products/product_5.png",
+                ImageUrl = "./images/products/product_5.png",
 
                 TotalDownloads = 835,
 
@@ -100,7 +100,7 @@ namespace Skclusive.Blazor.Dashboard.View.ProductList
 
                 Description = "Squarespace provides software as a service for website building and hosting. Headquartered in NYC.",
 
-                ImageUrl = "/images/products/product_6.png",
+                ImageUrl = "./images/products/product_6.png",
 
                 TotalDownloads = 835,
 
