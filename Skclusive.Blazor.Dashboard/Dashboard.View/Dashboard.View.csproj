@@ -9,7 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="ChartJs.Blazor" Version="1.0.2" />
-    <PackageReference Include="Skclusive.Material.Component" Version="1.0.1-preview1" />
+    <PackageReference Include="Skclusive.Material.Component" Version="1.0.2-preview1" />
   </ItemGroup>
 
   <!-- <ItemGroup>
