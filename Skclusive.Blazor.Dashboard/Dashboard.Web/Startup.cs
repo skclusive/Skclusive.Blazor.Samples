@@ -8,7 +8,7 @@ namespace Skclusive.Blazor.Dashboard.Web
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDashboardView();
+            services.AddDashboardView(new ViewConfigBuilder().WithResponsive(true).Build());
         }
 
         public void Configure(IComponentsApplicationBuilder app)

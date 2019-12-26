@@ -1,6 +1,7 @@
 ﻿@inherits LayoutComponentBase
 @implements IDisposable
 @inject MediaQueryMatcher MediaQueryMatcher
+@inject IViewConfig ViewConfig
 
 <div class="@RootClass">
     <MainTopbar OnSidebarOpen="@HandleSidebarOpen" />
@@ -47,7 +48,7 @@
     {
         MediaQueryMatcher.OnChange += OnMediaQueryChanged;
 
-        if (PlatformInfo.IsWebAssembly)
+        if (ViewConfig.Responsive)
         {
             TimeoutDisposal = ExecutionPlan.Delay(500, () => {
                 _ = MediaQueryMatcher.RegisterAsync("(min-width:1280px)");

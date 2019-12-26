@@ -8,7 +8,8 @@ namespace Skclusive.Blazor.Dashboard.Window
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDashboardView();
+            // Responsive is disabled due to bug in WebWindow javascript calling dotnet fails when delayed
+            services.AddDashboardView(new ViewConfigBuilder().WithResponsive(false).Build());
         }
 
         public void Configure(IComponentsApplicationBuilder app)

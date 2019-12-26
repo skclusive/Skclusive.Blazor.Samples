@@ -6,9 +6,11 @@ namespace Skclusive.Blazor.Dashboard.View
 {
     public static class DashboardViewExtension
     {
-        public static void AddDashboardView(this IServiceCollection services)
+        public static void AddDashboardView(this IServiceCollection services, IViewConfig config)
         {
             services.AddMaterialUI();
+
+            services.AddSingleton<IViewConfig>(config);
         }
     }
 }
