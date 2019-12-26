@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dashboard.View", "Dashboard.View\Dashboard.View.csproj", "{B5E2D6F3-D90C-4E41-98B1-CE5DD4AC93FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dashboard.App.View", "Dashboard.App.View\Dashboard.App.View.csproj", "{B5E2D6F3-D90C-4E41-98B1-CE5DD4AC93FB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dashboard.Web", "Dashboard.Web\Dashboard.Web.csproj", "{1EBFF17A-E183-483C-8F19-2BB45C2C14BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dashboard.Browser.Host", "Dashboard.Browser.Host\Dashboard.Browser.Host.csproj", "{1EBFF17A-E183-483C-8F19-2BB45C2C14BE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dashboard.Window", "Dashboard.Window\Dashboard.Window.csproj", "{8A700237-15F9-4B30-9356-3E8AE24B8133}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dashboard.Native.Host", "Dashboard.Native.Host\Dashboard.Native.Host.csproj", "{8A700237-15F9-4B30-9356-3E8AE24B8133}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dashboard.Server", "Dashboard.Server\Dashboard.Server.csproj", "{24CB556B-2689-4743-ACD2-908CAD6DDDCF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dashboard.Server.Host", "Dashboard.Server.Host\Dashboard.Server.Host.csproj", "{24CB556B-2689-4743-ACD2-908CAD6DDDCF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
