@@ -1,5 +1,5 @@
 ﻿@page "/"
-@namespace Skclusive.Blazor.Dashboard.Server.Host.Pages
+@namespace Skclusive.Blazor.Dashboard.ServerPrerendered.Host.Pages
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
     Layout = null;
@@ -10,12 +10,12 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard.Server</title>
+    <title>Dashboard.ServerPrerendered</title>
     <base href="~/" />
 </head>
 <body>
     <app>
-        <component type="typeof(Skclusive.Blazor.Dashboard.App.View.DashboardView)" render-mode="Server" />
+        <component type="typeof(Skclusive.Blazor.Dashboard.App.View.DashboardView)" render-mode="ServerPrerendered" />
     </app>
 
   <!--  TODO: need to investigate why visible on load

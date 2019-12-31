@@ -13,6 +13,6 @@
   </ItemGroup>
 
   <!-- <ItemGroup>
-    <ProjectReference Include="..\..\..\Skclusive.Material.Component\Material\src\Material.csproj" Version="1.0.1-preview1" />
+    <ProjectReference Include="..\..\..\Skclusive.Material.Component\Material\src\Material.csproj" Version="1.0.4-preview1" />
   </ItemGroup> -->
 </Project>
