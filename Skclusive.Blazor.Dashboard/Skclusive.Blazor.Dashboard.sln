@@ -11,6 +11,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dashboard.Native.Host", "Da
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dashboard.Server.Host", "Dashboard.Server.Host\Dashboard.Server.Host.csproj", "{24CB556B-2689-4743-ACD2-908CAD6DDDCF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dashboard.BrowserPrerendered.Host", "Dashboard.BrowserPrerendered.Host\Dashboard.BrowserPrerendered.Host.csproj", "{9BFD2F09-897D-4C23-90FE-BD68FF3D8D23}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dashboard.ServerPrerendered.Host", "Dashboard.ServerPrerendered.Host\Dashboard.ServerPrerendered.Host.csproj", "{F879C2BE-FC75-44E3-8F43-7C1876B9C773}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{24CB556B-2689-4743-ACD2-908CAD6DDDCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{24CB556B-2689-4743-ACD2-908CAD6DDDCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{24CB556B-2689-4743-ACD2-908CAD6DDDCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BFD2F09-897D-4C23-90FE-BD68FF3D8D23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BFD2F09-897D-4C23-90FE-BD68FF3D8D23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BFD2F09-897D-4C23-90FE-BD68FF3D8D23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BFD2F09-897D-4C23-90FE-BD68FF3D8D23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F879C2BE-FC75-44E3-8F43-7C1876B9C773}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F879C2BE-FC75-44E3-8F43-7C1876B9C773}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F879C2BE-FC75-44E3-8F43-7C1876B9C773}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F879C2BE-FC75-44E3-8F43-7C1876B9C773}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
