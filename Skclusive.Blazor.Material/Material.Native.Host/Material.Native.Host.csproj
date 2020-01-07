@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <!-- <PackageReference Include="Microsoft.Extensions.Http" Version="3.1.0" /> -->
     <PackageReference Include="WebWindow.Blazor" Version="0.1.0-20191120.6" />
   </ItemGroup>
 
