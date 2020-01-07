@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Components.Server;
 using Skclusive.Blazor.Dashboard.App.View;
+using Skclusive.Blazor.Layout;
 
 namespace Skclusive.Blazor.Dashboard.BrowserPrerendered.Host
 {
@@ -44,7 +45,7 @@ namespace Skclusive.Blazor.Dashboard.BrowserPrerendered.Host
                 };
             });
 
-            services.AddDashboardView(new DashboardViewConfigBuilder().WithResponsive(true).Build());
+            services.AddDashboardView(new LayoutConfigBuilder().WithResponsive(true).Build());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

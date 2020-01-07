@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
 using Skclusive.Blazor.Dashboard.App.View;
+using Skclusive.Blazor.Layout;
 
 namespace Skclusive.Blazor.Dashboard.Server.Host
 {
@@ -30,7 +31,7 @@ namespace Skclusive.Blazor.Dashboard.Server.Host
             services.AddRazorPages();
             services.AddServerSideBlazor();
 
-            services.AddDashboardView(new DashboardViewConfigBuilder().WithResponsive(true).Build());
+            services.AddDashboardView(new LayoutConfigBuilder().WithResponsive(true).Build());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

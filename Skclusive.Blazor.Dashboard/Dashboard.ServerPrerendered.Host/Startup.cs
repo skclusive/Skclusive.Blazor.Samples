@@ -30,7 +30,7 @@ namespace Skclusive.Blazor.Dashboard.ServerPrerendered.Host
             services.AddRazorPages();
             services.AddServerSideBlazor();
 
-            services.AddDashboardView(new DashboardViewConfigBuilder().WithResponsive(true).Build());
+            services.AddDashboardView(new LayoutConfigBuilder().WithResponsive(true).Build());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,0 +1,48 @@
+﻿@inherits LayoutComponentBase
+
+<MainLayout>
+    <BodyContent>
+        @Body
+    </BodyContent>
+    <ProfileContent
+        Context="profile">
+        <Profile
+            Class="@profile.Item1"
+            Style="@profile.Item2"
+            Name="Shen Zhi"
+            Avatar="./images/avatars/avatar_11.png"
+            Bio="Brain Director">
+        </Profile>
+    </ProfileContent>
+     <NavigationContent
+        Context="navigation">
+        <Navigation
+            Class="@navigation.Item1"
+            Style="@navigation.Item2"
+            Items="@Items">
+        </Navigation>
+    </NavigationContent>
+    <FooterContent>
+        <Footer
+            DomainName="Skclusive Io"
+            DomainUrl="https://skclusive.io/"
+            Copyright="2020">
+            Created with love for the environment. By designers and developers who
+            love to work together in offices!
+        </Footer>
+    </FooterContent>
+</MainLayout>
+
+@code
+{
+     private List<NavigationItem> Items = new List<NavigationItem>
+    {
+        new NavigationItem
+        {
+            Title = "Home",
+            Path = "home",
+            Icon = @<DashboardIcon />,
+            Prefix = false
+        }
+    };
+}
