@@ -12,7 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Components.Server;
 using Skclusive.Blazor.Dashboard.App.View;
-using Skclusive.Blazor.Layout;
+using Skclusive.Material.Layout;
 
 namespace Skclusive.Blazor.Dashboard.BrowserPrerendered.Host
 {

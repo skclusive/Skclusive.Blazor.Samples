@@ -13,8 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Skclusive.Mobx.Component" Version="1.0.6" />
-    <PackageReference Include="Skclusive.Script.DomHelpers" Version="1.0.5" />
+    <PackageReference Include="Skclusive.Mobx.Component" Version="1.2.0" />
+    <PackageReference Include="Skclusive.Script.DomHelpers" Version="1.2.0" />
   </ItemGroup>
 
   <ItemGroup>

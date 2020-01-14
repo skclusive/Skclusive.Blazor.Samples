@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Components.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Skclusive.Blazor.Dashboard.App.View;
+using Skclusive.Material.Layout;
 
 namespace Skclusive.Blazor.Dashboard.Native.Host
 {
