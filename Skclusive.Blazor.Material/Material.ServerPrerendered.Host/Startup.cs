@@ -13,6 +13,7 @@ using Microsoft.Extensions.Hosting;
 
 using Skclusive.Blazor.Material.App.View;
 using Skclusive.Material.Layout;
+using Skclusive.Blazor.Material.App.View.Data;
 
 namespace Skclusive.Blazor.Material.ServerPrerendered.Host
 {
@@ -32,8 +33,7 @@ namespace Skclusive.Blazor.Material.ServerPrerendered.Host
             services.AddRazorPages();
             services.AddServerSideBlazor();
 
-            services.AddSingleton<HttpClient>();
-
+            services.AddTransient<IWeatherForecastService, ServerWeatherForecastService>();
             services.AddLayout(new LayoutConfigBuilder().WithResponsive(true).Build());
         }
 

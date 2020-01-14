@@ -13,6 +13,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Components.Server;
 using Skclusive.Blazor.Material.App.View;
 using Skclusive.Material.Layout;
+using Skclusive.Blazor.Material.App.View.Data;
 
 namespace Skclusive.Blazor.Material.BrowserPrerendered.Host
 {
@@ -45,6 +46,7 @@ namespace Skclusive.Blazor.Material.BrowserPrerendered.Host
                 };
             });
 
+            services.AddTransient<IWeatherForecastService, ServerWeatherForecastService>();
             services.AddLayout(new LayoutConfigBuilder().WithResponsive(true).Build());
         }
 

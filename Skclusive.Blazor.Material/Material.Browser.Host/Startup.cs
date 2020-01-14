@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Components.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Skclusive.Blazor.Material.App.View;
 using Skclusive.Material.Layout;
+using Skclusive.Blazor.Material.App.View.Data;
 
 namespace Skclusive.Blazor.Material.Browser.Host
 {
@@ -9,6 +10,7 @@ namespace Skclusive.Blazor.Material.Browser.Host
     {
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<IWeatherForecastService, RemoteWeatherForecastService>();
             services.AddLayout(new LayoutConfigBuilder().WithResponsive(true).Build());
         }
 
