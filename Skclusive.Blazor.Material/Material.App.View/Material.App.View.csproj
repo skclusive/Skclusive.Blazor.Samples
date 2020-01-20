@@ -9,10 +9,10 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Blazor.HttpClient" Version="3.1.0-preview4.19579.2" />
-    <PackageReference Include="Skclusive.Material.Layout" Version="1.0.5" />
+    <PackageReference Include="Skclusive.Material.Layout" Version="1.1.0" />
   </ItemGroup>
 
   <!-- <ItemGroup>
-    <ProjectReference Include="..\..\..\Skclusive.Material.Layout\src\Skclusive.Material.Layout.csproj" Version="1.0.5-preview1" />
+    <ProjectReference Include="..\..\..\Skclusive.Material.Layout\src\Skclusive.Material.Layout.csproj" Version="1.1.0-preview1" />
   </ItemGroup> -->
 </Project>
