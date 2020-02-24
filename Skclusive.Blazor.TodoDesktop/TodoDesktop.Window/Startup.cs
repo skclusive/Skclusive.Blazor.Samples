@@ -1,7 +1,7 @@
-using Microsoft.AspNetCore.Components.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Skclusive.Script.DomHelpers;
 using Skclusive.Blazor.TodoDesktop.Extension;
+using WebWindows.Blazor;
 
 namespace Skclusive.Blazor.TodoDesktop
 {
@@ -14,7 +14,7 @@ namespace Skclusive.Blazor.TodoDesktop
             services.AddDomHelpers();
         }
 
-        public void Configure(IComponentsApplicationBuilder app)
+        public void Configure(DesktopApplicationBuilder app)
         {
             app.AddComponent<App>("app");
         }

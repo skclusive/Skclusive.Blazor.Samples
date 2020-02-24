@@ -59,7 +59,7 @@ namespace Skclusive.Blazor.Dashboard.BrowserPrerendered.Host
                 app.UseBlazorDebugging();
             }
 
-            app.UseClientSideBlazorFiles<Skclusive.Blazor.Dashboard.Browser.Host.Startup>();
+            app.UseClientSideBlazorFiles<Skclusive.Blazor.Dashboard.Browser.Host.Program>();
 
             app.UseStaticFiles();
 

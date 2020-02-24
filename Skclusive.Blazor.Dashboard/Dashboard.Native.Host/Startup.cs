@@ -1,7 +1,7 @@
-using Microsoft.AspNetCore.Components.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Skclusive.Blazor.Dashboard.App.View;
 using Skclusive.Material.Layout;
+using WebWindows.Blazor;
 
 namespace Skclusive.Blazor.Dashboard.Native.Host
 {
@@ -13,7 +13,7 @@ namespace Skclusive.Blazor.Dashboard.Native.Host
             services.AddDashboardView(new LayoutConfigBuilder().WithResponsive(false).Build());
         }
 
-        public void Configure(IComponentsApplicationBuilder app)
+        public void Configure(DesktopApplicationBuilder app)
         {
             app.AddComponent<DashboardView>("app");
         }

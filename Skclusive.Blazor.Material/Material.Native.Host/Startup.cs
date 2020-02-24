@@ -1,8 +1,8 @@
-using Microsoft.AspNetCore.Components.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Skclusive.Blazor.Material.App.View;
 using Skclusive.Material.Layout;
 using Skclusive.Blazor.Material.App.View.Data;
+using WebWindows.Blazor;
 
 namespace Skclusive.Blazor.Material.Native.Host
 {
@@ -17,7 +17,7 @@ namespace Skclusive.Blazor.Material.Native.Host
             services.AddLayout(new LayoutConfigBuilder().WithResponsive(false).Build());
         }
 
-        public void Configure(IComponentsApplicationBuilder app)
+        public void Configure(DesktopApplicationBuilder app)
         {
             app.AddComponent<AppView>("app");
         }

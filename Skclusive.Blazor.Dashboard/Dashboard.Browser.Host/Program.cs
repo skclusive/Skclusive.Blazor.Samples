@@ -1,16 +1,25 @@
-﻿using Microsoft.AspNetCore.Blazor.Hosting;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using System.Text;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Blazor.Hosting;
+using Skclusive.Blazor.Dashboard.App.View;
+using Skclusive.Material.Layout;
 
 namespace Skclusive.Blazor.Dashboard.Browser.Host
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
-        }
+            var builder = WebAssemblyHostBuilder.CreateDefault(args);
 
-        public static IWebAssemblyHostBuilder CreateHostBuilder(string[] args) =>
-            BlazorWebAssemblyHost.CreateDefaultBuilder()
-                .UseBlazorStartup<Startup>();
+            builder.RootComponents.Add<DashboardView>("app");
+
+            builder.Services.AddDashboardView(new LayoutConfigBuilder().WithResponsive(true).Build());
+
+            await builder.Build().RunAsync();
+        }
     }
 }

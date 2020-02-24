@@ -1,16 +1,26 @@
-﻿using Microsoft.AspNetCore.Blazor.Hosting;
+﻿using System.Threading.Tasks;
+using Microsoft.AspNetCore.Blazor.Hosting;
+using Skclusive.Script.DevTools;
+using Skclusive.Script.DomHelpers;
+using Skclusive.Blazor.TodoApp.Extension;
 
 namespace Skclusive.Blazor.TodoApp
 {
     public class Program
     {
-        public static void Main(string[] args)
+		public static async Task Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
-        }
+            var builder = WebAssemblyHostBuilder.CreateDefault(args);
 
-        public static IWebAssemblyHostBuilder CreateHostBuilder(string[] args) =>
-            BlazorWebAssemblyHost.CreateDefaultBuilder()
-                .UseBlazorStartup<Startup>();
+            builder.RootComponents.Add<App>("app");
+
+            builder.Services.AddTodoApp();
+
+            builder.Services.AddDevTools();
+
+            builder.Services.AddDomHelpers();
+
+            await builder.Build().RunAsync();
+        }
     }
 }
