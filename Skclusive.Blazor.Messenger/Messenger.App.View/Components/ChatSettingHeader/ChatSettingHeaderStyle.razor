@@ -1,0 +1,30 @@
+@namespace Skclusive.Blazor.Messenger.App.View
+@inherits StyleComponentBase
+
+<Styled
+    Name="ChatSettingHeader">
+
+    .ChatSettingHeader-Container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px;
+    }
+
+    .ChatSettingHeader-Container:hover {
+        background-color: rgba(0,0,0,0.08);
+    }
+
+    .ChatSettingHeader-Text {
+        color: rgba(0,0,0,0.34);
+        font-size: 13px;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .ChatSettingHeader-Text + * {
+        color: rgba(0,0,0,0.34);
+        font-size: 28px;
+    }
+
+</Styled>

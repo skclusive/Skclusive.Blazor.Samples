@@ -1,0 +1,50 @@
+@namespace Skclusive.Blazor.Messenger.App.View
+
+<div
+    class="ChatView-Root">
+    <AppBar
+        Color="@Color.Default"
+        Elevation="0"
+        Position="@AppBarPosition.Relative"
+        Class="ChatView-Right ChatView-AppBar">
+        <Toolbar
+            DisableGutters
+            Class="ChatView-Toolbar">
+            <ConversationHead />
+        </Toolbar>
+    </AppBar>
+    <Drawer
+        Open
+        Anchor="@Anchor.Left"
+        PaperClass="ChatView-Drawer-Paper"
+        Variant="@DrawerVariant.Permanent">
+        <ChatsHeader />
+        <div
+            class="ChatView-Search-Container">
+            <ChatSearch />
+        </div>
+        <ChatList
+            ChatItems="@ChatSamples.Chats" />
+    </Drawer>
+    <div
+        class="ChatView-Right ChatView-Content-Container">
+        <main
+            class="ChatView-Content">
+            <ChatSession />
+        </main>
+        <div
+            class="ChatView-Sidebar-Container">
+            <div
+                class="ChatView-Sidebar">
+                <ChatSettings />
+            </div>
+        </div>
+    </div>
+    <div
+        class="ChatView-Right ChatView-Footer-Container">
+        <footer
+            class="ChatView-Footer">
+            <ChatBar />
+        </footer>
+    </div>
+</div>

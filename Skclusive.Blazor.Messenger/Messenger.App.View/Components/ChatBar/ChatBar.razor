@@ -1,0 +1,32 @@
+@namespace Skclusive.Blazor.Messenger.App.View
+
+<AddCircleIcon
+    Class="ChatBar-Icon" />
+@if (!Concise)
+{
+    <GifIcon
+        Class="ChatBar-Icon" />
+    <NoteIcon
+        Class="ChatBar-Icon" />
+    <ImageIcon
+        Class="ChatBar-Icon" />
+}
+<InputBase
+    Class="ChatBar-Input"
+    Placeholder="Type a message...">
+    <EndAdornment>
+        <InputAdornment
+            Position="@InputPosition.End">
+            <TagFacesIcon
+                Class="ChatBar-Icon" />
+        </InputAdornment>
+    </EndAdornment>
+</InputBase>
+<ThumbUpIcon
+    Class="ChatBar-Icon" />
+
+@code
+{
+    [Parameter]
+    public bool Concise { set; get; }
+}

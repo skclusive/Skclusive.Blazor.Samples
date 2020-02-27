@@ -17,7 +17,7 @@ namespace Skclusive.Blazor.Dashboard.Browser.Host
 
             builder.RootComponents.Add<DashboardView>("app");
 
-            builder.Services.AddDashboardView(new LayoutConfigBuilder().WithResponsive(true).Build());
+            builder.Services.TryAddDashboardViewServices(new LayoutConfigBuilder().WithResponsive(true).Build());
 
             await builder.Build().RunAsync();
         }

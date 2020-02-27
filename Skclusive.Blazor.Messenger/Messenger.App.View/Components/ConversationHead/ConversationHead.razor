@@ -1,0 +1,34 @@
+@namespace Skclusive.Blazor.Messenger.App.View
+
+<ListItem
+    ContainerComponent="div"
+    Class="ConversationHead-Content"
+    ContainerClass="ConversationHead-Container">
+    <ChildContent>
+        <ListItemAvatar>
+            <Avatar
+                Src="https://i.pravatar.cc/300?img=13" />
+        </ListItemAvatar>
+        <ListItemText
+            Primary="Imaad Casey"
+            Secondary="active 17m ago"
+            PrimaryClass="ConversationHead-Primary"
+            SecondaryClass="ConversationHead-Secondary" />
+    </ChildContent>
+    <SecondaryAction>
+        <ListItemSecondaryAction>
+            <IconButton
+                Class="ConversationHead-Icon">
+                <PhoneIcon />
+            </IconButton>
+            <IconButton
+                Class="ConversationHead-Icon">
+                <VideocamIcon />
+            </IconButton>
+            <IconButton
+                Class="ConversationHead-Icon">
+                <InfoIcon />
+            </IconButton>
+        </ListItemSecondaryAction>
+    </SecondaryAction>
+</ListItem>

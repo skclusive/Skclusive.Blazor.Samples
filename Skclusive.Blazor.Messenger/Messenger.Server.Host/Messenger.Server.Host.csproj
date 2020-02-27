@@ -1,0 +1,13 @@
+
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AssemblyName>Skclusive.Blazor.Messenger.Server.Host</AssemblyName>
+    <RootNamespace>Skclusive.Blazor.Messenger.Server.Host</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Messenger.App.View\Messenger.App.View.csproj" />
+  </ItemGroup>
+</Project>

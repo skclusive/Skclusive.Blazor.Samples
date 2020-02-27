@@ -1,0 +1,23 @@
+@namespace Skclusive.Blazor.Messenger.App.View
+@inherits MaterialComponent
+
+<div
+    class="ChatSettingHeader-Container">
+    <Typography
+        Class="ChatSettingHeader-Text">
+        @ChildContent
+    </Typography>
+    @if (Opened)
+    {
+        <KeyboardArrowDownIcon />
+    } else
+    {
+        <KeyboardArrowLeftIcon />
+    }
+</div>
+
+@code
+{
+    [Parameter]
+    public bool Opened { set; get; }
+}

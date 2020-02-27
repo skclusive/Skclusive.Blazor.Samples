@@ -1,0 +1,18 @@
+
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AssemblyName>Skclusive.Blazor.Messenger.BrowserPrerendered.Host</AssemblyName>
+    <RootNamespace>Skclusive.Blazor.Messenger.BrowserPrerendered.Host</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Blazor.Server" Version="3.2.0-preview1.20073.1" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Messenger.Browser.Host\Messenger.Browser.Host.csproj" />
+  </ItemGroup>
+</Project>

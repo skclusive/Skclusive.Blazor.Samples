@@ -1,0 +1,49 @@
+@namespace Skclusive.Blazor.Messenger.App.View
+
+<div
+    class="ChatListItem-Root">
+    <ListItem
+        Class="@ContainerClass">
+        <Avatar
+            Src="@ChatItem.Avatar"
+            Class="ChatListItem-Avatar" />
+        @if (!Concise)
+        {
+            <ListItemText
+                Primary="@ChatItem.Name"
+                secondary="@ChatItem.Info"
+                PrimaryClass="@PrimaryClass"
+                SecondaryClass="@SecondaryClass" />
+            <div style="position: relative;">
+                <MoreHorizIcon
+                    Class="ChatListItem-More" />
+                @if (ChatItem.Bold)
+                {
+                    <div
+                        Class="ChatListItem-Float ChatListItem-Dot" />
+                }
+                @if (ChatItem.Responded)
+                {
+                    <Avatar
+                        Src="@ChatItem.Avatar"
+                        Class="ChatListItem-Float ChatListItem-Responded" />
+                }
+            </div>
+        }
+    </ListItem>
+</div>
+
+@code
+{
+    protected string ContainerClass => "ChatListItem-Container" + (ChatItem.Active ? " ChatListItem-Container-Active" : "");
+
+    protected string PrimaryClass => "ChatListItem-Primary" + (ChatItem.Bold ? " ChatListItem-Primary-Bold" : "");
+
+    protected string SecondaryClass => "ChatListItem-Secondary" + (ChatItem.Bold ? " ChatListItem-Secondary-Bold" : "");
+
+    [Parameter]
+    public bool Concise { set; get; }
+
+    [Parameter]
+    public ChatItem ChatItem { set; get; }
+}

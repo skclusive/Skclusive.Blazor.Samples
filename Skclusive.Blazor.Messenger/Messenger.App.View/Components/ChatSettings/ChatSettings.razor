@@ -1,0 +1,66 @@
+@namespace Skclusive.Blazor.Messenger.App.View
+@inherits MaterialComponentBase
+
+<div>
+    <div
+        class="ChatSettings-Top">
+        <Avatar
+            Class="ChatSettings-Avatar"
+            src="https://i.pravatar.cc/300?img=13" />
+        <Typography
+            Class="ChatSettings-Name"
+            Variant="@TypographyVariant.H1"
+            Align="@Align.Center">
+            Imaad Casey
+        </Typography>
+    </div>
+    <Divider />
+    <ChatSettingHeader
+        Opened>
+        Options
+    </ChatSettingHeader>
+    <div class="ChatSettings-Bottom">
+        <ChatSetting
+            Label="Search in Conversation">
+            <IconContent>
+                <SearchIcon
+                    Class="@context" />
+            </IconContent>
+        </ChatSetting>
+         <ChatSetting
+            Label="Edit Nicknames">
+            <IconContent>
+                <EditIcon
+                    Class="@context" />
+            </IconContent>
+        </ChatSetting>
+         <ChatSetting
+            Blue
+            Label="Change Theme">
+            <IconContent>
+                <FormatPaintIcon
+                    Class="@context" />
+            </IconContent>
+        </ChatSetting>
+         <ChatSetting
+            Blue
+            Label="Change Emoji">
+            <IconContent>
+                <ThumbUpIcon
+                    Class="@context" />
+            </IconContent>
+        </ChatSetting>
+    </div>
+    <Divider />
+    <ChatSettingHeader>
+        Privacy & Support
+    </ChatSettingHeader>
+    <Divider />
+    <ChatSettingHeader>
+        Shared files
+    </ChatSettingHeader>
+    <Divider />
+    <ChatSettingHeader>
+        Shared Photos
+    </ChatSettingHeader>
+</div>

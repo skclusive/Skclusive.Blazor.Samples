@@ -1,0 +1,100 @@
+@namespace Skclusive.Blazor.Messenger.App.View
+
+<Grid
+    Container
+    Spacing="@Spacing.Two"
+    Justify="@(Side == ChatSide.Right ? Justify.FlexEnd : Justify.FlexStart)">
+    @if (Side == ChatSide.Left)
+    {
+        <Grid
+            Item>
+            <Avatar
+                Src="@Avatar"
+                Class="ChatBlock-Avatar" />
+        </Grid>
+    }
+    <Grid
+        Item
+        ExtraSmall="@GridSize.True">
+        @foreach (var (message, index, length) in IndexedMessages)
+        {
+            <div
+                @key="message"
+                class="@RowClass">
+                <div
+                    class="@BoxClass">
+                    @if (message.Type == ChatMessageType.Text)
+                    {
+                        <Typography
+                            Align="@Align.Left"
+                            Class="@($"{MessageClass} {GetPositionClass(index, length)}")">
+                            @message.Text
+                        </Typography>
+                    } else if (message.Type == ChatMessageType.Image)
+                    {
+                        <img
+                            Alt="@message.Alt"
+                            Src="@message.Src"
+                            Class="ChatBlock-Image" />
+                    }
+                    <IconButton
+                        Class="ChatBlock-Icon">
+                        <TagFacesIcon />
+                    </IconButton>
+                    <IconButton
+                        Class="ChatBlock-Icon">
+                        <ReplyIcon />
+                    </IconButton>
+                    <IconButton
+                        Class="ChatBlock-Icon">
+                        <MoreHorizIcon />
+                    </IconButton>
+                </div>
+            </div>
+        }
+    </Grid>
+</Grid>
+@if (!string.IsNullOrEmpty(Time))
+{
+    <Typography
+        Class="ChatBlock-Time">
+        @Time
+    </Typography>
+}
+
+@code
+{
+    protected string RowClass => $"ChatBlock-Row ChatBlock-Row-{Side}";
+
+    protected string BoxClass => $"ChatBlock-Box ChatBlock-Box-{Side}";
+
+    protected string MessageClass => $"ChatBlock-Message ChatBlock-Message-{Side}";
+
+    protected string GetPositionClass(int index, int length)
+    {
+        if (index == 0)
+        {
+            return $"ChatBlock-First-{Side}";
+        }
+        else if (index == length -1)
+        {
+            return $"ChatBlock-Last-{Side}";
+        }
+
+        return string.Empty;
+    }
+
+    [Parameter]
+    public string Avatar { set; get; }
+
+    [Parameter]
+    public List<ChatMessage> Messages { set; get; }
+
+    [Parameter]
+    public ChatSide Side { set; get; }
+
+    [Parameter]
+    public string Time { set; get; }
+
+    protected IEnumerable<(ChatMessage message, int index, int length)> IndexedMessages => Messages.Select((message, index) => (message, index, Messages.Count));
+}

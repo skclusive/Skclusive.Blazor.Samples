@@ -1,0 +1,25 @@
+@namespace Skclusive.Blazor.Messenger.App.View
+@inherits MaterialComponentBase
+
+<div
+    class="ChatSetting-Container">
+    <Typography
+        Variant="@TypographyVariant.Body2">
+        @Label
+    </Typography>
+    @IconContent.Invoke(IconClass)
+</div>
+
+@code
+{
+    protected string IconClass => "ChatSetting-Icon" + (Blue ? " ChatSetting-Blue" : "");
+
+    [Parameter]
+    public string Label { set; get; }
+
+    [Parameter]
+    public bool Blue { set; get; }
+
+    [Parameter]
+    public RenderFragment<string> IconContent { set; get; }
+}
