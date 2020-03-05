@@ -7,14 +7,21 @@
     .ChatView-Root {
         height: 100vh;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         overflow: hidden;
         background-color: #ffffff;
     }
 
-    .ChatView-Right {
-        margin-left: 25%;
-        width: calc(75%);
+    .ChatView-Main {
+        display: flex;
+        flex-grow: 1;
+        flex-direction: column;
+    }
+
+    .ChatView-Middle-Container {
+        display: flex;
+        flex-grow: 1;
+        flex-direction: column;
     }
 
     .ChatView-AppBar {
@@ -24,10 +31,26 @@
     }
 
     .ChatView-Drawer-Paper {
-        width: 25%;
+        position: relative;
         transition: all 195ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
         box-sizing: content-box;
         border-color: rgba(0, 0, 0, 0.04);
+    }
+
+    @media (min-width:960px) {
+        .ChatView-Drawer-Paper {
+            width: 340px;
+        }
+    }
+
+    .ChatView-Edit-Container {
+        margin-top: 8px;
+        text-align: center;
+        margin-bottom: 8px;
+    }
+
+    .ChatView-Edit-Icon {
+        background-color: rgba(0,0,0,0.04);
     }
 
     .ChatView-Search-Container {
@@ -64,16 +87,8 @@
         border-left: 1px solid rgba(0, 0, 0, 0.08);
     }
 
-    .ChatView-Footer-Container {
-        display: flex;
-        flex-flow: row nowrap;
-        transition: all 195ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-    }
-
     .ChatView-Footer {
-        margin-left: 25%;
         width: auto;
-        margin-right: 33%;
         border: none;
         height: 52px;
         display: flex;

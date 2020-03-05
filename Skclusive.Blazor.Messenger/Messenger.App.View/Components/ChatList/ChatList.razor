@@ -3,16 +3,12 @@
 @foreach(var item in ChatItems)
 {
     <ChatListItem
-        @key="@item.Name"
-        ChatItem="@item"
-        Concise="@Concise" />
+        @key="@item"
+        ChatItem="@item" />
 }
 
 @code
 {
-    [Parameter]
-    public bool Concise { set; get; }
-
     [Parameter]
     public IEnumerable<ChatItem> ChatItems { set; get; }
 }

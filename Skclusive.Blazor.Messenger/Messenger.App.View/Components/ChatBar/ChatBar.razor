@@ -2,15 +2,16 @@
 
 <AddCircleIcon
     Class="ChatBar-Icon" />
-@if (!Concise)
-{
+<Hidden
+    SmallDown
+    Context="HiddenContext">
     <GifIcon
-        Class="ChatBar-Icon" />
+        Class="@($"ChatBar-Icon {HiddenContext.Class}")" />
     <NoteIcon
-        Class="ChatBar-Icon" />
+        Class="@($"ChatBar-Icon {HiddenContext.Class}")" />
     <ImageIcon
-        Class="ChatBar-Icon" />
-}
+        Class="@($"ChatBar-Icon {HiddenContext.Class}")" />
+</Hidden>
 <InputBase
     Class="ChatBar-Input"
     Placeholder="Type a message...">
@@ -24,9 +25,3 @@
 </InputBase>
 <ThumbUpIcon
     Class="ChatBar-Icon" />
-
-@code
-{
-    [Parameter]
-    public bool Concise { set; get; }
-}

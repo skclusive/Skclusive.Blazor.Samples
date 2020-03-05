@@ -7,14 +7,18 @@
         <Avatar
             Src="@ChatItem.Avatar"
             Class="ChatListItem-Avatar" />
-        @if (!Concise)
-        {
+        <Hidden
+            SmallDown
+            Context="HiddenContext">
             <ListItemText
+                Class="@HiddenContext.Class"
                 Primary="@ChatItem.Name"
                 secondary="@ChatItem.Info"
                 PrimaryClass="@PrimaryClass"
                 SecondaryClass="@SecondaryClass" />
-            <div style="position: relative;">
+            <div
+                class="@HiddenContext.Class"
+                style="position: relative;">
                 <MoreHorizIcon
                     Class="ChatListItem-More" />
                 @if (ChatItem.Bold)
@@ -29,7 +33,7 @@
                         Class="ChatListItem-Float ChatListItem-Responded" />
                 }
             </div>
-        }
+        </Hidden>
     </ListItem>
 </div>
 
@@ -40,9 +44,6 @@
     protected string PrimaryClass => "ChatListItem-Primary" + (ChatItem.Bold ? " ChatListItem-Primary-Bold" : "");
 
     protected string SecondaryClass => "ChatListItem-Secondary" + (ChatItem.Bold ? " ChatListItem-Secondary-Bold" : "");
-
-    [Parameter]
-    public bool Concise { set; get; }
 
     [Parameter]
     public ChatItem ChatItem { set; get; }
