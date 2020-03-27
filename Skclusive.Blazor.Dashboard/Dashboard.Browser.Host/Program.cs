@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Text;
+using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.AspNetCore.Blazor.Hosting;
 using Skclusive.Blazor.Dashboard.App.View;
 using Skclusive.Material.Layout;
 
@@ -16,6 +16,8 @@ namespace Skclusive.Blazor.Dashboard.Browser.Host
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
 
             builder.RootComponents.Add<DashboardView>("app");
+
+            builder.Services.AddBaseAddressHttpClient();
 
             builder.Services.TryAddDashboardViewServices(new LayoutConfigBuilder().WithResponsive(true).Build());
 

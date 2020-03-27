@@ -1,11 +1,14 @@
 @namespace Skclusive.Blazor.Messenger.App.View
 
-@foreach(var item in ChatItems)
-{
-    <ChatListItem
-        @key="@item"
-        ChatItem="@item" />
-}
+<div
+    class="ChatList-Root">
+    @foreach(var item in ChatItems)
+    {
+        <ChatListItem
+            @key="@item"
+            ChatItem="@item" />
+    }
+</div>
 
 @code
 {

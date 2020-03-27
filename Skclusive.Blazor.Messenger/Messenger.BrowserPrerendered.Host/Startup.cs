@@ -28,21 +28,7 @@ namespace Skclusive.Blazor.Messenger.BrowserPrerendered.Host
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().AddNewtonsoftJson();
-            services.AddResponseCompression(opts =>
-            {
-                opts.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(
-                    new[] { "application/octet-stream" });
-            });
-
-            services.AddScoped<HttpClient>(s =>
-            {
-                var navigationManager = s.GetRequiredService<NavigationManager>();
-                return new HttpClient
-                {
-                    BaseAddress = new Uri(navigationManager.BaseUri)
-                };
-            });
+            services.AddRazorPages();
 
             services.TryAddMessengerViewServices();
         }
@@ -50,16 +36,20 @@ namespace Skclusive.Blazor.Messenger.BrowserPrerendered.Host
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            app.UseResponseCompression();
-
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseBlazorDebugging();
+                app.UseWebAssemblyDebugging();
+            }
+            else
+            {
+                app.UseExceptionHandler("/Error");
+                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+                app.UseHsts();
             }
 
-            app.UseClientSideBlazorFiles<Skclusive.Blazor.Messenger.Browser.Host.Program>();
-
+            app.UseHttpsRedirection();
+            app.UseBlazorFrameworkFiles();
             app.UseStaticFiles();
 
             app.UseRouting();
@@ -68,6 +58,7 @@ namespace Skclusive.Blazor.Messenger.BrowserPrerendered.Host
             {
                 endpoints.MapDefaultControllerRoute();
                 endpoints.MapFallbackToPage("/_Host");
+                // endpoints.MapFallbackToFile("index.html");
             });
         }
     }

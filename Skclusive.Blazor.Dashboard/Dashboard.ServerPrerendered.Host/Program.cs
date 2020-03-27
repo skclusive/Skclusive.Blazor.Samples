@@ -22,6 +22,7 @@ namespace Skclusive.Blazor.Dashboard.ServerPrerendered.Host
             Microsoft.Extensions.Hosting.Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
+                    webBuilder.UseStaticWebAssets();
                     webBuilder.UseStartup<Startup>();
                 });
     }

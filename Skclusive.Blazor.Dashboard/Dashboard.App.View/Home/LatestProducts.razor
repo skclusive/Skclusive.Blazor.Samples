@@ -23,7 +23,7 @@
                 />
                 <IconButton
                     Edge="@IconButtonEdge.End"
-                    Size="@IconSize.Small">
+                    Size="@IconButtonSize.Small">
                     <MoreVertIcon />
                 </IconButton>
             </ListItem>
@@ -35,7 +35,8 @@
         <Button
             Color="@Color.Primary"
             Size="@Size.Small"
-            Variant="@ButtonVariant.Text">
+
+     Variant="@ButtonVariant.Text">
             View all <ArrowRightIcon />
         </Button>
     </CardActions>
@@ -57,5 +58,7 @@
         var total = products.Count;
 
         return products.Select((product, index) => (product, index, total));
-    }
+
+
+   }
 }

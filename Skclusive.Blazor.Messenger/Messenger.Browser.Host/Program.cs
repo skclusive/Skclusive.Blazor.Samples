@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Text;
+using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.AspNetCore.Blazor.Hosting;
 using Skclusive.Blazor.Messenger.App.View;
 
 namespace Skclusive.Blazor.Messenger.Browser.Host
@@ -15,6 +15,8 @@ namespace Skclusive.Blazor.Messenger.Browser.Host
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
 
             builder.RootComponents.Add<MessengerView>("app");
+
+            builder.Services.AddBaseAddressHttpClient();
 
             builder.Services.TryAddMessengerViewServices();
 

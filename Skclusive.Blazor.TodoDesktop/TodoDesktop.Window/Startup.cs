@@ -11,7 +11,7 @@ namespace Skclusive.Blazor.TodoDesktop
         {
             services.AddTodoDesktop();
 
-            services.AddDomHelpers();
+            services.TryAddDomHelpersServices();
         }
 
         public void Configure(DesktopApplicationBuilder app)
