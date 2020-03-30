@@ -3,17 +3,23 @@ Skclusive.Blazor.Samples
 
 This repository contains samples projects using [Skclusive.Mobx.StateTree](https://github.com/skclusive/Skclusive.Mobx.StateTree), [Skclusive.Mobx.Observable](https://github.com/skclusive/Skclusive.Mobx.Observable), [Skclusive.Mobx.Component](https://github.com/skclusive/Skclusive.Mobx.Component) and [Skclusive.Material.Component](https://github.com/skclusive/Skclusive.Material.Component).
 
-## Dashboard Sample (Material-UI)
+## Dashboard Sample (Skclusive-UI)
 
-The Blazor Material-UI Dashboard sample project has been hosted [here](https://skclusive.github.io/Skclusive.Blazor.Samples/Dashboard/).
+The Blazor Skclusive-UI Dashboard sample project has been hosted [here](https://skclusive.github.io/Skclusive.Blazor.Samples/Dashboard/).
 
 ![Blazor Dashboard](images/dashboard-web.gif)
 
-## Dashboard Sample (Material-UI)
+## Dashboard Sample (Skclusive-UI)
 
-The Blazor Material-UI Dashboard app using [WebWindow](https://github.com/SteveSandersonMS/WebWindow) can be run natively using dotnet-core.
+The Blazor Skclusive-UI Dashboard app using [WebWindow](https://github.com/SteveSandersonMS/WebWindow) can be run natively using dotnet-core.
 
 ![Blazor Dashboard](images/dashboard-webwindow.gif)
+
+## Messenger Sample (Skclusive-UI)
+
+The Blazor Skclusive-UI Messenger sample project has been hosted [here](https://skclusive.github.io/Skclusive.Blazor.Samples/Messenger/).
+
+![Blazor Messeger](images/messenger.png)
 
 ## FlightFinder Sample
 
