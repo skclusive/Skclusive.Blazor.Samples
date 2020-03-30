@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
+using Skclusive.Core.Component;
 using Skclusive.Script.DevTools;
 using Skclusive.Script.DomHelpers;
 using Skclusive.Blazor.TodoApp.Extension;
@@ -21,7 +22,13 @@ namespace Skclusive.Blazor.TodoApp
 
             builder.Services.TryAddDevToolsServices();
 
-            builder.Services.TryAddDomHelpersServices();
+            builder.Services.TryAddDomHelpersServices
+            (
+                new CoreConfigBuilder()
+                .WithIsServer(false)
+                .WithIsPreRendering(false)
+                .Build()
+            );
 
             await builder.Build().RunAsync();
         }

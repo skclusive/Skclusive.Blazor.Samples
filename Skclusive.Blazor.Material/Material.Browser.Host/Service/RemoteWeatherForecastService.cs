@@ -16,7 +16,7 @@ namespace Skclusive.Blazor.Material.App.View.Data
 
         public Task<WeatherForecast[]> GetForecastAsync()
         {
-            return Http.GetJsonAsync<WeatherForecast[]>("sample-data/weather.json");
+            return Http.GetJsonAsync<WeatherForecast[]>("./_content/Skclusive.Blazor.Material.App.View/sample-data/weather.json");
         }
     }
 }

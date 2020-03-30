@@ -18,7 +18,13 @@ namespace Skclusive.Blazor.Messenger.Browser.Host
 
             builder.Services.AddBaseAddressHttpClient();
 
-            builder.Services.TryAddMessengerViewServices();
+            builder.Services.TryAddMessengerViewServices
+            (
+                new MessengerViewConfigBuilder()
+                .WithIsServer(false)
+                .WithIsPreRendering(false)
+                .Build()
+            );
 
             await builder.Build().RunAsync();
         }

@@ -22,7 +22,14 @@ namespace Skclusive.Blazor.Material.Browser.Host
 
             builder.Services.AddTransient<IWeatherForecastService, RemoteWeatherForecastService>();
 
-            builder.Services.TryAddLayoutServices(new LayoutConfigBuilder().WithResponsive(true).Build());
+            builder.Services.TryAddLayoutServices
+            (
+                new LayoutConfigBuilder()
+                .WithIsServer(false)
+                .WithIsPreRendering(false)
+                .WithResponsive(true)
+                .Build()
+            );
 
             await builder.Build().RunAsync();
         }

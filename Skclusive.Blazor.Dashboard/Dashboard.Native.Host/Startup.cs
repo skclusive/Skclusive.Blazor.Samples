@@ -10,7 +10,14 @@ namespace Skclusive.Blazor.Dashboard.Native.Host
         public void ConfigureServices(IServiceCollection services)
         {
             // Responsive is disabled due to bug in WebWindow javascript calling dotnet fails when delayed
-            services.TryAddDashboardViewServices(new LayoutConfigBuilder().WithResponsive(false).Build());
+            services.TryAddDashboardViewServices
+            (
+                new DashboardViewConfigBuilder()
+                .WithIsServer(false)
+                .WithIsPreRendering(false)
+                .WithResponsive(false)
+                .Build()
+            );
         }
 
         public void Configure(DesktopApplicationBuilder app)

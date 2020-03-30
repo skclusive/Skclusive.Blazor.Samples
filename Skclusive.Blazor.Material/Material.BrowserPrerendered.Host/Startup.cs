@@ -33,7 +33,14 @@ namespace Skclusive.Blazor.Material.BrowserPrerendered.Host
             services.AddRazorPages();
 
             services.AddTransient<IWeatherForecastService, ServerWeatherForecastService>();
-            services.TryAddLayoutServices(new LayoutConfigBuilder().WithResponsive(true).Build());
+            services.TryAddLayoutServices
+            (
+                new LayoutConfigBuilder()
+                .WithIsServer(true)
+                .WithIsPreRendering(true)
+                .WithResponsive(true)
+                .Build()
+            );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

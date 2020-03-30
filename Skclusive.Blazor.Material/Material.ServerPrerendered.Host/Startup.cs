@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
 using Skclusive.Blazor.Material.App.View;
+using Skclusive.Core.Component;
 using Skclusive.Material.Layout;
 using Skclusive.Blazor.Material.App.View.Data;
 
@@ -33,8 +35,23 @@ namespace Skclusive.Blazor.Material.ServerPrerendered.Host
             services.AddRazorPages();
             services.AddServerSideBlazor();
 
+            services.AddHttpContextAccessor();
+            services.AddScoped<IRenderContext>((sp) =>
+            {
+                var httpContextAccessor = sp.GetService<IHttpContextAccessor>();
+                bool? hasStarted = httpContextAccessor?.HttpContext?.Response.HasStarted;
+                var isPreRendering = !(hasStarted.HasValue && hasStarted.Value);
+                return new RenderContext(isServer: true, isPreRendering);
+            });
+            services.TryAddLayoutServices
+            (
+                new LayoutConfigBuilder()
+                .WithIsServer(true)
+                .WithIsPreRendering(true)
+                .WithResponsive(true)
+                .Build()
+            );
             services.AddTransient<IWeatherForecastService, ServerWeatherForecastService>();
-            services.TryAddLayoutServices(new LayoutConfigBuilder().WithResponsive(true).Build());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

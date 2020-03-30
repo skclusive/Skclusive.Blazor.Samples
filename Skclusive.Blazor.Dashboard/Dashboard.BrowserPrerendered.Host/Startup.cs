@@ -31,7 +31,14 @@ namespace Skclusive.Blazor.Dashboard.BrowserPrerendered.Host
         {
             services.AddRazorPages();
 
-            services.TryAddDashboardViewServices(new LayoutConfigBuilder().WithResponsive(true).Build());
+            services.TryAddDashboardViewServices
+            (
+                new DashboardViewConfigBuilder()
+                .WithIsServer(true)
+                .WithIsPreRendering(true)
+                .WithResponsive(true)
+                .Build()
+            );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -8,7 +8,13 @@ namespace Skclusive.Blazor.Messenger.Native.Host
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.TryAddMessengerViewServices();
+            services.TryAddMessengerViewServices
+            (
+                new MessengerViewConfigBuilder()
+                .WithIsServer(false)
+                .WithIsPreRendering(false)
+                .Build()
+            );
         }
 
         public void Configure(DesktopApplicationBuilder app)

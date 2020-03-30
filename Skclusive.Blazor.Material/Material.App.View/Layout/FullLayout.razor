@@ -4,24 +4,12 @@
     <BodyContent>
         @Body
     </BodyContent>
-    <ProfileContent
-        Context="profile">
-        <Profile
-            Class="@profile.Item1"
-            Style="@profile.Item2"
-            Name="Shen Zhi"
-            Avatar="./images/profile.png"
-            Bio="Brain Director">
-        </Profile>
-    </ProfileContent>
-     <NavigationContent
-        Context="navigation">
+    <SidebarContent>
         <Navigation
-            Class="@navigation.Item1"
-            Style="@navigation.Item2"
+            Class="FullLayout-Navigation"
             Items="@Items">
         </Navigation>
-    </NavigationContent>
+    </SidebarContent>
 </MainLayout>
 
 @code

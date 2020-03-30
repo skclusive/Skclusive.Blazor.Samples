@@ -19,7 +19,14 @@ namespace Skclusive.Blazor.Dashboard.Browser.Host
 
             builder.Services.AddBaseAddressHttpClient();
 
-            builder.Services.TryAddDashboardViewServices(new LayoutConfigBuilder().WithResponsive(true).Build());
+            builder.Services.TryAddDashboardViewServices
+            (
+                new DashboardViewConfigBuilder()
+                .WithIsServer(false)
+                .WithIsPreRendering(false)
+                .WithResponsive(true)
+                .Build()
+            );
 
             await builder.Build().RunAsync();
         }

@@ -30,7 +30,13 @@ namespace Skclusive.Blazor.Messenger.Server.Host
             services.AddRazorPages();
             services.AddServerSideBlazor();
 
-            services.TryAddMessengerViewServices();
+            services.TryAddMessengerViewServices
+            (
+                new MessengerViewConfigBuilder()
+                .WithIsServer(true)
+                .WithIsPreRendering(false)
+                .Build()
+            );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

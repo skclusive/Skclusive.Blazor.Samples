@@ -4,27 +4,55 @@
     <LogoContent>
         <AppLogo />
     </LogoContent>
-    <BodyContent>
-        @Body
-    </BodyContent>
-    <ProfileContent
-        Context="profile">
+    <TitleContent>
+        <Typography
+            Style="flex-grow: 1; margin-left: 20px;"
+            Variant="@TypographyVariant.H6"
+            NoWrap>
+            Skclusive Dashboard
+        </Typography>
+    </TitleContent>
+    <ActionsContent>
+        <Hidden
+            MediumDown
+            Context="HiddenContext">
+            <div
+                Class="@HiddenContext.Class">
+                <IconButton
+                    Color="@Color.Inherit"
+                    OnClick="@HandleNotificationsClick">
+                    <Badge
+                        Badge="@Notifications"
+                        Color="@Color.Primary"
+                        Variant="@BadgeVariant.Dot">
+                        <NotificationsOutlinedIcon />
+                    </Badge>
+                </IconButton>
+                <IconButton
+                    Class="FullLayout-Signout"
+                    Color="@Color.Inherit"
+                    OnClick="@HandleSignoutClick">
+                    <InputIcon />
+                </IconButton>
+            </div>
+        </Hidden>
+    </ActionsContent>
+    <SidebarContent>
         <Profile
-            Class="@profile.Item1"
-            Style="@profile.Item2"
             Name="Shen Zhi"
             Avatar="./_content/Skclusive.Blazor.Dashboard.App.View/images/avatars/avatar_11.png"
             Bio="Brain Director">
         </Profile>
-    </ProfileContent>
-     <NavigationContent
-        Context="navigation">
+        <Divider
+            Class="FullLayout-Divider" />
         <Navigation
-            Class="@navigation.Item1"
-            Style="@navigation.Item2"
+            Class="FullLayout-Navigation"
             Items="@Items">
         </Navigation>
-    </NavigationContent>
+    </SidebarContent>
+    <BodyContent>
+        @Body
+    </BodyContent>
     <FooterContent>
         <Footer
             DomainName="Skclusive Io"
@@ -96,4 +124,16 @@
             Prefix =  true
         }
     };
+
+    private string Notifications { set; get; } = "10";
+
+    private void HandleNotificationsClick()
+    {
+        // OnNotificationsClick?.Invoke();
+    }
+
+    private void HandleSignoutClick()
+    {
+        // OnSignoutClick?.Invoke();
+    }
 }
