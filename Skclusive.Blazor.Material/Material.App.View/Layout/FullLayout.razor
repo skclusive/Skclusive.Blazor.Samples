@@ -1,6 +1,15 @@
 ﻿@inherits LayoutComponentBase
 
-<MainLayout ContentStyle="padding: 30px;">
+<MainLayout
+    ContentStyle="padding: 30px;">
+    <TitleContent>
+        <Typography
+            Style="flex-grow: 1; margin-left: 20px;"
+            Variant="@TypographyVariant.H6"
+            NoWrap>
+            Skclusive-UI
+        </Typography>
+    </TitleContent>
     <BodyContent>
         @Body
     </BodyContent>
