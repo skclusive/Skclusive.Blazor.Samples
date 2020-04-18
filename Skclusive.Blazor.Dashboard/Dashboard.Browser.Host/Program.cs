@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Skclusive.Blazor.Dashboard.App.View;
 using Skclusive.Material.Layout;
+using System.Net.Http;
 
 namespace Skclusive.Blazor.Dashboard.Browser.Host
 {
@@ -17,7 +18,7 @@ namespace Skclusive.Blazor.Dashboard.Browser.Host
 
             builder.RootComponents.Add<DashboardView>("app");
 
-            builder.Services.AddBaseAddressHttpClient();
+            builder.Services.AddSingleton(new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
             builder.Services.TryAddDashboardViewServices
             (

@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Skclusive.Material.Layout;
 using Skclusive.Blazor.Material.App.View;
 using Skclusive.Blazor.Material.App.View.Data;
+using System.Net.Http;
 
 namespace Skclusive.Blazor.Material.Browser.Host
 {
@@ -18,7 +19,7 @@ namespace Skclusive.Blazor.Material.Browser.Host
 
             builder.RootComponents.Add<AppView>("app");
 
-            builder.Services.AddBaseAddressHttpClient();
+            builder.Services.AddSingleton(new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
             builder.Services.AddTransient<IWeatherForecastService, RemoteWeatherForecastService>();
 

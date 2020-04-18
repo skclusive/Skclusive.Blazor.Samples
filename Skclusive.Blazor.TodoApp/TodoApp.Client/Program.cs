@@ -1,10 +1,12 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Skclusive.Core.Component;
 using Skclusive.Script.DevTools;
 using Skclusive.Script.DomHelpers;
 using Skclusive.Blazor.TodoApp.Extension;
+using System.Net.Http;
 
 namespace Skclusive.Blazor.TodoApp
 {
@@ -16,7 +18,7 @@ namespace Skclusive.Blazor.TodoApp
 
             builder.RootComponents.Add<App>("app");
 
-            builder.Services.AddBaseAddressHttpClient();
+            builder.Services.AddSingleton(new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
             builder.Services.AddTodoApp();
 

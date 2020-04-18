@@ -5,6 +5,7 @@ using System.Text;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Skclusive.Blazor.Messenger.App.View;
+using System.Net.Http;
 
 namespace Skclusive.Blazor.Messenger.Browser.Host
 {
@@ -16,7 +17,7 @@ namespace Skclusive.Blazor.Messenger.Browser.Host
 
             builder.RootComponents.Add<MessengerView>("app");
 
-            builder.Services.AddBaseAddressHttpClient();
+            builder.Services.AddSingleton(new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
             builder.Services.TryAddMessengerViewServices
             (
