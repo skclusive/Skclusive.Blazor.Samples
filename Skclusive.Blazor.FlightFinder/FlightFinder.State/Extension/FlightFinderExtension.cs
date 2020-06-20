@@ -22,7 +22,7 @@ namespace Skclusive.Blazor.FlightFinder.Extension
 
             services.AddSingleton<JsonConverter, JsonTypeConverter<IAppStateSnapshot, AppStateSnapshot>>();
 
-            services.AddSingleton((_) => AppStateType.Create(new AppStateSnapshot
+            services.AddScoped((_) => AppStateType.Create(new AppStateSnapshot
             {
                 SearchInProgress = false,
 
@@ -40,7 +40,7 @@ namespace Skclusive.Blazor.FlightFinder.Extension
                 }
             }));
 
-            services.AddSingleton<IAppService, AppService>();
+            services.AddScoped<IAppService, AppService>();
         }
     }
 }

@@ -3,18 +3,18 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <RazorLangVersion>3.0</RazorLangVersion>
-    <AssemblyName>Skclusive.Blazor.Dashboard.Browser.Host</AssemblyName>
-    <RootNamespace>Skclusive.Blazor.Dashboard.Browser.Host</RootNamespace>
+    <AssemblyName>Skclusive.Blazor.FlightFinder.Browser.Host</AssemblyName>
+    <RootNamespace>Skclusive.Blazor.FlightFinder.Browser.Host</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.Net.Http.Json" Version="3.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="3.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Build" Version="3.2.0" PrivateAssets="all" />
+    <PackageReference Include="System.Net.Http.Json" Version="3.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="3.2.0" PrivateAssets="all" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Dashboard.App.View\Dashboard.App.View.csproj" />
+    <ProjectReference Include="..\FlightFinder.View\FlightFinder.View.csproj" />
   </ItemGroup>
 </Project>
