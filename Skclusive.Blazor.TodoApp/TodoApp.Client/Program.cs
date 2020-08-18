@@ -22,15 +22,14 @@ namespace Skclusive.Blazor.TodoApp
 
             builder.Services.AddTodoApp();
 
-            builder.Services.TryAddDevToolsServices();
-
-            builder.Services.TryAddDomHelpersServices
-            (
-                new CoreConfigBuilder()
+            var config = new CoreConfigBuilder()
                 .WithIsServer(false)
                 .WithIsPreRendering(false)
-                .Build()
-            );
+                .Build();
+
+            builder.Services.TryAddDevToolsServices(config);
+
+            builder.Services.TryAddDomHelpersServices(config);
 
             await builder.Build().RunAsync();
         }
