@@ -1,15 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
     <OutputType>WinExe</OutputType>
-    <RazorLangVersion>3.0</RazorLangVersion>
     <AssemblyName>Skclusive.Blazor.Dashboard.Native.Host</AssemblyName>
     <RootNamespace>Skclusive.Blazor.Dashboard.Native.Host</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="WebWindow.Blazor" Version="0.1.0-20200214.10" />
+    <PackageReference Include="WebWindow.Blazor" Version="0.1.0-20200807.1" />
   </ItemGroup>
 
   <ItemGroup>

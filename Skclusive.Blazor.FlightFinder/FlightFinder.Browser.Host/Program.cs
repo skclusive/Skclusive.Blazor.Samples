@@ -8,6 +8,7 @@ using Skclusive.Blazor.FlightFinder.View;
 using Skclusive.Blazor.FlightFinder.Extension;
 using Skclusive.Script.DevTools;
 using System.Net.Http;
+using Skclusive.Core.Component;
 
 namespace Skclusive.Blazor.FlightFinder.Browser.Host
 {
@@ -23,7 +24,7 @@ namespace Skclusive.Blazor.FlightFinder.Browser.Host
 
             builder.Services.AddFlightFinder();
 
-            builder.Services.TryAddDevToolsServices();
+            builder.Services.TryAddDevToolsServices(new CoreConfigBuilder().Build());
 
             await builder.Build().RunAsync();
         }

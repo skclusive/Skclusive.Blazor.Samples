@@ -3,6 +3,7 @@ using Skclusive.Blazor.FlightFinder.View;
 using Skclusive.Blazor.FlightFinder.Extension;
 using Skclusive.Script.DevTools;
 using WebWindows.Blazor;
+using Skclusive.Core.Component;
 
 namespace Skclusive.Blazor.FlightFinder.Native.Host
 {
@@ -14,7 +15,7 @@ namespace Skclusive.Blazor.FlightFinder.Native.Host
 
             services.AddFlightFinder();
 
-            services.TryAddDevToolsServices();
+            services.TryAddDevToolsServices(new CoreConfigBuilder().Build());
         }
 
         public void Configure(DesktopApplicationBuilder app)

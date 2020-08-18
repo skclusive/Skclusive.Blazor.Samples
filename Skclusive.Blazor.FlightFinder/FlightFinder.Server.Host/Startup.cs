@@ -17,6 +17,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Skclusive.Script.DevTools.Redux;
 using Skclusive.Script.DevTools.StateTree;
+using Skclusive.Core.Component;
 
 namespace Skclusive.Blazor.FlightFinder.Server.Host
 {
@@ -38,10 +39,7 @@ namespace Skclusive.Blazor.FlightFinder.Server.Host
 
             services.AddFlightFinder();
 
-            // Skclusive.Script.DevTools; should scoped.
-            // services.TryAddDevToolsServices();
-            services.TryAddScoped(typeof(IReduxTool<,>), typeof(ReduxTool<,>));
-            services.TryAddScoped(typeof(IStateTreeTool<>), typeof(StateTreeTool<>));
+            services.TryAddDevToolsServices(new CoreConfigBuilder().Build());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
