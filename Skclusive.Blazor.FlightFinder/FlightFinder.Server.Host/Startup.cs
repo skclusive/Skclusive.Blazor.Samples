@@ -9,7 +9,6 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 
-using Skclusive.Blazor.FlightFinder.Extension;
 using Skclusive.Script.DevTools;
 using Skclusive.Blazor.FlightFinder.View;
 
@@ -37,9 +36,7 @@ namespace Skclusive.Blazor.FlightFinder.Server.Host
             services.AddRazorPages();
             services.AddServerSideBlazor();
 
-            services.AddFlightFinder();
-
-            services.TryAddDevToolsServices(new CoreConfigBuilder().Build());
+            services.TryAddFlightFinderViewServices(new CoreConfigBuilder().Build());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

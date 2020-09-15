@@ -34,7 +34,7 @@ namespace Skclusive.Blazor.Material.Server.Host
             services.AddServerSideBlazor();
 
             services.AddTransient<IWeatherForecastService, ServerWeatherForecastService>();
-            services.TryAddLayoutServices
+            services.TryAddMaterialViewServices
             (
                 new LayoutConfigBuilder()
                 .WithIsServer(true)

@@ -1,4 +1,5 @@
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Newtonsoft.Json;
 using System;
 using Skclusive.Blazor.FlightFinder.Models;
@@ -6,23 +7,23 @@ using Skclusive.Blazor.FlightFinder.Service;
 using Skclusive.Blazor.FlightFinder.Converters;
 using static Skclusive.Blazor.FlightFinder.Models.AppTypes;
 
-namespace Skclusive.Blazor.FlightFinder.Extension
+namespace Skclusive.Blazor.FlightFinder.State
 {
     public static class FlightFinderExtension
     {
-        public static void AddFlightFinder(this IServiceCollection services)
+        public static void TryAddFlightFinderStateServices(this IServiceCollection services)
         {
-            services.AddSingleton<JsonConverter, JsonTypeConverter<IAirportSnapshot, AirportSnapshot>>();
+            services.TryAddSingleton<JsonConverter, JsonTypeConverter<IAirportSnapshot, AirportSnapshot>>();
 
-            services.AddSingleton<JsonConverter, JsonTypeConverter<ISearchCriteriaSnapshot, SearchCriteriaSnapshot>>();
+            services.TryAddSingleton<JsonConverter, JsonTypeConverter<ISearchCriteriaSnapshot, SearchCriteriaSnapshot>>();
 
-            services.AddSingleton<JsonConverter, JsonTypeConverter<IFlightSegmentSnapshot, FlightSegmentSnapshot>>();
+            services.TryAddSingleton<JsonConverter, JsonTypeConverter<IFlightSegmentSnapshot, FlightSegmentSnapshot>>();
 
-            services.AddSingleton<JsonConverter, JsonTypeConverter<IItinerarySnapshot, ItinerarySnapshot>>();
+            services.TryAddSingleton<JsonConverter, JsonTypeConverter<IItinerarySnapshot, ItinerarySnapshot>>();
 
-            services.AddSingleton<JsonConverter, JsonTypeConverter<IAppStateSnapshot, AppStateSnapshot>>();
+            services.TryAddSingleton<JsonConverter, JsonTypeConverter<IAppStateSnapshot, AppStateSnapshot>>();
 
-            services.AddScoped((_) => AppStateType.Create(new AppStateSnapshot
+            services.TryAddScoped((_) => AppStateType.Create(new AppStateSnapshot
             {
                 SearchInProgress = false,
 
@@ -40,7 +41,7 @@ namespace Skclusive.Blazor.FlightFinder.Extension
                 }
             }));
 
-            services.AddScoped<IAppService, AppService>();
+            services.TryAddScoped<IAppService, AppService>();
         }
     }
 }

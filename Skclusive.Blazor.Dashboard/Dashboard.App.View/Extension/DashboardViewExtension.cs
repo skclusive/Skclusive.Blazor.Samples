@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using Skclusive.Core.Component;
 using Skclusive.Material.Component;
 using Skclusive.Material.Layout;
 
@@ -11,7 +12,13 @@ namespace Skclusive.Blazor.Dashboard.App.View
         {
             services.TryAddLayoutServices(config);
 
-            services.TryAddSingleton<IDashboardViewConfig>(config);
+            services.TryAddMaterialServices(config);
+
+            services.TryAddScoped<IDashboardViewConfig>(sp => config);
+
+            services.TryAddStyleTypeProvider<DashboardStyleProvider>();
+
+            services.TryAddScriptTypeProvider<DashboardScriptProvider>();
         }
     }
 }

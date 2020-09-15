@@ -12,15 +12,15 @@
     <PackageReference Include="WebWindow.Blazor" Version="0.1.0-20200807.1" />
   </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Skclusive.Mobx.Component" Version="3.0.1-preview1" />
-    <PackageReference Include="Skclusive.Script.DomHelpers" Version="3.0.1-preview1" />
-  </ItemGroup>
-
   <!-- <ItemGroup>
-    <ProjectReference Include="..\..\..\Skclusive.Mobx.Component\src\Component\Component.csproj" Version="3.0.1-preview1" />
-    <ProjectReference Include="..\..\..\Skclusive.Script.DomHelpers\src\DomHelpers\DomHelpers.csproj" Version="3.0.1-preview1" />
+    <PackageReference Include="Skclusive.Mobx.Component" Version="3.0.0-preview2" />
+    <PackageReference Include="Skclusive.Script.DomHelpers" Version="3.0.0-preview2" />
   </ItemGroup> -->
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Skclusive.Mobx.Component\src\Component.csproj" Version="3.0.0-preview2" />
+    <ProjectReference Include="..\..\..\Skclusive.Script.DomHelpers\src\DomHelpers.csproj" Version="3.0.0-preview2" />
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\TodoDesktop.State\TodoDesktop.State.csproj" />

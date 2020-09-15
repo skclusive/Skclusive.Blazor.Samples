@@ -2,11 +2,11 @@
 
 @page "/signin"
 
-@inject ScriptHelpers ScriptHelpers
+@inject DomHelpers DomHelpers
 
 <form
     class="auth-form-root"
-    @onsubmit="@HandleSignIn">
+    @onsubmit="@HandleSignInAsync">
     <Typography
         Class="auth-form-title"
         Variant="TypographyVariant.H2">
@@ -24,7 +24,7 @@
         <Grid Item>
             <Button
                 Color="@Color.Primary"
-                OnClick="@HandleSignIn"
+                OnClick="@HandleSignInAsync"
                 Size="@Size.Large"
                 Variant="@ButtonVariant.Contained">
                 <FacebookIcon Class="signin-social-icon" />
@@ -33,7 +33,7 @@
         </Grid>
         <Grid Item>
             <Button
-                OnClick="@HandleSignIn"
+                OnClick="@HandleSignInAsync"
                 Size="@Size.Large"
                 Variant="@ButtonVariant.Contained">
                 <GoogleIcon Class="auth-form-social-icon" />
@@ -105,11 +105,11 @@
         StateHasChanged();
     }
 
-    private void HandleSignIn()
+    private async Task HandleSignInAsync()
     {
         System.Console.WriteLine("HandleSignIn");
 
-         _ = ScriptHelpers.GoBackAsync();
+        await DomHelpers.GoBackAsync();
 
         System.Console.WriteLine("HandleSignInDone");
     }

@@ -33,7 +33,7 @@ namespace Skclusive.Blazor.Material.BrowserPrerendered.Host
             services.AddRazorPages();
 
             services.AddTransient<IWeatherForecastService, ServerWeatherForecastService>();
-            services.TryAddLayoutServices
+            services.TryAddMaterialViewServices
             (
                 new LayoutConfigBuilder()
                 .WithIsServer(true)

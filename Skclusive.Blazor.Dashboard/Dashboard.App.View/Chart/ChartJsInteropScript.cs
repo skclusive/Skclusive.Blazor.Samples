@@ -2,9 +2,9 @@
 
 namespace Skclusive.Blazor.Dashboard.App.View.Chart
 {
-    public class ChartJsInteropScript : ScriptComponentBase
+    public class ChartJsInteropScript : ScriptBase
     {
-        protected override string GetScript()
+        public override string GetScript()
         {
             return
             #region ChartJsInterop.js

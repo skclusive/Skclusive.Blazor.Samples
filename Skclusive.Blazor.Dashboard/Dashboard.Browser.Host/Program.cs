@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Skclusive.Blazor.Dashboard.App.View;
 using Skclusive.Material.Layout;
 using System.Net.Http;
+using Skclusive.Core.Component;
 
 namespace Skclusive.Blazor.Dashboard.Browser.Host
 {
@@ -26,6 +27,7 @@ namespace Skclusive.Blazor.Dashboard.Browser.Host
                 .WithIsServer(false)
                 .WithIsPreRendering(false)
                 .WithResponsive(true)
+                .WithTheme(Theme.Auto)
                 .Build()
             );
 

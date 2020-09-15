@@ -1,17 +1,72 @@
-﻿<DashboardResources />
+﻿@using Skclusive.Material.Theme
 
-<Router
-    AppAssembly="@typeof(FullLayout).Assembly">
-    <Found
-        Context="routeData">
-        <RouteView
-            RouteData="@routeData"
-            DefaultLayout="@typeof(FullLayout)" />
-    </Found>
-    <NotFound>
-        <LayoutView
-            Layout="@typeof(SmallLayout)">
-            <NotFound />
-        </LayoutView>
-    </NotFound>
-</Router>
+<ThemeProvider
+    Light="@Light"
+    Dark="@Dark">
+    <RouterLayout
+        Main="@typeof(FullLayout)"
+        Mini="@typeof(SmallLayout)" />
+</ThemeProvider>
+
+@code
+{
+    public static ThemeValue Light = ThemeFactory.CreateTheme(new ThemeConfig
+    {
+        Palette = new PaletteConfig
+        {
+            Type = PaletteType.Light,
+
+            Primary = new PaletteColorConfig
+            {
+                Main = PaletteColors.Blue.X700
+            },
+
+            Secondary = new PaletteColorConfig
+            {
+                Main = PaletteColors.Pink.A400.Darken(0.1m)
+            },
+
+            Background = new PaletteBackground
+            {
+                Default = "#fff",
+
+                Custom = new Dictionary<string, string>
+                {
+                    { "appbar-color", "var(--theme-palette-primary-contrast-text)" },
+
+                    { "appbar-background-color", "var(--theme-palette-primary-main)" },
+                },
+            }
+        }
+    });
+
+    public static ThemeValue Dark = ThemeFactory.CreateTheme(new ThemeConfig
+    {
+        Palette = new PaletteConfig
+        {
+            Type = PaletteType.Dark,
+
+            Primary = new PaletteColorConfig
+            {
+                Main = PaletteColors.Blue.X200
+            },
+
+            Secondary = new PaletteColorConfig
+            {
+                Main = PaletteColors.Pink.X200
+            },
+
+            Background = new PaletteBackground
+            {
+                Default = "#121212",
+
+                Custom = new Dictionary<string, string>
+                {
+                    { "appbar-color", "#fff" },
+
+                    { "appbar-background-color", "#333" },
+                },
+            }
+        }
+    });
+}

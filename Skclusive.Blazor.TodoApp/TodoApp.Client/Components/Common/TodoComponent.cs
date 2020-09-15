@@ -1,10 +1,10 @@
 using Skclusive.Blazor.TodoApp.Models;
 using Microsoft.AspNetCore.Components;
-using Skclusive.Mobx.Component;
+using Skclusive.Core.Component;
 
 namespace Skclusive.Blazor.TodoApp.Components
 {
-    public class TodoComponent : ObservableComponentBase
+    public class TodoComponent : PureComponentBase
     {
         [Parameter]
         public RenderFragment ChildContent { get; set; }

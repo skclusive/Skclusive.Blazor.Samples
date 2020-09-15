@@ -14,7 +14,7 @@ namespace Skclusive.Blazor.Material.Native.Host
 
             services.AddTransient<IWeatherForecastService, LocalWeatherForecastService>();
             // Responsive is disabled due to bug in WebWindow javascript calling dotnet fails when delayed
-            services.TryAddLayoutServices
+            services.TryAddMaterialViewServices
             (
                 new LayoutConfigBuilder()
                 .WithIsServer(false)

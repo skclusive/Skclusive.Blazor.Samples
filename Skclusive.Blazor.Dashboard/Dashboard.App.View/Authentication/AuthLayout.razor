@@ -42,11 +42,11 @@
 
     protected override async Task OnAfterMountAsync()
     {
-        await HistoryBackHelper.RegisterAsync(BackReference.Current.Value, "click", 300);
+        await HistoryBackHelper.InitAsync(BackReference.Current.Value, "click", 300);
     }
 
-    protected override void Dispose()
+    protected override ValueTask DisposeAsync()
     {
-        HistoryBackHelper.Dispose();
+        return HistoryBackHelper.DisposeAsync();
     }
 }

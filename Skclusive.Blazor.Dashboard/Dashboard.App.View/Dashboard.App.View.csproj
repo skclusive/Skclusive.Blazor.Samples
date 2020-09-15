@@ -8,10 +8,12 @@
 
   <ItemGroup>
     <PackageReference Include="ChartJs.Blazor" Version="1.0.2" />
-    <PackageReference Include="Skclusive.Material.Layout" Version="3.0.2-preview1" />
+    <!-- <PackageReference Include="Skclusive.Material.Layout" Version="3.0.2-preview1" /> -->
+     <!-- <PackageReference Include="Skclusive.Material.Component" Version="3.0.2-preview1" /> -->
   </ItemGroup>
 
-  <!-- <ItemGroup>
-    <ProjectReference Include="..\..\..\Skclusive.Material.Layout\src\Skclusive.Material.Layout.csproj" Version="3.0.2-preview1" />
-  </ItemGroup> -->
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Skclusive.Material.Layout\src\Layout.csproj" Version="3.0.0-preview2" />
+    <ProjectReference Include="..\..\..\Skclusive.Material.Component\Material\src\Material.csproj" Version="3.0.0-preview2" />
+  </ItemGroup>
 </Project>

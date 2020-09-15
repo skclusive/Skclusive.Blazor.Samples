@@ -9,3 +9,37 @@
     Variant="@TypographyVariant.Subtitle1">
     Welcome to your new app.
 </Typography>
+
+<Styled
+    @bind-Classname="@AppBarStyle">
+    z-index: calc(var(--theme-zindex-drawer, 1200) + 1);
+    background-color: hotpink;
+</Styled>
+
+<AppBar
+    Class="@AppBarStyle"
+    Position="@AppBarPosition.Static">
+    <Toolbar>
+        <IconButton
+            Edge="@IconButtonEdge.Start"
+            Style="margin-right: 16px;"
+            Color="@Color.Inherit"
+            aria-label="menu">
+            <MenuIcon />
+        </IconButton>
+        <Typography
+            Variant="@TypographyVariant.H6"
+            Style="flex-grow: 1;">
+            News
+        </Typography>
+        <Button
+            Color="@Color.Inherit">
+            Login
+        </Button>
+    </Toolbar>
+</AppBar>
+
+@code
+{
+    private string AppBarStyle;
+}

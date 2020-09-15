@@ -6,11 +6,21 @@
     <RootNamespace>Skclusive.Blazor.Material.App.View</RootNamespace>
   </PropertyGroup>
 
+  <!-- <ItemGroup>
+    <PackageReference Include="Skclusive.Material.Layout" Version="3.0.0-preview2" />
+  </ItemGroup> -->
+
   <ItemGroup>
-    <PackageReference Include="Skclusive.Material.Layout" Version="3.0.2-preview1" />
+    <ProjectReference Include="..\..\..\Skclusive.Material.Layout\src\Layout.csproj" Version="3.0.0-preview2" />
+    <ProjectReference Include="..\..\..\Skclusive.Material.Component\Progress\src\Progress.csproj" Version="3.0.0-preview2" />
+    <ProjectReference Include="..\..\..\Skclusive.Material.Component\Button\src\Button.csproj" Version="3.0.0-preview2" />
+    <ProjectReference Include="..\..\..\Skclusive.Material.Component\Table\src\Table.csproj" Version="3.0.0-preview2" />
+    <ProjectReference Include="..\..\..\Skclusive.Material.Component\Divider\src\Divider.csproj" Version="3.0.0-preview2" />
+    <ProjectReference Include="..\..\..\Skclusive.Material.Component\AppBar\src\AppBar.csproj" Version="3.0.0-preview2" />
+    <ProjectReference Include="..\..\..\Skclusive.Material.Component\Toolbar\src\Toolbar.csproj" Version="3.0.0-preview2" />
   </ItemGroup>
 
-  <!-- <ItemGroup>
-    <ProjectReference Include="..\..\..\Skclusive.Material.Layout\src\Skclusive.Material.Layout.csproj" Version="3.0.2-preview1" />
-  </ItemGroup> -->
+  <ItemGroup>
+    <PackageReference Include="BlazorStyled" Version="3.0.0" />
+  </ItemGroup>
 </Project>

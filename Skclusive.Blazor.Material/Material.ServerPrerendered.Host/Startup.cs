@@ -43,7 +43,7 @@ namespace Skclusive.Blazor.Material.ServerPrerendered.Host
                 var isPreRendering = !(hasStarted.HasValue && hasStarted.Value);
                 return new RenderContext(isServer: true, isPreRendering);
             });
-            services.TryAddLayoutServices
+            services.TryAddMaterialViewServices
             (
                 new LayoutConfigBuilder()
                 .WithIsServer(true)
