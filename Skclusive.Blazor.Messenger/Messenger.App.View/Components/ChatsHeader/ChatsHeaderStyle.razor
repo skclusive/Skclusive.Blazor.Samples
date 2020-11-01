@@ -1,30 +1,25 @@
 @namespace Skclusive.Blazor.Messenger.App.View
 @inherits StyleComponentBase
 
-<Styled
-    Name="ChatsHeader">
+.ChatsHeader-Container {
+    display: flex;
+    align-items: center;
+    padding-top: 10px;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-bottom: 10px;
+}
 
-    .ChatsHeader-Container {
-        display: flex;
-        align-items: center;
-        padding-top: 10px;
-        padding-left: 16px;
-        padding-right: 16px;
-        padding-bottom: 10px;
-    }
+.ChatsHeader-Middle {
+    flex: auto;
+    margin-left: 16px;
+}
 
-    .ChatsHeader-Middle {
-        flex: auto;
-        margin-left: 16px;
-    }
+.ChatsHeader-Icon {
+    padding: 8px;
+    background-color: rgba(0, 0, 0, .04);
+}
 
-    .ChatsHeader-Icon {
-        padding: 8px;
-        background-color: rgba(0, 0, 0, .04);
-    }
-
-    .ChatsHeader-Icon:not(:last-child) {
-        margin-right: 16px;
-    }
-
-</Styled>
+.ChatsHeader-Icon:not(:last-child) {
+    margin-right: 16px;
+}

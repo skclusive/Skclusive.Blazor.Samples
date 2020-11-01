@@ -6,8 +6,6 @@ using Microsoft.AspNetCore.Components.Rendering;
 using Skclusive.Core.Component;
 using Skclusive.Script.DevTools.StateTree;
 using Skclusive.Mobx.StateTree;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 
 namespace Skclusive.Blazor.TodoApp.Components
 {
@@ -23,18 +21,17 @@ namespace Skclusive.Blazor.TodoApp.Components
         {
             await base.OnInitializedAsync();
 
-            RunTimeout(() =>
-            {
-                _ = StateTreeTool.ConnectAsync(AppState);
-
-            }, 100);
+            StateTreeTool.Configure(AppState);
         }
 
-        protected override void Dispose()
+        protected override async Task OnAfterMountAsync()
         {
-            base.Dispose();
+            await StateTreeTool.ConnectAsync();
+        }
 
-            StateTreeTool?.Dispose();
+        protected override async ValueTask DisposeAsync()
+        {
+            await StateTreeTool.DisposeAsync();
         }
     }
 }

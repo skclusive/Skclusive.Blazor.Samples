@@ -8,7 +8,7 @@ using Skclusive.Material.Table;
 using Skclusive.Material.AppBar;
 using Skclusive.Material.Toolbar;
 using Skclusive.Material.Layout;
-using BlazorStyled;
+//using BlazorStyled;
 
 namespace Skclusive.Blazor.Material.App.View
 {
@@ -25,7 +25,7 @@ namespace Skclusive.Blazor.Material.App.View
             services.TryAddAppBarServices(config);
             services.TryAddToolbarServices(config);
 
-            services.AddBlazorStyled();
+            //services.AddBlazorStyled();
 
             services.TryAddStyleTypeProvider<MaterialStyleProvider>();
         }

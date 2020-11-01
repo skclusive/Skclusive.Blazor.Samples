@@ -13,13 +13,13 @@
   </ItemGroup>
 
   <!-- <ItemGroup>
-    <PackageReference Include="Skclusive.Mobx.Component" Version="3.0.0-preview2" />
-    <PackageReference Include="Skclusive.Script.DomHelpers" Version="3.0.0-preview2" />
+    <PackageReference Include="Skclusive.Mobx.Component" Version="5.0.0-rc1" />
+    <PackageReference Include="Skclusive.Script.DomHelpers" Version="5.0.0-rc1" />
   </ItemGroup> -->
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Skclusive.Mobx.Component\src\Component.csproj" Version="3.0.0-preview2" />
-    <ProjectReference Include="..\..\..\Skclusive.Script.DomHelpers\src\DomHelpers.csproj" Version="3.0.0-preview2" />
+    <ProjectReference Include="..\..\..\Skclusive.Mobx.Component\src\Component.csproj" Version="5.0.0-rc1" />
+    <ProjectReference Include="..\..\..\Skclusive.Script.DomHelpers\src\DomHelpers.csproj" Version="5.0.0-rc1" />
   </ItemGroup>
 
   <ItemGroup>

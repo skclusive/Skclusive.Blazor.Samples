@@ -6,17 +6,17 @@
     <RootNamespace>Skclusive.Blazor.FlightFinder.View</RootNamespace>
   </PropertyGroup>
 
-  <!-- <ItemGroup>
-    <PackageReference Include="Skclusive.Mobx.Component" Version="3.0.0-preview2" />
-    <PackageReference Include="Skclusive.Script.DomHelpers" Version="3.0.0-preview2" />
-    <PackageReference Include="Skclusive.Script.DevTools" Version="3.0.0-preview2" />
-  </ItemGroup> -->
-
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Skclusive.Mobx.Component\src\Component.csproj" Version="3.0.0-preview2" />
-    <ProjectReference Include="..\..\..\Skclusive.Script.DomHelpers\src\DomHelpers.csproj" Version="3.0.0-preview2" />
-    <ProjectReference Include="..\..\..\Skclusive.Script.DevTools\src\DevTools.csproj" Version="3.0.0-preview2" />
-   </ItemGroup>
+    <PackageReference Include="Skclusive.Mobx.Component" Version="5.0.0-rc1" />
+    <PackageReference Include="Skclusive.Script.DomHelpers" Version="5.0.0-rc1" />
+    <PackageReference Include="Skclusive.Script.DevTools" Version="5.0.0-rc1" />
+  </ItemGroup>
+
+  <!-- <ItemGroup>
+    <ProjectReference Include="..\..\..\Skclusive.Mobx.Component\src\Component.csproj" Version="5.0.0-rc1" />
+    <ProjectReference Include="..\..\..\Skclusive.Script.DomHelpers\src\DomHelpers.csproj" Version="5.0.0-rc1" />
+    <ProjectReference Include="..\..\..\Skclusive.Script.DevTools\src\DevTools.csproj" Version="5.0.0-rc1" />
+   </ItemGroup> -->
 
   <ItemGroup>
     <ProjectReference Include="..\FlightFinder.State\FlightFinder.State.csproj" />

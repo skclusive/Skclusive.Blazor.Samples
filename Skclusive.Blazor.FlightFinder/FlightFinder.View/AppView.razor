@@ -31,27 +31,20 @@
     [Inject]
     public IStateTreeTool<AppStateSnapshot> StateTreeTool { get; set; }
 
-    protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
-        await base.OnInitializedAsync();
-
-        System.Console.WriteLine("App.OnInitializedAsync");
-
-        RunTimeout(() =>
-        {
-            _ = StateTreeTool.ConnectAsync(AppState);
-
-            RunTimeout(() =>
-            {
-                _ = AppService.LoadAirportsAsync();
-            }, 100);
-        }, 100);
+        StateTreeTool.Configure(AppState);
     }
 
-    protected override void Dispose()
+    protected override async Task OnAfterMountAsync()
     {
-        base.Dispose();
+        await StateTreeTool.ConnectAsync();
 
-        StateTreeTool?.Dispose();
+        await AppService.LoadAirportsAsync();
+    }
+
+    protected override async ValueTask DisposeAsync()
+    {
+        await StateTreeTool.DisposeAsync();
     }
 }

@@ -1,10 +1,10 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
-using Newtonsoft.Json;
+using Skclusive.Extensions.DependencyInjection;
 using System;
+using System.Text.Json.Serialization;
 using Skclusive.Blazor.FlightFinder.Models;
 using Skclusive.Blazor.FlightFinder.Service;
-using Skclusive.Blazor.FlightFinder.Converters;
 using static Skclusive.Blazor.FlightFinder.Models.AppTypes;
 
 namespace Skclusive.Blazor.FlightFinder.State
@@ -13,15 +13,15 @@ namespace Skclusive.Blazor.FlightFinder.State
     {
         public static void TryAddFlightFinderStateServices(this IServiceCollection services)
         {
-            services.TryAddSingleton<JsonConverter, JsonTypeConverter<IAirportSnapshot, AirportSnapshot>>();
+            services.TryAddSingletonEnumerable<JsonConverter, JsonTypeConverter<IAirportSnapshot, AirportSnapshot>>();
 
-            services.TryAddSingleton<JsonConverter, JsonTypeConverter<ISearchCriteriaSnapshot, SearchCriteriaSnapshot>>();
+            services.TryAddSingletonEnumerable<JsonConverter, JsonTypeConverter<ISearchCriteriaSnapshot, SearchCriteriaSnapshot>>();
 
-            services.TryAddSingleton<JsonConverter, JsonTypeConverter<IFlightSegmentSnapshot, FlightSegmentSnapshot>>();
+            services.TryAddSingletonEnumerable<JsonConverter, JsonTypeConverter<IFlightSegmentSnapshot, FlightSegmentSnapshot>>();
 
             services.TryAddSingleton<JsonConverter, JsonTypeConverter<IItinerarySnapshot, ItinerarySnapshot>>();
 
-            services.TryAddSingleton<JsonConverter, JsonTypeConverter<IAppStateSnapshot, AppStateSnapshot>>();
+            services.TryAddSingletonEnumerable<JsonConverter, JsonTypeConverter<IAppStateSnapshot, AppStateSnapshot>>();
 
             services.TryAddScoped((_) => AppStateType.Create(new AppStateSnapshot
             {
