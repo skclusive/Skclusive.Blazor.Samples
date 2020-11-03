@@ -33,11 +33,14 @@ The Blazor TodoApp sample project has been hosted [here](https://skclusive.githu
 
 ![Blazor TodoApp](images/todo-app.gif)
 
-## TodoDesktop Sample
+## Layout Sample
 
-The Blazor TodoDesktop app using [WebWindow](https://github.com/SteveSandersonMS/WebWindow) can be run natively using dotnet-core.
+The Blazor Skclusive Material sample project has been hosted [here](https://skclusive.github.io/Skclusive.Blazor.Samples/Material/).
 
-![Blazor TodoDesktop](images/todo-desktop.gif)
+## Reactive Flow Sample
+
+The Blazor Skclusive Reactive Flow sample project has been hosted [here](https://skclusive.github.io/Skclusive.Blazor.Samples/StateTree/).
+
 
 ## License
 
