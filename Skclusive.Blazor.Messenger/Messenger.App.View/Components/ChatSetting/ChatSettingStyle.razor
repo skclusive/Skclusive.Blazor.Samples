@@ -1,29 +1,24 @@
 @namespace Skclusive.Blazor.Messenger.App.View
 @inherits StyleComponentBase
 
-<Styled
-    Name="ChatSetting">
+.ChatSetting-Container {
+    height: 44px;
+    display: flex;
+    align-items: center;
+    padding-left: 14px;
+    padding-right: 12px;
+    justify-content: space-between;
+}
 
-    .ChatSetting-Container {
-        height: 44px;
-        display: flex;
-        align-items: center;
-        padding-left: 14px;
-        padding-right: 12px;
-        justify-content: space-between;
-    }
+.ChatSetting-Icon {
+    width: 32px;
+    height: 32px;
+    padding: 6px;
+    border-radius: 50%;
+    background-color: rgba(0,0,0,0.04);
+}
 
-    .ChatSetting-Icon {
-        width: 32px;
-        height: 32px;
-        padding: 6px;
-        border-radius: 50%;
-        background-color: rgba(0,0,0,0.04);
-    }
-
-    .ChatSetting-Blue {
-        color: rgb(0, 153, 255);
-        background: none;
-    }
-
-</Styled>
+.ChatSetting-Blue {
+    color: rgb(0, 153, 255);
+    background: none;
+}

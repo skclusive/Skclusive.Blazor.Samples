@@ -2,9 +2,9 @@
 
 namespace Skclusive.Blazor.Dashboard.App.View.Chart
 {
-    public class MomentJsScript : ScriptComponentBase
+    public class MomentJsScript : ScriptBase
     {
-        protected override string GetScript()
+        public override string GetScript()
         {
             return
             #region moment-with-locales.js

@@ -1,28 +1,21 @@
 @namespace Skclusive.Blazor.Messenger.App.View
 @inherits StyleComponentBase
 
-<Styled
-    Name="ChatSearch">
+.ChatSearch-Root {
+    width: 100%;
+    border-radius: 40px;
+    background-color: rgba(0, 0, 0, .04);
+}
 
-    .ChatSearch-Root {
-        width: 100%;
-        border-radius: 40px;
-        background-color: rgba(0, 0, 0, .04);
-    }
+.ChatSearch-Input {
+    box-sizing: border-box;
+    min-height: 36px;
+}
 
-    .ChatSearch-Input {
-        box-sizing: border-box;
-        min-height: 36px;
-    }
+.ChatSearch-Adornment {
+    padding-left: 12px;
+}
 
-    .ChatSearch-Adornment {
-        padding-left: 12px;
-    }
-
-    .ChatSearch-Adornment svg {
-        color: rgba(0,0,0,0.38);
-    }
-
-</Styled>
-
-
+.ChatSearch-Adornment svg {
+    color: rgba(0,0,0,0.38);
+}

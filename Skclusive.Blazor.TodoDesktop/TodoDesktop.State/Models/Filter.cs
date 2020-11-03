@@ -13,6 +13,6 @@ namespace Skclusive.Blazor.TodoDesktop.Models
 
     public partial class AppTypes
     {
-        public readonly static IType<Filter, Filter> FilterType = Types.Late("LateFilterType", () => Types.Enumeration("FilterType", Filter.Active, Filter.Completed, Filter.All));
+        public readonly static IType<Filter, Filter> FilterType = Types.Late("LateFilterType", () => Types.Enumeration(Filter.Active, Filter.Completed, Filter.All));
     }
 }

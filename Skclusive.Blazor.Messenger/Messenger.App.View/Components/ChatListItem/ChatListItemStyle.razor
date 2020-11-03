@@ -1,83 +1,76 @@
 @namespace Skclusive.Blazor.Messenger.App.View
 @inherits StyleComponentBase
 
-<Styled
-    Name="ChatListItem">
+.ChatListItem-Root {
+    padding-left: 8px;
+    padding-right: 8px;
+}
 
-    .ChatListItem-Root {
-        padding-left: 8px;
-        padding-right: 8px;
-    }
+.ChatListItem-Container {
+    padding-left: 8px;
+    padding-right: 8px;
+    border-radius: 10px;
+}
 
-    .ChatListItem-Container {
-        padding-left: 8px;
-        padding-right: 8px;
-        border-radius: 10px;
-    }
+.ChatListItem-Container-Active {
+    background-color: rgba(0, 0, 0, 0.05);
+}
 
-    .ChatListItem-Container-Active {
-        background-color: rgba(0, 0, 0, 0.05);
-    }
+.ChatListItem-Container:hover .ChatListItem-Dot {
+    display: none;
+}
 
-    .ChatListItem-Container:hover .ChatListItem-Dot {
-        display: none;
-    }
+.ChatListItem-Container:hover .ChatListItem-Responded {
+    display: none;
+}
 
-    .ChatListItem-Container:hover .ChatListItem-Responded {
-        display: none;
-    }
+.ChatListItem-Container:hover .ChatListItem-More {
+    visibility: visible;
+}
 
-    .ChatListItem-Container:hover .ChatListItem-More {
-        visibility: visible;
-    }
+.ChatListItem-Avatar {
+    width: 50px;
+    height: 50px;
+    margin-right: 12px;
+}
 
-    .ChatListItem-Avatar {
-        width: 50px;
-        height: 50px;
-        margin-right: 12px;
-    }
+.ChatListItem-Primary {
+}
 
-    .ChatListItem-Primary {
-    }
+.ChatListItem-Primary-Bold {
+    font-weight: bold;
+}
 
-    .ChatListItem-Primary-Bold {
-        font-weight: bold;
-    }
+.ChatListItem-Secondary {
+    font-size: 13px;
+    color:  rgb(153, 153, 153);
+}
 
-    .ChatListItem-Secondary {
-        font-size: 13px;
-        color:  rgb(153, 153, 153);
-    }
+.ChatListItem-Secondary-Bold {
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.87);
+}
 
-    .ChatListItem-Secondary-Bold {
-        font-weight: bold;
-        color: rgba(0, 0, 0, 0.87);
-    }
+.ChatListItem-Float {
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+}
 
-    .ChatListItem-Float {
-        top: 50%;
-        left: 50%;
-        position: absolute;
-        transform: translate(-50%, -50%);
-    }
+.ChatListItem-Dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #09f;
+}
 
-    .ChatListItem-Dot {
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        background-color: #09f;
-    }
+.ChatListItem-More {
+    font-size: 20px;
+    visibility: hidden;
+}
 
-    .ChatListItem-More {
-        font-size: 20px;
-        visibility: hidden;
-    }
-
-    .ChatListItem-Responded {
-        width: 16px;
-        height: 16px;
-    }
-
-</Styled>
-
-
+.ChatListItem-Responded {
+    width: 16px;
+    height: 16px;
+}

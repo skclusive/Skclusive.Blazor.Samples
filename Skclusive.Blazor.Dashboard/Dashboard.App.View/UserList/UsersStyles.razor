@@ -1,63 +1,53 @@
 ﻿@inherits StyleComponentBase
 
-<style data-name="Users">
+.users-root {
+    padding: 24px;
+}
 
-    /* users */
+.users-content {
+    margin-top: 16px;
+}
 
-    .users-root {
-        padding: 24px;
-    }
+.users-toolbar-row {
+    height: 42px;
+    display: flex;
+    margin-top: 8px;
+    align-items: center;
+}
 
-    .users-content {
-        margin-top: 16px;
-    }
+.users-toolbar-spacer {
+    flex-grow: 1;
+}
 
-    /* users-toolbar */
+.users-toolbar-import-button {
+    margin-right: 8px;
+}
 
-    .users-toolbar-row {
-        height: 42px;
-        display: flex;
-        margin-top: 8px;
-        align-items: center;
-    }
+.users-toolbar-export-button {
+    margin-right: 8px;
+}
 
-    .users-toolbar-spacer {
-        flex-grow: 1;
-    }
+.users-toolbar-search-input {
+    margin-right: 8px;
+}
 
-    .users-toolbar-import-button {
-        margin-right: 8px;
-    }
+.users-table-content {
+    padding: 0;
+}
 
-    .users-toolbar-export-button {
-        margin-right: 8px;
-    }
+.users-table-inner {
+    min-width: 1050px;
+}
 
-    .users-toolbar-search-input {
-        margin-right: 8px;
-    }
+.users-table-name-container {
+    display: flex;
+    align-items: center;
+}
 
-    /* users-table */
+.users-table-avatar {
+    margin-right: 16px;
+}
 
-    .users-table-content {
-        padding: 0;
-    }
-
-    .users-table-inner {
-        min-width: 1050px;
-    }
-
-    .users-table-name-container {
-        display: flex;
-        align-items: center;
-    }
-
-    .users-table-avatar {
-        margin-right: 16px;
-    }
-
-    .users-table-actions {
-        justify-content: flex-end;
-    }
-
-</style>
+.users-table-actions {
+    justify-content: flex-end;
+}

@@ -2,11 +2,11 @@
 
 @page "/signup"
 
-@inject ScriptHelpers ScriptHelpers
+@inject DomHelpers DomHelpers
 
 <form
     class="auth-form-root"
-    @onsubmit="@HandleSignUp">
+    @onsubmit="@HandleSignUpAsync">
     <Typography
         Class="auth-form-title"
         Variant="TypographyVariant.H2">
@@ -133,11 +133,11 @@
         StateHasChanged();
     }
 
-    private void HandleSignUp()
+    private async Task HandleSignUpAsync()
     {
         System.Console.WriteLine("HandleSignUp");
 
-         _ = ScriptHelpers.GoBackAsync();
+        await DomHelpers.GoBackAsync();
 
         System.Console.WriteLine("HandleSignUpDone");
     }

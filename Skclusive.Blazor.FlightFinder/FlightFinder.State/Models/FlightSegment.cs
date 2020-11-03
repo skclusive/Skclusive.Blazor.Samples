@@ -1,5 +1,4 @@
 using System;
-using Newtonsoft.Json;
 using Skclusive.Mobx.Observable;
 using Skclusive.Mobx.StateTree;
 

@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Skclusive.Core.Component;
+using Skclusive.Mobx.Component;
 using Skclusive.Script.DevTools;
 using Skclusive.Script.DomHelpers;
 using Skclusive.Blazor.TodoApp.Extension;
@@ -22,15 +23,16 @@ namespace Skclusive.Blazor.TodoApp
 
             builder.Services.AddTodoApp();
 
-            builder.Services.TryAddDevToolsServices();
-
-            builder.Services.TryAddDomHelpersServices
-            (
-                new CoreConfigBuilder()
+            var config = new CoreConfigBuilder()
                 .WithIsServer(false)
                 .WithIsPreRendering(false)
-                .Build()
-            );
+                .Build();
+
+            builder.Services.TryAddMobxServices(config);
+
+            builder.Services.TryAddDevToolsServices(config);
+
+            builder.Services.TryAddDomHelpersServices(config);
 
             await builder.Build().RunAsync();
         }

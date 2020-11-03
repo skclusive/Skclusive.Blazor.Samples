@@ -1,9 +1,10 @@
 using Microsoft.Extensions.DependencyInjection;
-using Newtonsoft.Json;
+using Skclusive.Extensions.DependencyInjection;
 using System;
 using Skclusive.Blazor.TodoApp.Models;
-using Skclusive.Blazor.TodoApp.Converters;
 using static Skclusive.Blazor.TodoApp.Models.AppTypes;
+
+using System.Text.Json.Serialization;
 
 namespace Skclusive.Blazor.TodoApp.Extension
 {

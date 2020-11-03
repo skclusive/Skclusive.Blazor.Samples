@@ -1,101 +1,95 @@
 @namespace Skclusive.Blazor.Messenger.App.View
 @inherits StyleComponentBase
 
-<Styled
-    Name="ChatView">
+.ChatView-Root {
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    background-color: #ffffff;
+}
 
-    .ChatView-Root {
-        height: 100vh;
-        display: flex;
-        flex-direction: row;
-        overflow: hidden;
-        background-color: #ffffff;
-    }
+.ChatView-Main {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+}
 
-    .ChatView-Main {
-        display: flex;
-        flex-grow: 1;
-        flex-direction: column;
-    }
+.ChatView-Middle-Container {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+}
 
-    .ChatView-Middle-Container {
-        display: flex;
-        flex-grow: 1;
-        flex-direction: column;
-    }
+.ChatView-AppBar {
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .10);
+    background-color: #ffffff;
+    transition: all 195ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+}
 
-    .ChatView-AppBar {
-        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .10);
-        background-color: #ffffff;
-        transition: all 195ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-    }
+.ChatView-Drawer-Paper {
+    position: relative;
+    transition: all 195ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+    box-sizing: content-box;
+    border-color: rgba(0, 0, 0, 0.04);
+}
 
+@media (min-width:960px) {
     .ChatView-Drawer-Paper {
-        position: relative;
-        transition: all 195ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-        box-sizing: content-box;
-        border-color: rgba(0, 0, 0, 0.04);
+        width: 340px;
     }
+}
 
-    @media (min-width:960px) {
-        .ChatView-Drawer-Paper {
-            width: 340px;
-        }
-    }
+.ChatView-Edit-Container {
+    margin-top: 8px;
+    text-align: center;
+    margin-bottom: 8px;
+}
 
-    .ChatView-Edit-Container {
-        margin-top: 8px;
-        text-align: center;
-        margin-bottom: 8px;
-    }
+.ChatView-Edit-Icon {
+    background-color: rgba(0,0,0,0.04);
+}
 
-    .ChatView-Edit-Icon {
-        background-color: rgba(0,0,0,0.04);
-    }
+.ChatView-Search-Container {
+    padding: 4px 16px 12px;
+}
 
-    .ChatView-Search-Container {
-        padding: 4px 16px 12px;
-    }
+.ChatView-Content-Container {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-flow: row nowrap;
+    transition: all 195ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+}
 
-    .ChatView-Content-Container {
-        flex: 1;
-        min-height: 0;
-        display: flex;
-        flex-flow: row nowrap;
-        transition: all 195ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-    }
+.ChatView-Content {
+    max-height: 100%;
+    overflow-y: auto;
+    flex-grow: 1;
+    transition: all 195ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+}
 
-    .ChatView-Content {
-        max-height: 100%;
-        overflow-y: auto;
-        flex-grow: 1;
-        transition: all 195ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-    }
+.ChatView-Sidebar-Container {
+    width: 33%;
+    position: relative;
+    flex-shrink: 0;
+}
 
-    .ChatView-Sidebar-Container {
-        width: 33%;
-        position: relative;
-        flex-shrink: 0;
-    }
+.ChatView-Sidebar {
+    position: absolute;
+    top: 0px;
+    height: calc(100vh - 60px);
+    width: 100%;
+    overflow-y: auto;
+    border-left: 1px solid rgba(0, 0, 0, 0.08);
+}
 
-    .ChatView-Sidebar {
-        position: absolute;
-        top: 0px;
-        height: calc(100vh - 60px);
-        width: 100%;
-        overflow-y: auto;
-        border-left: 1px solid rgba(0, 0, 0, 0.08);
-    }
-
-    .ChatView-Footer {
-        width: auto;
-        border: none;
-        height: 52px;
-        display: flex;
-        padding: 0 8px;
-        align-items: center;
-    }
-
-</Styled>
-
+.ChatView-Footer {
+    width: auto;
+    border: none;
+    height: 52px;
+    display: flex;
+    padding: 0 8px;
+    align-items: center;
+}
 

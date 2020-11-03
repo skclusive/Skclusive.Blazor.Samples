@@ -9,7 +9,6 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 
-using Skclusive.Blazor.FlightFinder.Extension;
 using Skclusive.Script.DevTools;
 using Skclusive.Blazor.FlightFinder.View;
 
@@ -17,6 +16,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Skclusive.Script.DevTools.Redux;
 using Skclusive.Script.DevTools.StateTree;
+using Skclusive.Core.Component;
 
 namespace Skclusive.Blazor.FlightFinder.Server.Host
 {
@@ -36,12 +36,7 @@ namespace Skclusive.Blazor.FlightFinder.Server.Host
             services.AddRazorPages();
             services.AddServerSideBlazor();
 
-            services.AddFlightFinder();
-
-            // Skclusive.Script.DevTools; should scoped.
-            // services.TryAddDevToolsServices();
-            services.TryAddScoped(typeof(IReduxTool<,>), typeof(ReduxTool<,>));
-            services.TryAddScoped(typeof(IStateTreeTool<>), typeof(StateTreeTool<>));
+            services.TryAddFlightFinderViewServices(new CoreConfigBuilder().Build());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

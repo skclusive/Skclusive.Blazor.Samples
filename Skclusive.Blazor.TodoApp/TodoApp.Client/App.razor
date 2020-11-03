@@ -1,6 +1,4 @@
-﻿<DomHelpersScript />
-<ReduxToolScript />
-<Router AppAssembly="@typeof(Program).Assembly">
+﻿<Router AppAssembly="@typeof(Program).Assembly">
     <Found Context="routeData">
         <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
     </Found>
@@ -10,3 +8,5 @@
         </LayoutView>
     </NotFound>
 </Router>
+
+<InjectedScripts />

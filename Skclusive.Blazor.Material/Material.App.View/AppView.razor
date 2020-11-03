@@ -1,17 +1,7 @@
-﻿<AppResources />
+﻿@using Skclusive.Material.Theme
 
-<Router
-    AppAssembly="@typeof(FullLayout).Assembly">
-    <Found
-        Context="routeData">
-        <RouteView
-            RouteData="@routeData"
-            DefaultLayout="@typeof(FullLayout)" />
-    </Found>
-    <NotFound>
-        <LayoutView
-            Layout="@typeof(SmallLayout)">
-            <NotFound />
-        </LayoutView>
-    </NotFound>
-</Router>
+<ThemeProvider>
+    <RouterLayout
+        Main="@typeof(FullLayout)"
+        Mini="@typeof(SmallLayout)" />
+</ThemeProvider>
