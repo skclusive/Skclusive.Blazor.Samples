@@ -6,11 +6,11 @@
     <RootNamespace>Skclusive.Blazor.Messenger.App.View</RootNamespace>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Skclusive.Material.Component" Version="5.0.0-rc1" />
-  </ItemGroup>
+  <!-- <ItemGroup>
+    <PackageReference Include="Skclusive.Material.Component" Version="5.0.0-rc2" />
+  </ItemGroup> -->
 
   <!-- <ItemGroup>
-    <ProjectReference Include="..\..\..\Skclusive.Material.Component\Material\src\Material.csproj" Version="5.0.0-rc1" />
+    <ProjectReference Include="..\..\..\Skclusive.Material.Component\Material\src\Material.csproj" Version="5.0.0-rc2" />
   </ItemGroup> -->
 </Project>
