@@ -15,7 +15,7 @@
 
   <!-- <ItemGroup>
     <PackageReference Include="Skclusive.Mobx.Component" Version="5.0.0-rc1" />
-    <PackageReference Include="Skclusive.Script.DevTools" Version="5.0.0-rc1" />
+    <PackageReference Include="Skclusive.Script.DevTools" Version="5.0.0-rc2" />
     <PackageReference Include="Skclusive.Script.DomHelpers" Version="5.0.0-rc1" />
   </ItemGroup> -->
 
