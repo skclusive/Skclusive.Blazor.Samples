@@ -9,25 +9,25 @@
   <ItemGroup>
     <PackageReference Include="Skclusive.Mobx.Component" Version="5.0.0-rc1" />
     <PackageReference Include="Skclusive.Script.DevTools" Version="5.0.0-rc2" />
-    <PackageReference Include="Skclusive.Material.Layout" Version="5.0.0-rc2" />
-    <PackageReference Include="Skclusive.Material.Progress" Version="5.0.0-rc2" />
-    <PackageReference Include="Skclusive.Material.Button" Version="5.0.0-rc2" />
-    <PackageReference Include="Skclusive.Material.Table" Version="5.0.0-rc2" />
-    <PackageReference Include="Skclusive.Material.Divider" Version="5.0.0-rc2" />
-    <PackageReference Include="Skclusive.Material.AppBar" Version="5.0.0-rc2" />
-    <PackageReference Include="Skclusive.Material.Toolbar" Version="5.0.0-rc2" />
+    <PackageReference Include="Skclusive.Material.Layout" Version="5.0.0-rc3" />
+    <PackageReference Include="Skclusive.Material.Progress" Version="5.0.0-rc3" />
+    <PackageReference Include="Skclusive.Material.Button" Version="5.0.0-rc3" />
+    <PackageReference Include="Skclusive.Material.Table" Version="5.0.0-rc3" />
+    <PackageReference Include="Skclusive.Material.Divider" Version="5.0.0-rc3" />
+    <PackageReference Include="Skclusive.Material.AppBar" Version="5.0.0-rc3" />
+    <PackageReference Include="Skclusive.Material.Toolbar" Version="5.0.0-rc3" />
   </ItemGroup>
 
   <!-- <ItemGroup>
     <ProjectReference Include="..\..\..\Skclusive.Mobx.Component\src\Component.csproj" Version="5.0.0-rc1" />
     <ProjectReference Include="..\..\..\Skclusive.Script.DevTools\src\DevTools.csproj" Version="5.0.0-rc2" />
-    <ProjectReference Include="..\..\..\Skclusive.Material.Layout\src\Layout.csproj" Version="5.0.0-rc2" />
-    <ProjectReference Include="..\..\..\Skclusive.Material.Component\Progress\src\Progress.csproj" Version="5.0.0-rc2" />
-    <ProjectReference Include="..\..\..\Skclusive.Material.Component\Button\src\Button.csproj" Version="5.0.0-rc2" />
-    <ProjectReference Include="..\..\..\Skclusive.Material.Component\Table\src\Table.csproj" Version="5.0.0-rc2" />
-    <ProjectReference Include="..\..\..\Skclusive.Material.Component\Divider\src\Divider.csproj" Version="5.0.0-rc2" />
-    <ProjectReference Include="..\..\..\Skclusive.Material.Component\AppBar\src\AppBar.csproj" Version="5.0.0-rc2" />
-    <ProjectReference Include="..\..\..\Skclusive.Material.Component\Toolbar\src\Toolbar.csproj" Version="5.0.0-rc2" />
+    <ProjectReference Include="..\..\..\Skclusive.Material.Layout\src\Layout.csproj" Version="5.0.0-rc3" />
+    <ProjectReference Include="..\..\..\Skclusive.Material.Component\Progress\src\Progress.csproj" Version="5.0.0-rc3" />
+    <ProjectReference Include="..\..\..\Skclusive.Material.Component\Button\src\Button.csproj" Version="5.0.0-rc3" />
+    <ProjectReference Include="..\..\..\Skclusive.Material.Component\Table\src\Table.csproj" Version="5.0.0-rc3" />
+    <ProjectReference Include="..\..\..\Skclusive.Material.Component\Divider\src\Divider.csproj" Version="5.0.0-rc3" />
+    <ProjectReference Include="..\..\..\Skclusive.Material.Component\AppBar\src\AppBar.csproj" Version="5.0.0-rc3" />
+    <ProjectReference Include="..\..\..\Skclusive.Material.Component\Toolbar\src\Toolbar.csproj" Version="5.0.0-rc3" />
   </ItemGroup> -->
 
   <ItemGroup>
