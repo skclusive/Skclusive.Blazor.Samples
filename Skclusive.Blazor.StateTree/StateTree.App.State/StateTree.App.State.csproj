@@ -10,12 +10,12 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0-rc.2.*" />
     <PackageReference Include="Skclusive.Extensions.DependencyInjection" Version="5.0.0-rc1" />
-    <PackageReference Include="Skclusive.Mobx.StateTree" Version="5.0.0-rc2" />
+    <PackageReference Include="Skclusive.Mobx.StateTree" Version="5.0.0-rc3" />
     <PackageReference Include="Skclusive.Reactive.Flow" Version="5.0.0-rc1" />
   </ItemGroup>
 
   <!-- <ItemGroup>
-    <ProjectReference Include="..\..\..\Skclusive.Mobx.StateTree\src\StateTree.csproj" Version="5.0.0-rc2" />
+    <ProjectReference Include="..\..\..\Skclusive.Mobx.StateTree\src\StateTree.csproj" Version="5.0.0-rc3" />
     <ProjectReference Include="..\..\..\Skclusive.Reactive.Flow\src\Flow.csproj" Version="5.0.0-rc1" />
   </ItemGroup> -->
 
