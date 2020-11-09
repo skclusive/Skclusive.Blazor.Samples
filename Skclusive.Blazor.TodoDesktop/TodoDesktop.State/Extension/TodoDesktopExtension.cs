@@ -7,7 +7,7 @@ namespace Skclusive.Blazor.TodoDesktop.Extension
 {
     public static class TodoDesktopExtension
     {
-        public static void AddTodoDesktop(this IServiceCollection services)
+        public static void TryAddTodoDesktop(this IServiceCollection services)
         {
             services.AddSingleton((_) => AppStateType.Create(new Dictionary<string, object>
             {

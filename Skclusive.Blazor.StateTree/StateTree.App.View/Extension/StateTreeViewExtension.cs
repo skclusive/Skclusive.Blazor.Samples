@@ -25,8 +25,6 @@ namespace Skclusive.Blazor.StateTree.App.View
 
             services.TryAddStateTreeStateServices();
 
-            services.TryAddSingletonEnumerable<JsonConverter, JsonTypeConverter<ICounter, Counter>>();
-
             services.TryAddDevToolsServices(config);
 
             services.TryAddLayoutServices(config);

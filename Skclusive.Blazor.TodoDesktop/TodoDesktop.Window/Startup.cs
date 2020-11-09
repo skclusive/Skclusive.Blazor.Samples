@@ -11,7 +11,7 @@ namespace Skclusive.Blazor.TodoDesktop
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddTodoDesktop();
+            services.TryAddTodoDesktop();
 
             var coreConfig = new CoreConfigBuilder()
                 .WithIsServer(false)

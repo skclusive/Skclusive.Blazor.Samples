@@ -7,10 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Skclusive.Material.Component" Version="5.0.0-rc3" />
+    <PackageReference Include="Skclusive.Material.Component" Version="5.0.0-rc4" />
   </ItemGroup>
 
   <!-- <ItemGroup>
-    <ProjectReference Include="..\..\..\Skclusive.Material.Component\Material\src\Material.csproj" Version="5.0.0-rc3" />
+    <ProjectReference Include="..\..\..\Skclusive.Material.Component\Material\src\Material.csproj" Version="5.0.0-rc4" />
   </ItemGroup> -->
 </Project>

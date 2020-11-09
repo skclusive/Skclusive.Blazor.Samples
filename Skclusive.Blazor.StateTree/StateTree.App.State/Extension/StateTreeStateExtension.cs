@@ -2,6 +2,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Skclusive.Extensions.DependencyInjection;
 using System;
+using Skclusive.Text.Json;
 using Skclusive.Reactive.Flow;
 
 namespace Skclusive.Blazor.StateTree.App.State
@@ -17,6 +18,8 @@ namespace Skclusive.Blazor.StateTree.App.State
             services.TryAddEnumerable(ServiceDescriptor.Scoped<IEffect, CountIncrementEffect>());
 
             services.TryAddEnumerable(ServiceDescriptor.Scoped<IEpic, CountIncrementEpic>());
+
+            services.TryAddJsonConverter<JsonTypeConverter<ICounter, Counter>>();
         }
     }
 }

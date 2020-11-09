@@ -21,7 +21,7 @@ namespace Skclusive.Blazor.TodoApp
 
             builder.Services.AddSingleton(new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
-            builder.Services.AddTodoApp();
+            builder.Services.TryAddTodoApp();
 
             var config = new CoreConfigBuilder()
                 .WithIsServer(false)

@@ -1,6 +1,8 @@
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Skclusive.Extensions.DependencyInjection;
 using System;
+using Skclusive.Text.Json;
 using Skclusive.Blazor.TodoApp.Models;
 using static Skclusive.Blazor.TodoApp.Models.AppTypes;
 
@@ -10,13 +12,13 @@ namespace Skclusive.Blazor.TodoApp.Extension
 {
     public static class TodoAppExtension
     {
-        public static void AddTodoApp(this IServiceCollection services)
+        public static void TryAddTodoApp(this IServiceCollection services)
         {
-            services.AddSingleton<JsonConverter, JsonTypeConverter<ITodoSnapshot, TodoSnapshot>>();
+            services.TryAddJsonConverter<JsonTypeConverter<ITodoSnapshot, TodoSnapshot>>();
 
-            services.AddSingleton<JsonConverter, JsonTypeConverter<IAppStateSnapshot, AppStateSnapshot>>();
+            services.TryAddJsonConverter<JsonTypeConverter<IAppStateSnapshot, AppStateSnapshot>>();
 
-            services.AddSingleton((_) => AppStateType.Create(new AppStateSnapshot
+            services.TryAddSingleton((_) => AppStateType.Create(new AppStateSnapshot
             {
                 Filter = Filter.All,
 

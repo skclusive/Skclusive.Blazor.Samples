@@ -133,7 +133,7 @@ body {
 
 .toggle-all + label:before {
   color: #e6e6e6;
-  content: '❯';
+  content: "❯";
   font-size: 22px;
   padding: 10px 27px 10px 27px;
 }
