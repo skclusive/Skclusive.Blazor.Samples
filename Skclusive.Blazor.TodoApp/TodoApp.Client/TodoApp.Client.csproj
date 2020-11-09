@@ -13,17 +13,17 @@
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="5.0.0-rc.2.*" PrivateAssets="all" />
   </ItemGroup>
 
-  <!-- <ItemGroup>
+  <ItemGroup>
     <PackageReference Include="Skclusive.Mobx.Component" Version="5.0.0-rc3" />
     <PackageReference Include="Skclusive.Script.DevTools" Version="5.0.0-rc3" />
     <PackageReference Include="Skclusive.Script.DomHelpers" Version="5.0.0-rc1" />
-  </ItemGroup> -->
+  </ItemGroup>
 
-  <ItemGroup>
+  <!-- <ItemGroup>
     <ProjectReference Include="..\..\..\Skclusive.Mobx.Component\src\Component.csproj" Version="5.0.0-rc3" />
     <ProjectReference Include="..\..\..\Skclusive.Script.DevTools\src\DevTools.csproj" Version="5.0.0-rc3" />
     <ProjectReference Include="..\..\..\Skclusive.Script.DomHelpers\src\DomHelpers.csproj" Version="5.0.0-rc1" />
-  </ItemGroup>
+  </ItemGroup> -->
 
   <ItemGroup>
     <ProjectReference Include="..\TodoApp.State\TodoApp.State.csproj" />
