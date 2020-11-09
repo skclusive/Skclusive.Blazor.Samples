@@ -19,7 +19,7 @@ namespace Skclusive.Blazor.FlightFinder.State
 
             services.TryAddSingletonEnumerable<JsonConverter, JsonTypeConverter<IFlightSegmentSnapshot, FlightSegmentSnapshot>>();
 
-            services.TryAddSingleton<JsonConverter, JsonTypeConverter<IItinerarySnapshot, ItinerarySnapshot>>();
+            services.TryAddSingletonEnumerable<JsonConverter, JsonTypeConverter<IItinerarySnapshot, ItinerarySnapshot>>();
 
             services.TryAddSingletonEnumerable<JsonConverter, JsonTypeConverter<IAppStateSnapshot, AppStateSnapshot>>();
 
