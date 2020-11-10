@@ -7,13 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StateTree.App.View", "State
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StateTree.Browser.Host", "StateTree.Browser.Host\StateTree.Browser.Host.csproj", "{1EBFF17A-E183-483C-8F19-2BB45C2C14BE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StateTree.Native.Host", "StateTree.Native.Host\StateTree.Native.Host.csproj", "{8A700237-15F9-4B30-9356-3E8AE24B8133}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StateTree.Server.Host", "StateTree.Server.Host\StateTree.Server.Host.csproj", "{24CB556B-2689-4743-ACD2-908CAD6DDDCF}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StateTree.BrowserPrerendered.Host", "StateTree.BrowserPrerendered.Host\StateTree.BrowserPrerendered.Host.csproj", "{9BFD2F09-897D-4C23-90FE-BD68FF3D8D23}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StateTree.ServerPrerendered.Host", "StateTree.ServerPrerendered.Host\StateTree.ServerPrerendered.Host.csproj", "{F879C2BE-FC75-44E3-8F43-7C1876B9C773}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

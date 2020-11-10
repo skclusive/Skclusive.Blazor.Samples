@@ -16,7 +16,7 @@ namespace Skclusive.Blazor.StateTree.Browser.Host
         {
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
 
-            builder.RootComponents.Add<AppView>("app");
+            builder.RootComponents.Add<AppView>("#app");
 
             builder.Services.AddSingleton(new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 

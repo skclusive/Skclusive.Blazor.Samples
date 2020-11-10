@@ -15,7 +15,7 @@ namespace Skclusive.Blazor.Messenger.Browser.Host
         {
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
 
-            builder.RootComponents.Add<MessengerView>("app");
+            // builder.RootComponents.Add<MessengerView>("#app");
 
             builder.Services.AddSingleton(new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 

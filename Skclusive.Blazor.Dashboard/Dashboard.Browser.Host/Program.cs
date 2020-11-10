@@ -17,7 +17,7 @@ namespace Skclusive.Blazor.Dashboard.Browser.Host
         {
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
 
-            builder.RootComponents.Add<DashboardView>("app");
+            // builder.RootComponents.Add<DashboardView>("#app");
 
             builder.Services.AddSingleton(new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 

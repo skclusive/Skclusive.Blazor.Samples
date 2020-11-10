@@ -1,7 +1,7 @@
 ﻿/*
     The SCSS structure here is not well organised. There's a lot of unnecessary repetition,
     and no use of variables to factor out common or easily-changeable values.
-    
+
     If you're a SCSS expert, please consider submitting a PR to show how well-organised SCSS
     should look. Ideally it should be as predictable and industry-standard as possible.
 */
@@ -14,7 +14,7 @@ body {
     height: 100%;
 }
 
-app {
+#app {
     display: flex;
 height: 100%;
 }
