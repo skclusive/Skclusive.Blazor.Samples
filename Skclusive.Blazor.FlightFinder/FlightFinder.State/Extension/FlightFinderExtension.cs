@@ -14,15 +14,11 @@ namespace Skclusive.Blazor.FlightFinder.State
     {
         public static void TryAddFlightFinderStateServices(this IServiceCollection services)
         {
-            services.TryAddJsonConverter<JsonTypeConverter<IAirportSnapshot, AirportSnapshot>>();
-
-            services.TryAddJsonConverter<JsonTypeConverter<ISearchCriteriaSnapshot, SearchCriteriaSnapshot>>();
-
-            services.TryAddJsonConverter<JsonTypeConverter<IFlightSegmentSnapshot, FlightSegmentSnapshot>>();
-
-            services.TryAddJsonConverter<JsonTypeConverter<IItinerarySnapshot, ItinerarySnapshot>>();
-
-            services.TryAddJsonConverter<JsonTypeConverter<IAppStateSnapshot, AppStateSnapshot>>();
+            services.TryAddJsonTypeConverter<IAirportSnapshot, AirportSnapshot>();
+            services.TryAddJsonTypeConverter<ISearchCriteriaSnapshot, SearchCriteriaSnapshot>();
+            services.TryAddJsonTypeConverter<IFlightSegmentSnapshot, FlightSegmentSnapshot>();
+            services.TryAddJsonTypeConverter<IItinerarySnapshot, ItinerarySnapshot>();
+            services.TryAddJsonTypeConverter<IAppStateSnapshot, AppStateSnapshot>();
 
             services.TryAddScoped((_) => AppStateType.Create(new AppStateSnapshot
             {

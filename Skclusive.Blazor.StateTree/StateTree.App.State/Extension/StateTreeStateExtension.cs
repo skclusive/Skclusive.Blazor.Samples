@@ -15,11 +15,11 @@ namespace Skclusive.Blazor.StateTree.App.State
 
             services.TryAddScoped<ICounterObservable>((_) => AppTypes.CounterType.Create(new Counter()));
 
-            services.TryAddEnumerable(ServiceDescriptor.Scoped<IEffect, CountIncrementEffect>());
+            services.TryAddFlowEffect<CountIncrementEffect>();
 
-            services.TryAddEnumerable(ServiceDescriptor.Scoped<IEpic, CountIncrementEpic>());
+            services.TryAddFlowEpic<CountIncrementEpic>();
 
-            services.TryAddJsonConverter<JsonTypeConverter<ICounter, Counter>>();
+            services.TryAddJsonTypeConverter<ICounter, Counter>();
         }
     }
 }

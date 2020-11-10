@@ -10,7 +10,7 @@
     <PackageReference Include="Skclusive.Extensions.DependencyInjection" Version="5.0.0-rc4" />
     <PackageReference Include="Skclusive.Mobx.Observable" Version="5.0.0-rc4" />
     <PackageReference Include="Skclusive.Mobx.StateTree" Version="5.0.0-rc4" />
-    <PackageReference Include="Skclusive.Text.Json" Version="5.0.0-rc4" />
+    <PackageReference Include="Skclusive.Text.Json" Version="5.0.0-rc5" />
   </ItemGroup>
 
 </Project>
