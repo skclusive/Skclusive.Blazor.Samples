@@ -1,0 +1,22 @@
+
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <AssemblyName>Skclusive.Reactive.App.State</AssemblyName>
+    <RootNamespace>Skclusive.Reactive.App.State</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Skclusive.Extensions.DependencyInjection" Version="5.2.0" />
+    <PackageReference Include="Skclusive.Mobx.StateTree" Version="5.2.0" />
+    <PackageReference Include="Skclusive.Reactive.Flow" Version="5.2.0" />
+    <PackageReference Include="Skclusive.Text.Json" Version="5.2.0" />
+  </ItemGroup>
+
+  <!-- <ItemGroup>
+    <ProjectReference Include="..\..\..\Skclusive.Mobx.StateTree\src\StateTree.csproj" />
+    <ProjectReference Include="..\..\..\Skclusive.Reactive.Flow\src\Flow.csproj" />
+  </ItemGroup> -->
+
+</Project>

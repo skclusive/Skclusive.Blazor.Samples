@@ -2,10 +2,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Skclusive.Script.DomHelpers;
 using Skclusive.Core.Component;
 using Skclusive.Mobx.Component;
-using Skclusive.Blazor.TodoDesktop.Extension;
+using Skclusive.TodoDesktop.State;
 using WebWindows.Blazor;
 
-namespace Skclusive.Blazor.TodoDesktop
+namespace Skclusive.TodoDesktop.Window
 {
     public class Startup
     {

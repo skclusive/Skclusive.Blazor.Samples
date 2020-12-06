@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Skclusive.Core.Component;
 
-namespace Skclusive.Blazor.Dashboard.App.View.Layout
+namespace Skclusive.Dashboard.App.View
 {
     [Layout(typeof(FullLayout))]
     public abstract class FullLayoutPage : DisposableComponentBase

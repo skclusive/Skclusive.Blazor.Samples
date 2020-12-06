@@ -11,7 +11,7 @@ using ChartJs.Blazor.ChartJS.Common.Axes;
 using ChartJs.Blazor.ChartJS.Common.Axes.Ticks;
 using ChartJs.Blazor.ChartJS.Common.Wrappers;
 
-namespace Skclusive.Blazor.Dashboard.App.View.Home
+namespace Skclusive.Dashboard.App.View
 {
     public class LatestSalesComponent : MaterialComponent
     {
@@ -105,7 +105,8 @@ namespace Skclusive.Blazor.Dashboard.App.View.Home
 
                                 CategoryPercentage= 0.5,
 
-                                Ticks = new LinearCartesianTicks {
+                                Ticks = new LinearCartesianTicks
+                                {
                                     BeginAtZero = true,
 
                                     Min = 0

@@ -1,7 +1,7 @@
 ﻿using Skclusive.Material.Core;
 using Skclusive.Material.Component;
 
-namespace Skclusive.Blazor.Messenger.App.View
+namespace Skclusive.Messenger.App.View
 {
     public interface IMessengerViewConfig : IMaterialConfig
     {

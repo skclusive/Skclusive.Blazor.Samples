@@ -5,15 +5,13 @@ VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Messenger.App.View", "Messenger.App.View\Messenger.App.View.csproj", "{B5E2D6F3-D90C-4E41-98B1-CE5DD4AC93FB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Messenger.Browser.Host", "Messenger.Browser.Host\Messenger.Browser.Host.csproj", "{1EBFF17A-E183-483C-8F19-2BB45C2C14BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Messenger.Host.Browser", "Messenger.Host.Browser\Messenger.Host.Browser.csproj", "{1EBFF17A-E183-483C-8F19-2BB45C2C14BE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Messenger.Native.Host", "Messenger.Native.Host\Messenger.Native.Host.csproj", "{8A700237-15F9-4B30-9356-3E8AE24B8133}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Messenger.Host.Server", "Messenger.Host.Server\Messenger.Host.Server.csproj", "{24CB556B-2689-4743-ACD2-908CAD6DDDCF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Messenger.Server.Host", "Messenger.Server.Host\Messenger.Server.Host.csproj", "{24CB556B-2689-4743-ACD2-908CAD6DDDCF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Messenger.Host.BrowserPrerendered", "Messenger.Host.BrowserPrerendered\Messenger.Host.BrowserPrerendered.csproj", "{9BFD2F09-897D-4C23-90FE-BD68FF3D8D23}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Messenger.BrowserPrerendered.Host", "Messenger.BrowserPrerendered.Host\Messenger.BrowserPrerendered.Host.csproj", "{9BFD2F09-897D-4C23-90FE-BD68FF3D8D23}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Messenger.ServerPrerendered.Host", "Messenger.ServerPrerendered.Host\Messenger.ServerPrerendered.Host.csproj", "{F879C2BE-FC75-44E3-8F43-7C1876B9C773}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Messenger.Host.ServerPrerendered", "Messenger.Host.ServerPrerendered\Messenger.Host.ServerPrerendered.csproj", "{F879C2BE-FC75-44E3-8F43-7C1876B9C773}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Components;
 using Skclusive.Material.Core;
 
-namespace Skclusive.Blazor.Dashboard.App.View.Common
+namespace Skclusive.Dashboard.App.View
 {
     public enum StatusSize
     {

@@ -1,13 +1,13 @@
 using System;
 using System.Threading.Tasks;
-using Skclusive.Blazor.TodoApp.Models;
+using Skclusive.TodoApp.State;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Rendering;
 using Skclusive.Core.Component;
 using Skclusive.Script.DevTools.StateTree;
 using Skclusive.Mobx.StateTree;
 
-namespace Skclusive.Blazor.TodoApp.Components
+namespace Skclusive.TodoApp.Client
 {
     public class TodoAppComponent : DisposableComponentBase
     {

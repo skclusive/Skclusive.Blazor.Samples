@@ -1,19 +1,20 @@
 <Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
-    <AssemblyName>Skclusive.Blazor.Dashboard.App.View</AssemblyName>
-    <RootNamespace>Skclusive.Blazor.Dashboard.App.View</RootNamespace>
+    <TargetFrameworks>netstandard2.0;net5.0</TargetFrameworks>
+    <RazorLangVersion>3.0</RazorLangVersion>
+    <AssemblyName>Skclusive.Dashboard.App.View</AssemblyName>
+    <RootNamespace>Skclusive.Dashboard.App.View</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="ChartJs.Blazor" Version="1.0.2" />
-    <PackageReference Include="Skclusive.Material.Layout" Version="5.0.1" />
-    <PackageReference Include="Skclusive.Material.Component" Version="5.0.1" />
+    <PackageReference Include="Skclusive.Material.Layout" Version="5.2.0" />
+    <PackageReference Include="Skclusive.Material.Component" Version="5.2.0" />
   </ItemGroup>
 
   <!-- <ItemGroup>
-    <ProjectReference Include="..\..\..\Skclusive.Material.Layout\src\Layout.csproj" Version="5.0.1" />
-    <ProjectReference Include="..\..\..\Skclusive.Material.Component\Material\src\Material.csproj" Version="5.0.1" />
+    <ProjectReference Include="..\..\..\Skclusive.Material.Layout\src\Layout.csproj" />
+    <ProjectReference Include="..\..\..\Skclusive.Material.Component\Material\src\Material.csproj" />
   </ItemGroup> -->
 </Project>

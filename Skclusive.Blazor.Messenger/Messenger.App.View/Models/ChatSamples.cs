@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Skclusive.Blazor.Messenger.App.View
+namespace Skclusive.Messenger.App.View
 {
     public static class ChatSamples
     {

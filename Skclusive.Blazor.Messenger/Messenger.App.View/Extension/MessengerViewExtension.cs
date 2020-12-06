@@ -2,7 +2,7 @@
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Skclusive.Material.Component;
 
-namespace Skclusive.Blazor.Messenger.App.View
+namespace Skclusive.Messenger.App.View
 {
     public static class MessengerViewExtension
     {

@@ -1,9 +1,8 @@
 using System.Collections.Generic;
 using Microsoft.Extensions.DependencyInjection;
-using Skclusive.Blazor.TodoDesktop.Models;
-using static Skclusive.Blazor.TodoDesktop.Models.AppTypes;
+using static Skclusive.TodoDesktop.State.AppTypes;
 
-namespace Skclusive.Blazor.TodoDesktop.Extension
+namespace Skclusive.TodoDesktop.State
 {
     public static class TodoDesktopExtension
     {

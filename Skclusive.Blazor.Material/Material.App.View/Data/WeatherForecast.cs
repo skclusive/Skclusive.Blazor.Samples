@@ -1,6 +1,6 @@
 using System;
 
-namespace Skclusive.Blazor.Material.App.View.Data
+namespace Skclusive.Material.App.View
 {
     public class WeatherForecast
     {

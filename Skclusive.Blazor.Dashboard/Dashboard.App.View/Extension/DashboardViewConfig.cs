@@ -1,7 +1,7 @@
 ﻿using Skclusive.Material.Component;
 using Skclusive.Material.Layout;
 
-namespace Skclusive.Blazor.Dashboard.App.View
+namespace Skclusive.Dashboard.App.View
 {
     public interface IDashboardViewConfig : ILayoutConfig
     {

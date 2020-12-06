@@ -2,15 +2,15 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <AssemblyName>Skclusive.Blazor.Messenger.App.View</AssemblyName>
-    <RootNamespace>Skclusive.Blazor.Messenger.App.View</RootNamespace>
+    <AssemblyName>Skclusive.Messenger.App.View</AssemblyName>
+    <RootNamespace>Skclusive.Messenger.App.View</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Skclusive.Material.Component" Version="5.0.1" />
+    <PackageReference Include="Skclusive.Material.Component" Version="5.2.0" />
   </ItemGroup>
 
   <!-- <ItemGroup>
-    <ProjectReference Include="..\..\..\Skclusive.Material.Component\Material\src\Material.csproj" Version="5.0.1" />
+    <ProjectReference Include="..\..\..\Skclusive.Material.Component\Material\src\Material.csproj" />
   </ItemGroup> -->
 </Project>

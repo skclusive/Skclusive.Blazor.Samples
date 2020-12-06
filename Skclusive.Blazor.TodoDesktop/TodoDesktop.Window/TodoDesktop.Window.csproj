@@ -4,23 +4,23 @@
     <TargetFramework>net5.0</TargetFramework>
     <OutputType>WinExe</OutputType>
     <RazorLangVersion>3.0</RazorLangVersion>
-    <AssemblyName>Skclusive.Blazor.TodoDesktop.Window</AssemblyName>
-    <RootNamespace>Skclusive.Blazor.TodoDesktop</RootNamespace>
+    <AssemblyName>Skclusive.TodoDesktop.Window</AssemblyName>
+    <RootNamespace>Skclusive.TodoDesktop.Window</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="WebWindow.Blazor" Version="0.1.0-20200807.1" />
   </ItemGroup>
 
-  <!-- <ItemGroup>
-    <PackageReference Include="Skclusive.Mobx.Component" Version="5.0.0" />
-    <PackageReference Include="Skclusive.Script.DomHelpers" Version="5.0.0" />
-  </ItemGroup> -->
-
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Skclusive.Mobx.Component\src\Component.csproj" Version="5.0.0" />
-    <ProjectReference Include="..\..\..\Skclusive.Script.DomHelpers\src\DomHelpers.csproj" Version="5.0.0" />
+    <PackageReference Include="Skclusive.Mobx.Component" Version="5.2.0" />
+    <PackageReference Include="Skclusive.Script.DomHelpers" Version="5.2.0" />
   </ItemGroup>
+
+  <!-- <ItemGroup>
+    <ProjectReference Include="..\..\..\Skclusive.Mobx.Component\src\Component.csproj" />
+    <ProjectReference Include="..\..\..\Skclusive.Script.DomHelpers\src\DomHelpers.csproj" />
+  </ItemGroup> -->
 
   <ItemGroup>
     <ProjectReference Include="..\TodoDesktop.State\TodoDesktop.State.csproj" />

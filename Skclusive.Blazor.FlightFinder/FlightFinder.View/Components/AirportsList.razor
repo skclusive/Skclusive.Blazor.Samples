@@ -1,9 +1,0 @@
-﻿@inherits PureComponentBase
-@inject IAppState AppState
-
-<datalist id="airports">
-	@foreach (var airport in AppState.Airports)
-	{
-		<option value=@airport.Code>@airport.DisplayName (@airport.Code)</option>
-	}
-</datalist>

@@ -9,7 +9,7 @@ using ChartJs.Blazor.ChartJS.Common.Enums;
 using Skclusive.Material.Icon;
 using Microsoft.AspNetCore.Components.Rendering;
 
-namespace Skclusive.Blazor.Dashboard.App.View.Home
+namespace Skclusive.Dashboard.App.View
 {
     public class UsersByDeviceComponent : MaterialComponent
     {

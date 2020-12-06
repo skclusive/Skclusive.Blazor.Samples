@@ -6,10 +6,10 @@ using Skclusive.Core.Component;
 using Skclusive.Mobx.Component;
 using Skclusive.Script.DevTools;
 using Skclusive.Script.DomHelpers;
-using Skclusive.Blazor.TodoApp.Extension;
+using Skclusive.TodoApp.State;
 using System.Net.Http;
 
-namespace Skclusive.Blazor.TodoApp
+namespace Skclusive.TodoApp.Client
 {
     public class Program
     {

@@ -1,0 +1,13 @@
+
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <AssemblyName>Skclusive.Messenger.Host.Server</AssemblyName>
+    <RootNamespace>Skclusive.Messenger.Host.Server</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Messenger.App.View\Messenger.App.View.csproj" />
+  </ItemGroup>
+</Project>

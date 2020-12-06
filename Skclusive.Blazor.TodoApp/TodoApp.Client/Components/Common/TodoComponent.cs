@@ -1,8 +1,8 @@
-using Skclusive.Blazor.TodoApp.Models;
+using Skclusive.TodoApp.State;
 using Microsoft.AspNetCore.Components;
 using Skclusive.Core.Component;
 
-namespace Skclusive.Blazor.TodoApp.Components
+namespace Skclusive.TodoApp.Client
 {
     public class TodoComponent : PureComponentBase
     {

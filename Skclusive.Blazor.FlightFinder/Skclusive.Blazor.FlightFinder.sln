@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightFinder.State", "FlightFinder.State\FlightFinder.State.csproj", "{144D6C1A-2CC4-4781-BF84-375B7887D279}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightFinder.App.State", "FlightFinder.App.State\FlightFinder.App.State.csproj", "{144D6C1A-2CC4-4781-BF84-375B7887D279}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightFinder.View", "FlightFinder.View\FlightFinder.View.csproj", "{8BDE02DE-3F0A-40E5-AF80-641F6B5B8D50}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightFinder.App.View", "FlightFinder.App.View\FlightFinder.App.View.csproj", "{8BDE02DE-3F0A-40E5-AF80-641F6B5B8D50}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightFinder.Browser.Host", "FlightFinder.Browser.Host\FlightFinder.Browser.Host.csproj", "{09E07108-2D62-4B3B-AC94-3FBB8ED7D872}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightFinder.Host.Browser", "FlightFinder.Host.Browser\FlightFinder.Host.Browser.csproj", "{09E07108-2D62-4B3B-AC94-3FBB8ED7D872}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightFinder.Server.Host", "FlightFinder.Server.Host\FlightFinder.Server.Host.csproj", "{3B0722BF-EBC3-4DD9-A59D-1E05AFB18463}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightFinder.Host.Server", "FlightFinder.Host.Server\FlightFinder.Host.Server.csproj", "{3B0722BF-EBC3-4DD9-A59D-1E05AFB18463}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightFinder.Tests", "FlightFinder.Tests\FlightFinder.Tests.csproj", "{00A49E86-0F6A-4A98-9561-5A1B77E186C9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightFinder.App.State.Tests", "FlightFinder.App.State.Tests\FlightFinder.App.State.Tests.csproj", "{00A49E86-0F6A-4A98-9561-5A1B77E186C9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

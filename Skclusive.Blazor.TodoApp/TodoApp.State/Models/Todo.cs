@@ -1,8 +1,7 @@
-using Skclusive.Blazor.TodoApp.Extension;
 using Skclusive.Mobx.Observable;
 using Skclusive.Mobx.StateTree;
 
-namespace Skclusive.Blazor.TodoApp.Models
+namespace Skclusive.TodoApp.State
 {
     #region ITodo
 

@@ -2,15 +2,15 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <AssemblyName>Skclusive.Blazor.TodoApp.State</AssemblyName>
-    <RootNamespace>Skclusive.Blazor.TodoApp</RootNamespace>
+    <AssemblyName>Skclusive.TodoApp.State</AssemblyName>
+    <RootNamespace>Skclusive.TodoApp.State</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Skclusive.Extensions.DependencyInjection" Version="5.0.0" />
-    <PackageReference Include="Skclusive.Mobx.Observable" Version="5.0.0" />
-    <PackageReference Include="Skclusive.Mobx.StateTree" Version="5.0.0" />
-    <PackageReference Include="Skclusive.Text.Json" Version="5.0.0" />
+    <PackageReference Include="Skclusive.Extensions.DependencyInjection" Version="5.2.0" />
+    <PackageReference Include="Skclusive.Mobx.Observable" Version="5.2.0" />
+    <PackageReference Include="Skclusive.Mobx.StateTree" Version="5.2.0" />
+    <PackageReference Include="Skclusive.Text.Json" Version="5.2.0" />
   </ItemGroup>
 
 </Project>

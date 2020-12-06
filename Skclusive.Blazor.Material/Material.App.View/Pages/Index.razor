@@ -1,4 +1,7 @@
-﻿@page "/"
+﻿@namespace Skclusive.Material.App.View
+@page "/"
+
+@inherits PureComponentBase
 
 <Typography
     Variant="@TypographyVariant.H3">
@@ -10,14 +13,7 @@
     Welcome to your new app.
 </Typography>
 
-@* <Styled
-    @bind-Classname="@AppBarStyle">
-    z-index: calc(var(--theme-zindex-drawer, 1200) + 1);
-    background-color: hotpink;
-</Styled> *@
-
 <AppBar
-    Class="@AppBarStyle"
     Position="@AppBarPosition.Static">
     <Toolbar>
         <IconButton
@@ -38,8 +34,3 @@
         </Button>
     </Toolbar>
 </AppBar>
-
-@code
-{
-    private string AppBarStyle;
-}

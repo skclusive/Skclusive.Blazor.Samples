@@ -1,6 +1,6 @@
 using Skclusive.Mobx.StateTree;
 
-namespace Skclusive.Blazor.TodoApp.Models
+namespace Skclusive.TodoApp.State
 {
     public enum Filter : int
     {

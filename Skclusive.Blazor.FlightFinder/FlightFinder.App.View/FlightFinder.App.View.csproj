@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <AssemblyName>Skclusive.FlightFinder.App.View</AssemblyName>
+    <RootNamespace>Skclusive.FlightFinder.App.View</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Skclusive.Mobx.Component" Version="5.2.0" />
+    <PackageReference Include="Skclusive.Script.DomHelpers" Version="5.2.0" />
+    <PackageReference Include="Skclusive.Script.DevTools" Version="5.2.0" />
+  </ItemGroup>
+
+  <!-- <ItemGroup>
+    <ProjectReference Include="..\..\..\Skclusive.Mobx.Component\src\Component.csproj" />
+    <ProjectReference Include="..\..\..\Skclusive.Script.DomHelpers\src\DomHelpers.csproj" />
+    <ProjectReference Include="..\..\..\Skclusive.Script.DevTools\src\DevTools.csproj" />
+   </ItemGroup> -->
+
+  <ItemGroup>
+    <ProjectReference Include="..\FlightFinder.App.State\FlightFinder.App.State.csproj" />
+  </ItemGroup>
+
+</Project>

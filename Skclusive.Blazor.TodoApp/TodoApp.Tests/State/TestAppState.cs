@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using Skclusive.Mobx.StateTree;
 using Xunit;
-using Skclusive.Blazor.TodoApp.Models;
-using static Skclusive.Blazor.TodoApp.Models.AppTypes;
+using Skclusive.TodoApp.State;
+using static Skclusive.TodoApp.State.AppTypes;
 
-namespace Skclusive.Blazor.TodoApp.Tests
+namespace Skclusive.TodoApp.Tests
 {
     public class TestAppState
     {

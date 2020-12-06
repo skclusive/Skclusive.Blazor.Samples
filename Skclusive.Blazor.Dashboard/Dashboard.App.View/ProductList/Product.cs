@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Skclusive.Blazor.Dashboard.App.View.ProductList
+namespace Skclusive.Dashboard.App.View
 {
     public class Product
     {

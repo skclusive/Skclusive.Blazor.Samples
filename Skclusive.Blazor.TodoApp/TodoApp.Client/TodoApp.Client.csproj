@@ -3,8 +3,8 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <UseBlazorWebAssembly>true</UseBlazorWebAssembly>
-    <AssemblyName>Skclusive.Blazor.TodoApp.Client</AssemblyName>
-    <RootNamespace>Skclusive.Blazor.TodoApp</RootNamespace>
+    <AssemblyName>Skclusive.TodoApp.Client</AssemblyName>
+    <RootNamespace>Skclusive.TodoApp.Client</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -14,15 +14,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Skclusive.Mobx.Component" Version="5.0.0" />
-    <PackageReference Include="Skclusive.Script.DomHelpers" Version="5.0.0" />
-    <PackageReference Include="Skclusive.Script.DevTools" Version="5.0.0" />
+    <PackageReference Include="Skclusive.Mobx.Component" Version="5.2.0" />
+    <PackageReference Include="Skclusive.Script.DomHelpers" Version="5.2.0" />
+    <PackageReference Include="Skclusive.Script.DevTools" Version="5.2.0" />
   </ItemGroup>
 
   <!-- <ItemGroup>
-    <ProjectReference Include="..\..\..\Skclusive.Mobx.Component\src\Component.csproj" Version="5.0.0" />
-    <ProjectReference Include="..\..\..\Skclusive.Script.DomHelpers\src\DomHelpers.csproj" Version="5.0.0" />
-    <ProjectReference Include="..\..\..\Skclusive.Script.DevTools\src\DevTools.csproj" Version="5.0.0" />
+    <ProjectReference Include="..\..\..\Skclusive.Mobx.Component\src\Component.csproj" />
+    <ProjectReference Include="..\..\..\Skclusive.Script.DomHelpers\src\DomHelpers.csproj" />
+    <ProjectReference Include="..\..\..\Skclusive.Script.DevTools\src\DevTools.csproj" />
   </ItemGroup> -->
 
   <ItemGroup>

@@ -3,9 +3,8 @@ using Skclusive.Mobx.StateTree;
 using System.Collections.Generic;
 using System.Linq;
 using System;
-using Skclusive.Blazor.TodoApp.Extension;
 
-namespace Skclusive.Blazor.TodoApp.Models
+namespace Skclusive.TodoApp.State
 {
     #region IAppState
 

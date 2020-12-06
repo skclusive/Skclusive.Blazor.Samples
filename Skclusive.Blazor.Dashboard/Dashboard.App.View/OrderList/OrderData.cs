@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Skclusive.Blazor.Dashboard.App.View.OrderList
+namespace Skclusive.Dashboard.App.View
 {
     public class OrderData
     {

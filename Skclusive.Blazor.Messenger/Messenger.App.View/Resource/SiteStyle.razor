@@ -1,31 +1,27 @@
-@namespace Skclusive.Blazor.Messenger.App.View
+@namespace Skclusive.Messenger.App.View
 @inherits StyleComponentBase
 
-<style data-name="Site">
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
+html {
+    height: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
 
-    html {
-        height: 100%;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-    }
+body {
+    background-color: var(--theme-custom-content-background-color, #f4f6f8) !important;
+    height: 100%;
+}
 
-    body {
-        background-color: var(--theme-custom-content-background-color, #f4f6f8) !important;
-        height: 100%;
-    }
+a {
+    text-decoration: none;
+}
 
-    a {
-        text-decoration: none;
-    }
-
-    #root {
-        height: 100%;
-    }
-
-</style>
+#root {
+    height: 100%;
+}

@@ -1,7 +1,7 @@
 ﻿using WebWindows.Blazor;
 using System;
 
-namespace Skclusive.Blazor.TodoDesktop
+namespace Skclusive.TodoDesktop.Window
 {
     public class Program
     {

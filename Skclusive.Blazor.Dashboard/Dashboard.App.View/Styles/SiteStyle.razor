@@ -1,5 +1,5 @@
+@namespace Skclusive.Dashboard.App.View
 @inherits StyleComponentBase
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -21,6 +21,34 @@ a {
     text-decoration: none;
 }
 
-#root {
+app, #app {
     height: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+}
+
+div.MainLayout-Root, div.MiniLayout-Root {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding-top: 0px;
+}
+
+main.MainLayout-Content {
+    height: auto;
+    overflow: auto;
+}
+
+div.MainLayout-ShiftContent header.App-Topbar {
+    margin-left: -250px;
+    width: calc(100% + 250px);
+}
+
+header.App-Topbar {
+    position: static;
 }

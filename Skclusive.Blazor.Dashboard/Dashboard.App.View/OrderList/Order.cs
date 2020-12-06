@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Skclusive.Blazor.Dashboard.App.View.OrderList
+namespace Skclusive.Dashboard.App.View
 {
     public class Order
     {

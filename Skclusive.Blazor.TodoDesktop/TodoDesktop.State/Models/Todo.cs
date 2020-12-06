@@ -3,7 +3,7 @@ using Skclusive.Mobx.Observable;
 using Skclusive.Mobx.StateTree;
 using Skclusive.Mobx.StateTree.Proxy;
 
-namespace Skclusive.Blazor.TodoDesktop.Models
+namespace Skclusive.TodoDesktop.State
 {
     public interface ITodo
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System;
 using Skclusive.Mobx.StateTree.Proxy;
 
-namespace Skclusive.Blazor.TodoDesktop.Models
+namespace Skclusive.TodoDesktop.State
 {
     public interface IAppState
     {

@@ -1,8 +1,8 @@
-using Skclusive.Blazor.TodoDesktop.Models;
+using Skclusive.TodoDesktop.State;
 using Microsoft.AspNetCore.Components;
 using Skclusive.Core.Component;
 
-namespace Skclusive.Blazor.TodoDesktop.Components
+namespace Skclusive.TodoDesktop.Window
 {
     public class TodoComponent : PureComponentBase
     {

@@ -1,0 +1,78 @@
+﻿@namespace Skclusive.FlightFinder.App.View
+@inherits PureComponentBase
+
+<div class="col">
+    <!-- Airport selection -->
+    <div class="row py-1">
+        <!-- From airport -->
+        <div class="col pr-0">
+            <div class="form-control d-flex">
+                <div><i>✈</i>&nbsp;&nbsp;From:</div>
+                <input list="airports" placeholder="..." value="@criteria.FromAirport" @onchange="@(e => criteria.SetFromAirport(e.Value?.ToString()))" />
+            </div>
+        </div>
+        <div class="col px-2 py-1 align-self-end arrow">➝</div>
+
+        <!-- To airport -->
+        <div class="col pl-0">
+            <div class="form-control d-flex">
+                <div><i>✈</i>&nbsp;&nbsp;To:</div>
+                <input list="airports" placeholder="..." value="@criteria.ToAirport" @onchange="@(e => criteria.SetToAirport(e.Value?.ToString()))" />
+            </div>
+        </div>
+    </div>
+
+    <!-- Departure / arrival dates -->
+    <div class="row py-1">
+        <!-- Depart date -->
+        <div class="col pr-0">
+            <div class="form-control d-flex">
+                <div><i>🗓</i>&nbsp;&nbsp;Depart:</div>
+                <input type="date" value="@(criteria.OutboundDate.ToString("yyyy-MM-dd"))" @onchange="@(e => criteria.SetOutboundDate(DateTime.ParseExact(e.Value?.ToString(), "yyyy-MM-dd", CultureInfo.CurrentCulture, DateTimeStyles.None)))" />
+            </div>
+        </div>
+        <div class="col px-2 py-1 align-self-end arrow">➝</div>
+
+        <!-- Arrive date -->
+        <div class="col pl-0">
+            <div class="form-control d-flex">
+                <div><i>🗓</i>&nbsp;&nbsp;Arrive:</div>
+                <input type="date" value="@(criteria.ReturnDate.ToString("yyyy-MM-dd"))" @onchange="@(e => criteria.SetReturnDate(DateTime.ParseExact(e.Value?.ToString(), "yyyy-MM-dd", CultureInfo.CurrentCulture, DateTimeStyles.None)))" />
+            </div>
+        </div>
+    </div>
+
+    <!-- Class / search -->
+    <div class="row py-1 d-flex px-3">
+        <div>
+            <select class="custom-select" value="@criteria.TicketClass.ToString()" @onchange="@(e => criteria.SetTicketClass((TicketClass)Enum.Parse(typeof(TicketClass), e.Value?.ToString())))">
+                <option value=@TicketClass.Economy>Economy</option>
+                <option value=@TicketClass.PremiumEconomy>Premium Economy</option>
+                <option value=@TicketClass.Business>Business</option>
+                <option value=@TicketClass.First>First</option>
+            </select>
+        </div>
+        <div class="ml-auto">
+            <button @onclick="@OnSearchAsync" type="button" class="btn btn-danger px-5">
+                Search ➝
+            </button>
+        </div>
+    </div>
+</div>
+<AirportsList />
+
+@code
+{
+    [Inject]
+    public IAppService AppService {set; get;}
+
+    [Inject]
+    public IAppState AppState { set; get; }
+
+    private async Task OnSearchAsync()
+    {
+        await AppService.SearchItinerariesAsync(criteria);
+    }
+
+    private ISearchCriteria criteria => AppState.SearchCriteria;
+}

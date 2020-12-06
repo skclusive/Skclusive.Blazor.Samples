@@ -3,12 +3,12 @@ using Microsoft.Extensions.DependencyInjection.Extensions;
 using Skclusive.Extensions.DependencyInjection;
 using System;
 using Skclusive.Text.Json;
-using Skclusive.Blazor.TodoApp.Models;
-using static Skclusive.Blazor.TodoApp.Models.AppTypes;
+using Skclusive.TodoApp.State;
+using static Skclusive.TodoApp.State.AppTypes;
 
 using System.Text.Json.Serialization;
 
-namespace Skclusive.Blazor.TodoApp.Extension
+namespace Skclusive.TodoApp.State
 {
     public static class TodoAppExtension
     {

@@ -1,7 +1,7 @@
 using System;
 using System.Threading.Tasks;
 
-namespace Skclusive.Blazor.Material.App.View.Data
+namespace Skclusive.Material.App.View
 {
     public interface IWeatherForecastService
     {

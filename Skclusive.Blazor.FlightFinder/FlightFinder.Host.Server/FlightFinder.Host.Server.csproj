@@ -1,0 +1,13 @@
+
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <AssemblyName>Skclusive.FlightFinder.Host.Server</AssemblyName>
+    <RootNamespace>Skclusive.FlightFinder.Host.Server</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FlightFinder.App.View\FlightFinder.App.View.csproj" />
+  </ItemGroup>
+</Project>

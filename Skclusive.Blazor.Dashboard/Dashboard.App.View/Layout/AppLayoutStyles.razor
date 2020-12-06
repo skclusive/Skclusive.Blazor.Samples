@@ -1,3 +1,4 @@
+@namespace Skclusive.Dashboard.App.View
 @inherits StyleComponentBase
 
 .FullLayout-Divider {
@@ -6,6 +7,7 @@
 
 .FullLayout-Navigation {
     margin-bottom: 16px;
+    overflow: auto;
 }
 
 .FullLayout-Signout {
@@ -15,4 +17,10 @@
 header.App-Topbar {
     color: var(--theme-palette-background-custom-appbar-color);
     background-color: var(--theme-palette-background-custom-appbar-background-color);
+}
+
+.FullLayout-Sidebar {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }

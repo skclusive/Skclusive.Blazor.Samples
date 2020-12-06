@@ -1,6 +1,6 @@
 ﻿using Skclusive.Core.Component;
 
-namespace Skclusive.Blazor.Dashboard.App.View.Chart
+namespace Skclusive.Dashboard.App.View
 {
     public class ChartJsInteropScript : ScriptBase
     {
