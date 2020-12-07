@@ -21,6 +21,8 @@ namespace Skclusive.FlightFinder.App.State
 		IItinerarySnapshot[] Shortlist { get; set; }
 
 		IAirportSnapshot[] Airports { get; set; }
+
+        IRootSnapshot Root { get; set; }
     }
 
     public interface IAppStateActions
@@ -55,6 +57,8 @@ namespace Skclusive.FlightFinder.App.State
 		IList<IAirport> Airports { get; set; }
 
         IList<IItinerary> SortedSearchResults { get; }
+
+        IRoot Root { get; set; }
     }
 
     public class AppStateSnapshot : IAppStateSnapshot
@@ -70,6 +74,8 @@ namespace Skclusive.FlightFinder.App.State
 		public IItinerarySnapshot[] Shortlist { get; set; }
 
 		public IAirportSnapshot[] Airports { get; set; }
+
+        public IRootSnapshot Root { get; set; }
     }
 
     internal class AppStateProxy : ObservableProxy<IAppState, INode>, IAppState
@@ -118,6 +124,12 @@ namespace Skclusive.FlightFinder.App.State
             set => Write(nameof(Airports), value);
         }
 
+        public IRoot Root
+        {
+            get => Read<IRoot>(nameof(Root));
+            set => Write(nameof(Root), value);
+        }
+
         public void AddToShortlist(IItinerarySnapshot itinerary)
         {
             (Target as dynamic).AddToShortlist(itinerary);
@@ -164,6 +176,7 @@ namespace Skclusive.FlightFinder.App.State
             .Snapshot(() => new AppStateSnapshot())
             .Mutable(o => o.SearchInProgress, Types.Boolean)
             .Mutable(o => o.Airports, AirportListType)
+            .Mutable(o => o.Root, Types.Late("LateRoot", () => RootType))
             .Mutable(o => o.SearchResults, ItineraryListType)
             .Mutable(o => o.Shortlist, ItineraryListType)
             .Mutable(o => o.SearchCriteria, SearchCriteriaType)
@@ -180,6 +193,24 @@ namespace Skclusive.FlightFinder.App.State
                 o.SearchInProgress = false;
                 foreach(var airport in airports)
                 o.Airports.Add(AirportType.Create(airport));
+
+                o.Root = RootType.Create
+                (
+                    new RootSnapshot
+                    {
+                        Tree = new TreeSnapshot
+                        {
+                            Branches = new IBranchSnapshot []
+                            {
+                                new BranchSnapshot { Name = "branch 1" },
+
+                                new BranchSnapshot { Name = "branch 2" },
+
+                                new BranchSnapshot { Name = "branch 3" }
+                            }
+                        }
+                    }
+                );
             })
             .Action((o) => o.BeginItinerarySearch(), (o) => o.SearchInProgress = true)
             .Action<IItinerarySnapshot[]>((o) => o.EndItinerarySearch(null), (o, itineraries) =>

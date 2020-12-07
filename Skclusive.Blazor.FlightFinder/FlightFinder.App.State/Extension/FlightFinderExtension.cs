@@ -18,6 +18,10 @@ namespace Skclusive.FlightFinder.App.State
             services.TryAddJsonTypeConverter<IItinerarySnapshot, ItinerarySnapshot>();
             services.TryAddJsonTypeConverter<IAppStateSnapshot, AppStateSnapshot>();
 
+            services.TryAddJsonTypeConverter<IRootSnapshot, RootSnapshot>();
+            services.TryAddJsonTypeConverter<IBranchSnapshot, BranchSnapshot>();
+            services.TryAddJsonTypeConverter<ITreeSnapshot, TreeSnapshot>();
+
             services.TryAddScoped((_) => AppStateType.Create(new AppStateSnapshot
             {
                 SearchInProgress = false,
@@ -33,6 +37,19 @@ namespace Skclusive.FlightFinder.App.State
                     OutboundDate = DateTime.Now.Date,
 
                     ReturnDate = DateTime.Now.Date.AddDays(7)
+                },
+
+                Root = new RootSnapshot
+                {
+                    Tree = new TreeSnapshot
+                    {
+                        Branches = new IBranchSnapshot []
+                        {
+                            new BranchSnapshot { Name = "branch 1" },
+
+                            new BranchSnapshot { Name = "branch 2" }
+                        }
+                    }
                 }
             }));
 
