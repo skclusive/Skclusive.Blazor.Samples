@@ -1,0 +1,29 @@
+﻿@namespace Skclusive.Reactive.App.View
+
+@page "/regular-counter"
+
+<Typography
+    Variant="@TypographyVariant.H5">
+    Regular Counter
+</Typography>
+
+<Typography
+    Variant="@TypographyVariant.Body2">
+    Current count: @currentCount
+</Typography>
+
+<Button
+    Color="@Color.Primary"
+    OnClick="IncrementCount">
+    Click me
+</Button>
+
+@code
+{
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+}

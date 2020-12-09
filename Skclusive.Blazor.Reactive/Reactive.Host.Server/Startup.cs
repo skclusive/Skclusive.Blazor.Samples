@@ -10,9 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-using Skclusive.Reactive.App.View;
-
 using Skclusive.Material.Layout;
+using Skclusive.Reactive.App.View;
 using System.Reactive.Concurrency;
 
 namespace Skclusive.Reactive.Host.Server
@@ -33,6 +32,7 @@ namespace Skclusive.Reactive.Host.Server
             services.AddRazorPages();
             services.AddServerSideBlazor();
 
+            services.AddTransient<IWeatherForecastService, ServerWeatherForecastService>();
             services.TryAddReactiveViewServices
             (
                 CurrentThreadScheduler.Instance,

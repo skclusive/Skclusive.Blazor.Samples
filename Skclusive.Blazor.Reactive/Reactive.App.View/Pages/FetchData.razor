@@ -1,0 +1,52 @@
+﻿@namespace Skclusive.Reactive.App.View
+@page "/fetchdata"
+
+@inject IWeatherForecastService ForecastService
+
+<Typography
+    Variant="@TypographyVariant.H5">
+    Weather forecast
+</Typography>
+
+<Typography
+    Variant="@TypographyVariant.Body2">
+    This component demonstrates fetching data from the server.
+</Typography>
+
+@if (forecasts == null)
+{
+    <LinearProgress />
+}
+else
+{
+    <Table>
+        <TableHead>
+            <TableRow>
+                <TableCell>Date</TableCell>
+                <TableCell>Temp. (C)</TableCell>
+                <TableCell>Temp. (F)</TableCell>
+                <TableCell>Summary</TableCell>
+            </TableRow>
+        </TableHead>
+        <TableBody>
+            @foreach (var forecast in forecasts)
+            {
+                <TableRow>
+                    <TableCell>@forecast.Date.ToShortDateString()</TableCell>
+                    <TableCell>@forecast.TemperatureC</TableCell>
+                    <TableCell>@forecast.TemperatureF</TableCell>
+                    <TableCell>@forecast.Summary</TableCell>
+                </TableRow>
+            }
+        </TableBody>
+    </Table>
+}
+
+@code {
+    private WeatherForecast[] forecasts;
+
+    protected override async Task OnInitializedAsync()
+    {
+        forecasts = await ForecastService.GetForecastAsync();
+    }
+}

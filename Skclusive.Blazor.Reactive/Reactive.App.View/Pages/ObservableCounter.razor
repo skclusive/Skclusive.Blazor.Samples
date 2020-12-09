@@ -1,0 +1,28 @@
+﻿@namespace Skclusive.Reactive.App.View
+
+@inherits PureComponentBase
+
+@page "/observable-counter"
+
+<Typography Variant="@TypographyVariant.H5">
+    Observable Counter
+</Typography>
+
+<Typography Variant="@TypographyVariant.Body2">
+    Current count: @currentCount.Value
+</Typography>
+
+<Button Color="@Color.Primary"
+        OnClick="IncrementCount">
+    Click me
+</Button>
+
+@code
+{
+    private IObservableValue<int> currentCount = ObservableValue<int>.From(0);
+
+    private void IncrementCount()
+    {
+        currentCount.Value++;
+    }
+}

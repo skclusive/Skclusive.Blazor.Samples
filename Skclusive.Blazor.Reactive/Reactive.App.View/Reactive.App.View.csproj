@@ -1,7 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFrameworks>netstandard2.0;net5.0</TargetFrameworks>
+    <RazorLangVersion>3.0</RazorLangVersion>
     <AssemblyName>Skclusive.Reactive.App.View</AssemblyName>
     <RootNamespace>Skclusive.Reactive.App.View</RootNamespace>
   </PropertyGroup>
@@ -9,13 +10,13 @@
   <ItemGroup>
     <PackageReference Include="Skclusive.Mobx.Component" Version="5.2.0" />
     <PackageReference Include="Skclusive.Material.Layout" Version="5.2.0" />
-    <PackageReference Include="Skclusive.Script.DevTools" Version="5.2.0" />
+    <PackageReference Include="Skclusive.Mobx.Form" Version="5.2.0" />
   </ItemGroup>
 
   <!-- <ItemGroup>
-    <ProjectReference Include="..\..\..\Skclusive.Mobx.Component\src\Component.csproj" />
-    <ProjectReference Include="..\..\..\Skclusive.Material.Layout\src\Layout.csproj" />
-    <ProjectReference Include="..\..\..\Skclusive.Script.DevTools\src\DevTools.csproj" />
+    <ProjectReference Include="..\..\..\github\Skclusive.Mobx.Component\src\Component.csproj" />
+    <ProjectReference Include="..\..\..\github\Skclusive.Material.Layout\src\Layout.csproj" />
+    <ProjectReference Include="..\..\..\github\Skclusive.Mobx.Form\src\Form.csproj" />
   </ItemGroup> -->
 
   <ItemGroup>

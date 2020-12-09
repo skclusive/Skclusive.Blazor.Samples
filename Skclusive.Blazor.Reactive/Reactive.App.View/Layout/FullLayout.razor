@@ -27,7 +27,7 @@
 
 @code
 {
-    private List<NavigationItem> Items = new List<NavigationItem>
+     private List<NavigationItem> Items = new List<NavigationItem>
     {
         new NavigationItem
         {
@@ -36,5 +36,45 @@
             Icon = @<HomeIcon />,
             Prefix = false
         },
+
+        new NavigationItem
+        {
+            Title = "Regular Counter",
+            Path = "regular-counter",
+            Icon = @<AddIcon />,
+            Prefix = true
+        },
+
+        new NavigationItem
+        {
+            Title = "Observable Counter",
+            Path = "observable-counter",
+            Icon = @<AddIcon />,
+            Prefix = true
+        },
+
+        new NavigationItem
+        {
+            Title = "Reactive Flow Counter",
+            Path = "flow-counter",
+            Icon = @<AddIcon />,
+            Prefix = true
+        },
+
+        new NavigationItem
+        {
+            Title = "Reactive Form",
+            Path = "reactive-form",
+            Icon = @<AddIcon />,
+            Prefix = true
+        },
+
+        new NavigationItem
+        {
+            Title = "Fetch Data",
+            Path = "fetchdata",
+            Icon = @<ListIcon />,
+            Prefix = true
+        }
     };
 }

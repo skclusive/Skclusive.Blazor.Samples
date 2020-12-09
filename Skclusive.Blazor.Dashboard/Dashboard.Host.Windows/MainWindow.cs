@@ -2,7 +2,7 @@
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.WPF;
-using Skclusive.Material.App.Binding;
+using Skclusive.Reactive.App.Binding;
 
 namespace Skclusive.Dashboard.Host.Windows
 {

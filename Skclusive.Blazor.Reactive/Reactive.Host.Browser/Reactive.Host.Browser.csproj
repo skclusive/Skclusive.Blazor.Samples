@@ -2,9 +2,14 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <UseBlazorWebAssembly>true</UseBlazorWebAssembly>
     <AssemblyName>Skclusive.Reactive.Host.Browser</AssemblyName>
     <RootNamespace>Skclusive.Reactive.Host.Browser</RootNamespace>
+    <UseBlazorWebAssembly>true</UseBlazorWebAssembly>
+    <!-- To make the application smaller, we can explicitly turn off timezone and collation support. -->
+    <!-- Normally the linker automatically strips any features we aren't using, but these two otherwise stay on by default. -->
+    <BlazorEnableTimeZoneSupport>false</BlazorEnableTimeZoneSupport>
+    <BlazorWebAssemblyPreserveCollationData>false</BlazorWebAssemblyPreserveCollationData>
+    <BlazorEnableCompression>true</BlazorEnableCompression>
   </PropertyGroup>
 
   <ItemGroup>
@@ -15,5 +20,11 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Reactive.App.View\Reactive.App.View.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Update="Properties\launchSettings.json">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
   </ItemGroup>
 </Project>

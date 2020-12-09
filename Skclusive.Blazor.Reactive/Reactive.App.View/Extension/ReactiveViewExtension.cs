@@ -1,19 +1,14 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
-using Skclusive.Extensions.DependencyInjection;
 using Skclusive.Core.Component;
-using Skclusive.Material.Button;
-using Skclusive.Material.Progress;
-using Skclusive.Material.Divider;
-using Skclusive.Material.Table;
-using Skclusive.Material.AppBar;
-using Skclusive.Material.Toolbar;
 using Skclusive.Material.Layout;
 using Skclusive.Mobx.Component;
+using Skclusive.Mobx.Form;
 using Skclusive.Script.DevTools;
 using Skclusive.Reactive.App.State;
 using System.Reactive.Concurrency;
 using System.Text.Json.Serialization;
+//using BlazorStyled;
 
 namespace Skclusive.Reactive.App.View
 {
@@ -27,16 +22,15 @@ namespace Skclusive.Reactive.App.View
 
             services.TryAddDevToolsServices(config);
 
+            services.TryAddMobxFormServices(config);
+
             services.TryAddLayoutServices(config);
 
-            services.TryAddButtonServices(config);
-            services.TryAddProgressServices(config);
-            services.TryAddDividerServices(config);
-            services.TryAddTableServices(config);
-            services.TryAddAppBarServices(config);
-            services.TryAddToolbarServices(config);
+            //services.AddBlazorStyled();
 
             services.TryAddStyleTypeProvider<ReactiveStyleProvider>();
+
+             services.TryAddScriptTypeProvider<ReactiveScriptProvider>();
         }
     }
 }

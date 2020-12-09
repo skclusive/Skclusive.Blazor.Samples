@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AssemblyName>Skclusive.Reactive.Host.Web</AssemblyName>
+    <RootNamespace>Skclusive.Reactive.Host.Web</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Reactive.App.View\Reactive.App.View.csproj" />
+    <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="5.0.0" />
+  </ItemGroup>
+
+</Project>

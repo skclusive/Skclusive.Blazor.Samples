@@ -2,9 +2,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFrameworks>netstandard2.0;net5.0</TargetFrameworks>
     <AssemblyName>Skclusive.Reactive.App.State</AssemblyName>
     <RootNamespace>Skclusive.Reactive.App.State</RootNamespace>
+    <LangVersion>9.0</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -12,6 +13,7 @@
     <PackageReference Include="Skclusive.Mobx.StateTree" Version="5.2.0" />
     <PackageReference Include="Skclusive.Reactive.Flow" Version="5.2.0" />
     <PackageReference Include="Skclusive.Text.Json" Version="5.2.0" />
+    <PackageReference Include="Skclusive.Script.DevTools" Version="5.2.0" />
   </ItemGroup>
 
   <!-- <ItemGroup>

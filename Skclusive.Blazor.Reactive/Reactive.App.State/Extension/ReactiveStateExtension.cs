@@ -6,6 +6,12 @@ using Skclusive.Text.Json;
 using Skclusive.Reactive.Flow;
 using System.Reactive.Concurrency;
 
+// https://stackoverflow.com/questions/64749385/predefined-type-system-runtime-compilerservices-isexternalinit-is-not-defined
+namespace System.Runtime.CompilerServices
+{
+    internal static class IsExternalInit {}
+}
+
 namespace Skclusive.Reactive.App.State
 {
     public static class ReactiveStateExtension

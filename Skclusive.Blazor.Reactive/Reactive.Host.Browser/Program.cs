@@ -17,9 +17,11 @@ namespace Skclusive.Reactive.Host.Browser
         {
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
 
-            builder.RootComponents.Add<AppView>("#app");
+            // builder.RootComponents.Add<AppView>("#app");
 
             builder.Services.AddSingleton(new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+
+            builder.Services.AddTransient<IWeatherForecastService, RemoteWeatherForecastService>();
 
             builder.Services.TryAddReactiveViewServices
             (

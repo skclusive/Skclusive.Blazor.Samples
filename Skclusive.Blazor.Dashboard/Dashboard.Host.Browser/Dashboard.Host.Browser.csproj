@@ -2,9 +2,14 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <UseBlazorWebAssembly>true</UseBlazorWebAssembly>
     <AssemblyName>Skclusive.Dashboard.Host.Browser</AssemblyName>
     <RootNamespace>Skclusive.Dashboard.Host.Browser</RootNamespace>
+    <UseBlazorWebAssembly>true</UseBlazorWebAssembly>
+    <!-- To make the application smaller, we can explicitly turn off timezone and collation support. -->
+    <!-- Normally the linker automatically strips any features we aren't using, but these two otherwise stay on by default. -->
+    <BlazorEnableTimeZoneSupport>false</BlazorEnableTimeZoneSupport>
+    <BlazorWebAssemblyPreserveCollationData>false</BlazorWebAssemblyPreserveCollationData>
+    <BlazorEnableCompression>true</BlazorEnableCompression>
   </PropertyGroup>
 
   <ItemGroup>

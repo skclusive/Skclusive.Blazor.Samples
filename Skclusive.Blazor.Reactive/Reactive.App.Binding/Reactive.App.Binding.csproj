@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+    <RazorLangVersion>3.0</RazorLangVersion>
+    <EnableDefaultCssItems>false</EnableDefaultCssItems>
+    <WwwRootResourcePath>wwwroot</WwwRootResourcePath>
+    <GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
+    <!-- Skclusive.Reactive.App.Binding as assembly name not working in macos project -->
+    <AssemblyName>SkclusiveReactiveAppBinding</AssemblyName>
+    <RootNamespace>Skclusive.Reactive.App.Binding</RootNamespace>
+    <LangVersion>9.0</LangVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.MobileBlazorBindings" Version="0.6.7-preview" />
+    <PackageReference Include="System.Net.Http.Json" Version="5.0.0" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
+    <PackageReference Include="Xamarin.Forms" Version="4.8.0.1687" />
+    <PackageReference Include="Xam.Reactive.DispatchScheduler" Version="1.1.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Reactive.App.View\Reactive.App.View.csproj" />
+  </ItemGroup>
+
+</Project>

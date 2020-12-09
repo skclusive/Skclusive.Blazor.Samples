@@ -1,0 +1,56 @@
+﻿@namespace Skclusive.Reactive.App.View
+@inherits PureComponentBase
+
+@page "/flow-counter"
+
+<Typography
+    Variant="@TypographyVariant.H5">
+    Counter
+</Typography>
+
+<br />
+
+<Typography
+    Variant="@TypographyVariant.H6">
+    Current count: @CounterObs.Count
+</Typography>
+
+<br />
+
+<Condition
+    If="@CounterObs.Ticking">
+    <LinearProgress />
+</Condition>
+
+<br />
+
+<Button
+    Color="@Color.Primary"
+    OnClick="StartIncrementCount">
+    Start
+</Button>
+
+<Button
+    Color="@Color.Primary"
+    OnClick="CancelIncrementCount">
+    Cancel
+</Button>
+
+@code
+{
+    [Inject]
+    public ICounterObservable CounterObs { set; get; }
+
+    [Inject]
+    public IActionDispatcher Dispatcher { set; get; }
+
+    private void StartIncrementCount()
+    {
+        Dispatcher.Dispatch(new CountIncrementAction { Total = 10 });
+    }
+
+    private void CancelIncrementCount()
+    {
+        Dispatcher.Dispatch(new CancelCountIncrementAction());
+    }
+}
