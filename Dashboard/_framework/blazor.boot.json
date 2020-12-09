@@ -66,7 +66,7 @@
       "Skclusive.Script.DomHelpers.dll": "sha256-eobGVZEKsQJUgVw5dssRoWKpJChxDvIyu5KYQbMSc50=",
       "Skclusive.Transition.Component.dll": "sha256-LqO0DRjQQ52PeK7j\/lV4kUNTKyzMrNrd\/A1Zo494Rac=",
       "System.IO.Pipelines.dll": "sha256-CETD5tkXtiKEgbXyN\/lp0Ejf6LcHIhgeQIEyow2mhmY=",
-      "Skclusive.Dashboard.App.View.dll": "sha256-ixX6kbEGUVGC0OZyEtGSIY1xamkbupfLsQTUsRTuZGI=",
+      "Skclusive.Dashboard.App.View.dll": "sha256-WRMARVz50dQGUyIWDRnJChnRNcmuSaFJ3Kfdrtby9bY=",
       "Skclusive.Dashboard.Host.Browser.dll": "sha256-ymDZJC65KVr0jtTA7S8P3Y+MSWeEcS5cl1Cz+LoMH\/E=",
       "Microsoft.CSharp.dll": "sha256-\/wT+xi4xz88aTCc80BdmCewQ3nO1T6WMjPA4pgvbszI=",
       "System.Collections.Concurrent.dll": "sha256-VvAv\/SVjP9YGgkU9f3Yz+qzx9JBGgGux9scXT6WO2EE=",
@@ -107,7 +107,6 @@
     "lazyAssembly": null,
     "pdb": null,
     "runtime": {
-      "dotnet.timezones.blat": "sha256-2ldEe2K8ARFKSIBsv+Hr3iNQzq9qh1H\/dwdu2r+AIyY=",
       "dotnet.wasm": "sha256-XmG1o3XoL4Dv4DjPhf+gJzrOdCMk+8d4f30sHkRIlzA=",
       "icudt.dat": "sha256-m7NyeXyxM+CL04jr9ui1Z6pVfMWwhHusuz5qNZWpAwA=",
       "icudt_CJK.dat": "sha256-91bygK5voY9lG5wxP0\/uj7uH5xljF9u7iWnSldT1Z\/g=",
