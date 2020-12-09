@@ -33,13 +33,9 @@ The Blazor TodoApp sample project has been hosted [here](https://skclusive.githu
 
 ![Blazor TodoApp](images/todo-app.gif)
 
-## Layout Sample
-
-The Blazor Skclusive Material sample project has been hosted [here](https://skclusive.github.io/Skclusive.Blazor.Samples/Material/).
-
 ## Reactive Flow Sample
 
-The Blazor Skclusive Reactive Flow sample project has been hosted [here](https://skclusive.github.io/Skclusive.Blazor.Samples/StateTree/).
+The Blazor Skclusive Reactive Flow sample project has been hosted [here](https://skclusive.github.io/Skclusive.Blazor.Samples/Reactive/).
 
 
 ## License
